@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animas AI Flyer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0a0a0a',
+                        primary: '#135bec',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    spacing: {
+                        'page-w': '5.5in',
+                        'page-h': '8.5in',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Page Setup */
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .flyer-container {
+            width: 5.5in;
+            height: 8.5in;
+            background-color: #0a0a0a;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3.5rem 2.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            /* Shadow for screen view only */
+        }
+
+        /* Image Styling */
+        .mountain-graphic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background-image: url('SanJuan.jpg');
+            background-size: cover;
+            background-position: center top;
+            /* Improved Line-Art Simulation */
+            filter: grayscale(100%) contrast(150%) brightness(0.7) sepia(20%) hue-rotate(180deg);
+            opacity: 0.3;
+            mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+            z-index: 0;
+            mix-blend-mode: luminosity;
+        }
+
+        /* Typography & Layout */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            margin-top: 3rem;
+            /* Push content down slightly from the very top */
+        }
+
+        h1 {
+            font-size: 2rem;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 300;
+            color: #d4d4d8;
+            /* Zinc-300 fits well */
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .offer-box {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .offer-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .offer-desc {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #a1a1aa;
+            /* Zinc-400 */
+            line-height: 1.5;
+        }
+
+        .url-text {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-text {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: #71717a;
+            /* Zinc-500 - more visible in print */
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* Print Specifics */
+        @media print {
+            @page {
+                size: 5.5in 8.5in;
+                margin: 0;
+            }
+
+            body {
+                background: none;
+                display: block;
+                height: auto;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .flyer-container {
+                box-shadow: none;
+                width: 5.5in;
+                height: 8.5in;
+                position: absolute;
+                top: 0;
+                left: 0;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* Ensure background colors print */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flyer-container">
+        <!-- Background Graphic -->
+        <div class="mountain-graphic"></div>
+
+        <div class="content-wrapper">
+            <!-- Hook -->
+            <h1>Stop Being The Bottleneck.<br>Reclaim Your Time.</h1>
+
+            <!-- Story -->
+            <p class="story-text">
+                I helped an owner running a $4M business save 15 hours every week by automating his most
+                repetitive
+                tasks. He stopped copy-pasting notes and started focusing on growth. I can do the same for you.
+            </p>
+
+            <!-- Offer -->
+            <div class="offer-box">
+                <span class="offer-title">The 60-Minute AI Opportunity Audit | $50</span>
+                <p class="offer-desc">I’ll find your biggest bottlenecks, show you a custom demo, and hand you a
+                    professional AI roadmap to keep.</p>
+            </div>
+
+            <!-- URL -->
+            <div class="url-text">AnimasAI.co</div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p class="footer-text">Locally Engineered in Durango, CO.<br>Serving Southwest Colorado's best firms.</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
