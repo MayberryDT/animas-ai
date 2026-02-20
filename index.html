@@ -93,26 +93,25 @@
         /* Animation states for reveal */
         .reveal-hidden {
             opacity: 0;
-            transform: translateY(20px);
-            filter: blur(5px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .animate-reveal {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-            filter: blur(0) !important;
+            transform: translateY(40px);
         }
         
         @keyframes fade-lift {
             0% {
                 opacity: 0;
-                transform: translateY(30px) scale(0.95);
+                transform: translateY(40px) scale(0.97);
+            }
+            60% {
+                opacity: 1;
             }
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
+        }
+
+        .animate-reveal {
+            animation: fade-lift 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         #hero-canvas {
@@ -124,10 +123,6 @@
             z-index: -1;
             pointer-events: none;
             background: #020617;
-        }
-        
-        .animate-reveal {
-            animation: fade-lift 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
 </head>
@@ -148,7 +143,7 @@
             </div>
             <a class="px-6 py-2.5 text-sm font-semibold bg-primary hover:bg-primary-dark rounded-full transition-all text-white shadow-lg shadow-primary/20"
                 href="https://calendar.app.google/YSyaZDwZx7AZUMRN9">
-                Book Audit
+                Claim 24/7 Safety Net
             </a>
         </div>
     </nav>
@@ -166,28 +161,28 @@
                 <div
                     class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-primary mb-10 backdrop-blur-sm tracking-wide uppercase">
                     <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-                    Built for Southwest Colorado Businesses
+                    Serving Durango, Mancos, & Bayfield
                 </div>
-                <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-4 leading-[0.9] shimmer-h1">
-                    Your Business,<br />Automated.
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-4 leading-[1.1] shimmer-h1">
+                    Stop Waking Up At <br />3 AM For Frozen Pipes.
                 </h1>
                 <p class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-10 tracking-tight"
                     style="text-shadow: 0 0 50px rgba(19, 91, 236, 0.5), 0 0 20px rgba(19, 91, 236, 0.3), 0 2px 4px rgba(0, 0, 0, 0.9); -webkit-text-stroke: 0.5px rgba(19, 91, 236, 0.6);">
-                    By someone who actually shows up.
+                    For Durango Property Managers
                 </p>
                 <p class="text-xl md:text-2xl text-white max-w-3xl mb-12 font-medium leading-relaxed"
                     style="text-shadow: 0 2px 8px rgba(0,0,0,0.7);">
-                    I build custom automations and AI systems that save you hours every week, cut costs, and keep your
-                    workflows running smooth. Hands-on, in person, right here in Durango.
+                    Animas AI answers every call, sorts emergencies, and creates a legal paper trail that keeps you
+                    compliant with HB 24-1098. Total protection for Durango portfolios.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center gap-6">
                     <a class="group relative px-10 py-5 bg-white text-black font-bold rounded-full hover:bg-slate-200 transition-all primary-glow overflow-hidden w-full sm:w-auto text-center"
                         href="https://calendar.app.google/YSyaZDwZx7AZUMRN9">
-                        <span class="relative z-10">Find My Automation Gaps</span>
+                        <span class="relative z-10">Claim My 24/7 Safety Net</span>
                     </a>
                     <a class="px-10 py-5 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-full transition-all w-full sm:w-auto text-center"
                         href="#services">
-                        See My Solutions
+                        See How It Works
                     </a>
                 </div>
                 <div class="mt-24 max-w-2xl">
@@ -199,19 +194,18 @@
                                 <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
                                 <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
                             </div>
-                            <span
-                                class="text-[10px] text-slate-500 font-mono ml-3 uppercase tracking-[0.2em]">Efficiency
-                                Terminal</span>
+                            <span class="text-[10px] text-slate-500 font-mono ml-3 uppercase tracking-[0.2em]">Activity
+                                Log</span>
                         </div>
                         <div class="p-8 font-mono text-sm leading-relaxed">
                             <div class="flex gap-3 mb-4">
                                 <span class="text-primary font-bold">❯</span>
-                                <span class="text-slate-200">"I spend 2 hours a day on scheduling"</span>
+                                <span class="text-slate-200">"Tenant called about a leak at 2 AM"</span>
                             </div>
                             <div class="flex gap-3">
-                                <span class="text-green-400 font-bold">TYLER:</span>
-                                <span class="text-slate-300">I can automate 90% of that with smart workflows
-                                    tailored to your rules.</span>
+                                <span class="text-green-400 font-bold">AI AGENT:</span>
+                                <span class="text-slate-300">Ticket created. Vendor notified. Tenant updated. You slept
+                                    through it.</span>
                             </div>
                         </div>
                     </div>
@@ -223,54 +217,41 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24">
                 <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight text-white">
-                    The Success Bottleneck</h2>
+                    "Unresponsive" is Expensive</h2>
                 <p class="text-xl md:text-2xl max-w-4xl mx-auto text-white font-medium leading-relaxed"
                     style="text-shadow: 0 2px 8px rgba(0,0,0,0.7);">
-                    You're losing 20+ hours a week to "robot work" that prevents real scale. <br
-                        class="hidden md:block" />Here is how I fix it.</p>
+                    Stop the Complaints: Bad reviews about being slow will hurt your business.</p>
             </div>
             <div class="grid lg:grid-cols-2 gap-16 items-stretch" data-reveal-stagger>
                 <div class="glass-panel p-10 rounded-3xl relative overflow-hidden flex flex-col reveal-hidden">
                     <div class="absolute top-0 right-0 p-6">
                         <span
-                            class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] font-bold uppercase tracking-widest border border-red-500/20 rounded">Manual
-                            Workflow</span>
+                            class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] font-bold uppercase tracking-widest border border-red-500/20 rounded">Risk
+                            Factor</span>
                     </div>
-                    <div class="flex-1 flex items-center justify-center py-12">
-                        <svg class="w-full h-48 opacity-50 overflow-visible" viewBox="0 0 400 200">
-                            <path d="M20 100 C 60 20, 100 180, 150 100 S 250 20, 300 180 S 350 60, 380 120" fill="none"
-                                stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"></path>
-                            <path d="M20 110 C 70 40, 120 190, 170 110 S 270 40, 320 190 S 370 70, 400 130" fill="none"
-                                stroke="#ef4444" stroke-dasharray="6 4" stroke-width="1" stroke-linecap="round"></path>
-                            <circle cx="106" cy="168" fill="#ef4444" r="5"></circle>
-                            <circle cx="306" cy="168" fill="#ef4444" r="5"></circle>
-                        </svg>
+                    <div class="absolute -bottom-10 -right-10 opacity-10">
+                        <span class="material-symbols-outlined text-[200px] text-red-500">gavel</span>
                     </div>
-                    <div class="mt-8">
-                        <h4 class="text-2xl font-bold text-slate-100 mb-3">Cluttered &amp; Fragmented</h4>
-                        <p class="text-slate-300 leading-relaxed">Manual data entry, chasing leads, and cross-checking
-                            calendars leads to burnout and missed revenue.</p>
+                    <div class="relative z-10 mt-auto">
+                        <h4 class="text-2xl font-bold text-slate-100 mb-3">Stay Legal</h4>
+                        <p class="text-slate-300 leading-relaxed">Colorado’s new housing laws (HB 24-1098) mean you have
+                            to keep records of everything.</p>
                     </div>
                 </div>
                 <div
                     class="glass-panel p-10 rounded-3xl relative overflow-hidden border-primary/30 bg-primary/5 flex flex-col reveal-hidden">
                     <div class="absolute top-0 right-0 p-6">
                         <span
-                            class="px-3 py-1 bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest border border-primary/30 rounded">Animas
-                            Workflow</span>
+                            class="px-3 py-1 bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest border border-primary/30 rounded">Staff
+                            Wellbeing</span>
                     </div>
-                    <div class="flex-1 flex items-center justify-center py-12">
-                        <svg class="w-full h-48" viewBox="0 0 400 200">
-                            <path class="drop-shadow-[0_0_12px_rgba(19,91,236,0.6)]"
-                                d="M20 100 C 120 100, 280 100, 380 100" fill="none" stroke="#135bec" stroke-width="6">
-                            </path>
-                            <circle cx="380" cy="100" fill="#135bec" r="8"></circle>
-                        </svg>
+                    <div class="absolute -bottom-10 -right-10 opacity-10">
+                        <span class="material-symbols-outlined text-[200px] text-primary">battery_charging_min_30</span>
                     </div>
-                    <div class="mt-8">
-                        <h4 class="text-2xl font-bold text-slate-100 mb-3">Streamlined &amp; Autonomous</h4>
-                        <p class="text-slate-300 leading-relaxed">Reclaim 20 hours a week with linear, automated
-                            pathways that run while you sleep. Maximum output, minimum noise.</p>
+                    <div class="relative z-10 mt-auto">
+                        <h4 class="text-2xl font-bold text-slate-100 mb-3">Save Your Energy</h4>
+                        <p class="text-slate-300 leading-relaxed">Your staff shouldn't have to deal with simple repairs
+                            on a Sunday morning. Give great service without the overtime.</p>
                     </div>
                 </div>
             </div>
@@ -280,68 +261,82 @@
         <div class="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="mb-20 text-center md:text-left">
-                <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">Solutions That Save Time and
-                    Money
+                <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">The 24/7 Maintenance System
                 </h2>
-                <p class="text-xl text-slate-300 max-w-2xl leading-relaxed">I embed directly into your business as your
-                    fractional CTO. Custom software, hands-on training, and automations that pay for themselves.</p>
+                <p class="text-xl text-slate-300 max-w-2xl leading-relaxed">
+                    A full system built to handle every repair call and keep your tenants happy.
+                </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6" data-reveal-stagger id="bento-grid">
+                <!-- Card 1: 24/7 Voice Capture -->
                 <div
                     class="glass-panel bento-card p-10 rounded-3xl md:col-span-2 md:row-span-2 flex flex-col justify-between group overflow-hidden relative min-h-[500px] reveal-hidden">
                     <div
                         class="absolute -top-10 -right-10 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
                         <span class="material-symbols-outlined text-[200px] text-primary"
-                            style="font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;">data_usage</span>
+                            style="font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;">record_voice_over</span>
                     </div>
                     <div class="relative z-10">
                         <div
                             class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 text-primary border border-primary/30">
-                            <span class="material-symbols-outlined text-3xl">storage</span>
+                            <span class="material-symbols-outlined text-3xl">phone_in_talk</span>
                         </div>
-                        <h3 class="text-3xl font-bold text-white mb-6">Custom Software Built Only for You</h3>
+                        <h3 class="text-3xl font-bold text-white mb-6">We Answer Phones 24/7</h3>
                         <p class="text-slate-300 text-lg leading-relaxed max-w-md">
-                            I build proprietary tools and internal knowledge systems tailored exclusively to your
-                            business. Your competitors won't have access to them. That's your edge.
+                            Answer every after-hours call in your brand’s voice. No voicemails, no "lost" messages.
+                            We ensure great customer service even when your office is closed.
                         </p>
                     </div>
                     <div
                         class="relative mt-8 h-48 bg-black/40 rounded-2xl border border-white/5 overflow-hidden reveal-hidden">
-                        <img alt=""
-                            class="absolute inset-0 w-full h-full object-cover opacity-80 rounded-xl transition-all duration-700 hover:scale-110"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiktB8B901ZzKNXCzRigNtCM12dZ3X0IgU0RN02tTRNYzofUh-_qoPs5XvGoIZewGh2zRcR7ab8EB71FJZgql4cSZLUASzutIUX5OVES9IGTeTGaXdQe9mGyn_4Fu_B8Afo5zv3UFNchc-Lx766A3QjSTyZdIsV0ZQrb_mqgNhzywftfDCne4PrrEXPT6JZ1CgU1_2YlrDA9ic9rkkAWZVf4WZBNzojUzr16bFNgMoJHmbUQ7UM2bt3vodpCy60wiuwodvHFGxneQ" />
+                        <!-- Placeholder for dashboard/voice visual, using existing image style or CSS graphic -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="flex gap-2">
+                                <span class="h-8 w-1 bg-primary animate-pulse"></span>
+                                <span class="h-12 w-1 bg-primary animate-pulse" style="animation-delay: 0.1s"></span>
+                                <span class="h-6 w-1 bg-primary animate-pulse" style="animation-delay: 0.2s"></span>
+                                <span class="h-10 w-1 bg-primary animate-pulse" style="animation-delay: 0.3s"></span>
+                                <span class="h-4 w-1 bg-primary animate-pulse" style="animation-delay: 0.4s"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Card 2: Emergency Triage -->
                 <div class="glass-panel bento-card p-8 rounded-3xl flex flex-col group md:col-span-2 reveal-hidden">
                     <div class="flex items-start justify-between mb-6">
                         <div
                             class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-white border border-white/10 group-hover:bg-primary/20 transition-colors">
-                            <span class="material-symbols-outlined">leaderboard</span>
+                            <span class="material-symbols-outlined">notification_important</span>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Your Fractional CTO</h3>
-                    <p class="text-slate-300 leading-relaxed">Get a C-suite AI officer for a fraction of the cost. No
-                        salary, no overhead. Just a dedicated partner on retainer who keeps your tech ahead of the
-                        competition.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Emergency Checks</h3>
+                    <p class="text-slate-300 leading-relaxed">Our AI knows the difference between a "leaky faucet" and a
+                        "burst pipe" instantly. It only calls your tech when it is a real emergency.</p>
                 </div>
+
+                <!-- Card 3: CRM Integration -->
                 <div class="glass-panel bento-card p-8 rounded-3xl flex flex-col group md:col-span-1 reveal-hidden">
                     <div
                         class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-6 text-white border border-white/10 group-hover:bg-primary/20 transition-colors">
-                        <span class="material-symbols-outlined">auto_fix_high</span>
+                        <span class="material-symbols-outlined">sync</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Monthly Automations</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Every month, a new automation gets implemented. I
-                        dig into your operations, find what's eating your time, and eliminate it.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Connects to Your Software</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">Automatically puts info into AppFolio, Yardi, or
+                        Buildium. No manual typing for your office staff.</p>
                 </div>
+
+                <!-- Card 4: Legal Audit Trail -->
                 <div
                     class="glass-panel bento-card p-8 rounded-3xl flex flex-col group md:col-span-1 border-primary/20 bg-primary/5 reveal-hidden">
                     <div
                         class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-6 text-primary border border-primary/30">
-                        <span class="material-symbols-outlined">support_agent</span>
+                        <span class="material-symbols-outlined">gavel</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Staff Training & Support</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">I train your team to use every tool I build. Plus
-                        ongoing maintenance, updates, and support are all included.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Legal Proof</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">Get a permanent record of every tenant talk—your
+                        best protection against arguments. Because under HB 24-1098, "I didn't get the voicemail" is no
+                        longer a legal defense.</p>
                 </div>
             </div>
         </div>
@@ -376,10 +371,9 @@
                                 automation can transform a company overnight</span>, saving hours of manual work every
                             single week
                             and freeing owners to focus on what they actually love doing.</p>
-                        <p>Now, <span class="text-white font-semibold">I've turned my full attention to Durango and the
-                                Southwest Colorado community.</span> I fell in
-                            love with this place, and I want to help the businesses here thrive by bringing them the
-                            same cutting-edge AI and automation solutions I've built for companies nationwide.</p>
+                        <p>I build proprietary systems that your competitors can't buy. Most AI consultants sell
+                            "chatbots." I build fractional CTO-level infrastructure that integrates directly into
+                            AppFolio and Yardi, ensuring you never miss a legal deadline or a burst pipe again.</p>
                         <p>When you work with me, you're not talking to a sales rep or getting handed off to a junior
                             dev. <span class="text-white font-semibold">I'm the one who shows up to your office</span>,
                             learns
@@ -405,46 +399,105 @@
     </section>
     <section class="py-32 bg-background-dark border-y border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold text-white mb-4 tracking-tight">Durango Verticals</h2>
-                <p class="text-slate-300 text-lg">Customized AI solutions for the industries that power Durango.</p>
+            <div class="text-center mb-20 px-4">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">How We Fix Your Phones</h2>
+                <p class="text-slate-300 text-xl max-w-2xl mx-auto leading-relaxed">Three simple steps to stop the
+                    complaints and protect your business.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal-stagger>
+            <div class="grid md:grid-cols-3 gap-8" data-reveal-stagger>
                 <div
-                    class="glass-panel p-8 rounded-2xl hover:bg-white/[0.04] transition-all hover:-translate-y-1 reveal-hidden">
-                    <div class="text-primary mb-6">
-                        <span class="material-symbols-outlined text-5xl">hotel</span>
+                    class="glass-panel p-10 rounded-3xl hover:bg-white/[0.04] transition-all hover:-translate-y-2 reveal-hidden border-white/5">
+                    <div class="text-primary mb-8 bg-primary/10 w-20 h-20 rounded-2xl flex items-center justify-center">
+                        <span class="material-symbols-outlined text-5xl">search_insights</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Hospitality &amp; Tourism</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Automated guest experience agents that handle
-                        bookings, concierge services, and FAQ 24/7.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Stage 1: Vulnerability Mapping</h3>
+                    <p class="text-slate-300 leading-relaxed text-lg">We don't just "listen"—we audit your after-hours
+                        flow to find exactly where you are legally and financially exposed.</p>
                 </div>
                 <div
-                    class="glass-panel p-8 rounded-2xl hover:bg-white/[0.04] transition-all hover:-translate-y-1 reveal-hidden">
-                    <div class="text-primary mb-6">
-                        <span class="material-symbols-outlined text-5xl">shopping_bag</span>
+                    class="glass-panel p-10 rounded-3xl hover:bg-white/[0.04] transition-all hover:-translate-y-2 reveal-hidden border-primary/30 bg-primary/5">
+                    <div class="text-primary mb-8 bg-primary/20 w-20 h-20 rounded-2xl flex items-center justify-center">
+                        <span class="material-symbols-outlined text-5xl">smart_toy</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Retail &amp; Local Commerce</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">24/7 sales agents that handle inquiries, check
-                        inventory, and drive foot traffic on autopilot.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Stage 2: Defensive Deployment</h3>
+                    <p class="text-slate-300 leading-relaxed text-lg">We build a proprietary voice agent tailored to
+                        your brand that soundly handles emergencies 24/7, adhering to all Colorado housing mandates.</p>
                 </div>
                 <div
-                    class="glass-panel p-8 rounded-2xl hover:bg-white/[0.04] transition-all hover:-translate-y-1 reveal-hidden">
-                    <div class="text-primary mb-6">
-                        <span class="material-symbols-outlined text-5xl">account_balance</span>
+                    class="glass-panel p-10 rounded-3xl hover:bg-white/[0.04] transition-all hover:-translate-y-2 reveal-hidden border-white/5">
+                    <div class="text-primary mb-8 bg-primary/10 w-20 h-20 rounded-2xl flex items-center justify-center">
+                        <span class="material-symbols-outlined text-5xl">alt_route</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Professional Services</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Secure internal knowledge bases for law and
-                        finance firms to query decades of files privately.</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Stage 3: Seamless Integration</h3>
+                    <p class="text-slate-300 leading-relaxed text-lg">We hardwire the system into AppFolio or Yardi. It
+                        writes the work orders and creates the audit trail while you sleep.</p>
                 </div>
-                <div
-                    class="glass-panel p-8 rounded-2xl hover:bg-white/[0.04] transition-all hover:-translate-y-1 reveal-hidden">
-                    <div class="text-primary mb-6">
-                        <span class="material-symbols-outlined text-5xl">real_estate_agent</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- The $12,000 Voicemail Section -->
+    <section class="py-32 bg-background-light dark:bg-background-dark border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">The $12,000 Voicemail</h2>
+                <p class="text-slate-300 text-xl max-w-2xl mx-auto leading-relaxed">In Durango, a missed call in
+                    January isn't just a nuisance. It's a financial catastrophe.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10" data-reveal-stagger>
+                <!-- Without Animas AI -->
+                <div class="glass-panel p-10 rounded-3xl border-l-4 border-red-500 bg-red-500/5 reveal-hidden">
+                    <h3 class="text-2xl font-bold text-red-500 mb-6">Without Animas AI</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-slate-300">
+                            <span class="material-symbols-outlined text-red-500 shrink-0">close</span>
+                            <span>Missed Saturday Pipe Burst</span>
+                        </li>
+                        <li class="flex items-start gap-4 text-slate-300">
+                            <span class="material-symbols-outlined text-red-500 shrink-0">close</span>
+                            <span>12 Hours of Uncontrolled Flooding</span>
+                        </li>
+                        <li class="flex items-start gap-4 text-slate-300">
+                            <span class="material-symbols-outlined text-red-500 shrink-0">close</span>
+                            <span>Remediation & Mold Growth</span>
+                        </li>
+                        <li class="flex items-start gap-4 text-slate-300">
+                            <span class="material-symbols-outlined text-red-500 shrink-0">close</span>
+                            <span>Tenant Lawsuit (HB 24-1098)</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8 pt-6 border-t border-red-500/20 text-right">
+                        <p class="text-sm text-red-400 uppercase tracking-widest font-bold">Estimated Cost</p>
+                        <p class="text-4xl font-bold text-white">$12,000+</p>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Real Estate &amp; Property</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Automated lead nurturing and tenant communication
-                        agents that respond instantly, 24/7.</p>
+                </div>
+
+                <!-- With Animas AI -->
+                <div class="glass-panel p-10 rounded-3xl border-l-4 border-primary bg-primary/5 reveal-hidden">
+                    <h3 class="text-2xl font-bold text-primary mb-6">With Animas AI</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-slate-300">
+                            <span class="material-symbols-outlined text-primary shrink-0">check</span>
+                            <span>Call Answered in 3 Seconds</span>
+                        </li>
+                        <li class="flex items-start gap-4 text-slate-300">
+                            <span class="material-symbols-outlined text-primary shrink-0">check</span>
+                            <span>Emergency Triage Activated</span>
+                        </li>
+                        <li class="flex items-start gap-4 text-slate-300">
+                            <span class="material-symbols-outlined text-primary shrink-0">check</span>
+                            <span>Vendor Dispatched in 4 Minutes</span>
+                        </li>
+                        <li class="flex items-start gap-4 text-slate-300">
+                            <span class="material-symbols-outlined text-primary shrink-0">check</span>
+                            <span>Shut-off Valve Closed Instantly</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8 pt-6 border-t border-primary/20 text-right">
+                        <p class="text-sm text-primary uppercase tracking-widest font-bold">Estimated Cost</p>
+                        <p class="text-4xl font-bold text-white">$350 <span
+                                class="text-lg text-slate-500 font-normal">(Service Call)</span></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -457,53 +510,93 @@
                         class="inline-block px-4 py-1 mb-8 text-xs tracking-widest font-bold text-primary uppercase border border-primary/30 rounded-full bg-primary/10">
                         Proven Results
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">How a Luxury Resort Group
-                        Reclaimed Their Time.</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">Real Results for Local
+                        Portfolios.</h2>
                     <p class="text-xl text-slate-300 mb-10 leading-relaxed">
-                        By implementing a <span class="text-white font-semibold">"Custom Business Brain,"</span> this
-                        high-volume hospitality group reduced guest inquiry response times by <span
-                            class="text-primary font-bold">60%</span> and saved their management team 25 hours of manual
-                        coordination every week.
+                        By using <span class="text-white font-semibold">The 24/7 Maintenance System</span>, property
+                        managers in Durango are seeing faster results and happier tenants.
                     </p>
                     <div class="grid grid-cols-2 gap-8 mb-12">
                         <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                            <div class="text-3xl font-bold text-white mb-1">60%</div>
-                            <div class="text-sm text-slate-500 uppercase tracking-wider">Faster Response</div>
+                            <div class="text-3xl font-bold text-white mb-1">100%</div>
+                            <div class="text-sm text-slate-500 uppercase tracking-wider">Call Capture</div>
+                            <p class="text-xs text-slate-400 mt-2">Of after-hours maintenance requests answered
+                                instantly.</p>
                         </div>
                         <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                            <div class="text-3xl font-bold text-white mb-1">25hrs</div>
-                            <div class="text-sm text-slate-500 uppercase tracking-wider">Saved Weekly</div>
+                            <div class="text-3xl font-bold text-white mb-1">30%</div>
+                            <div class="text-sm text-slate-500 uppercase tracking-wider">Lower Turnover</div>
+                            <p class="text-xs text-slate-400 mt-2">Related to communication gaps and response times.</p>
                         </div>
                     </div>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 mb-12">
+                        <div class="text-xl font-bold text-white mb-1 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-green-500">verified_user</span>
+                            24/7 Compliance
+                        </div>
+                        <div class="text-sm text-slate-500 uppercase tracking-wider">HB 24-1098 Ready</div>
+                        <p class="text-xs text-slate-400 mt-2">Full records of every talk for housing laws.</p>
+                    </div>
+
                     <a class="inline-flex items-center gap-2 text-white font-bold group" href="#pricing">
-                        Get results like these
+                        Protect your portfolio
                         <span
                             class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
                 </div>
                 <div class="relative reveal-hidden">
                     <div class="absolute -inset-10 bg-primary/20 blur-[100px] rounded-full"></div>
-                    <div class="glass-panel p-8 rounded-3xl relative border-primary/20">
-                        <div class="flex items-center gap-4 mb-8">
-                            <div
-                                class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center text-white font-bold">
-                                H</div>
-                            <div>
-                                <div class="text-white font-bold">Luxury Resort Group</div>
-                                <div class="text-xs text-slate-500 uppercase">Remote Client</div>
+                    <div class="relative group">
+                        <!-- Before (Red/Chaos) -->
+                        <div
+                            class="glass-panel p-6 rounded-3xl relative border-red-500/20 bg-red-500/5 mb-4 group-hover:opacity-50 transition-opacity">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-xs text-red-500 uppercase tracking-widest font-bold">Standard Voicemail
+                                </div>
+                                <span class="material-symbols-outlined text-red-500 text-sm">warning</span>
+                            </div>
+                            <div class="space-y-3 font-mono text-xs">
+                                <div class="flex justify-between text-red-300">
+                                    <span>Sat 11:42 PM</span>
+                                    <span>Missed Call (3)</span>
+                                </div>
+                                <div class="flex justify-between text-red-300 opacity-60">
+                                    <span>Sun 8:15 AM</span>
+                                    <span>Voicemail: "Water is everywhere..."</span>
+                                </div>
+                                <div class="w-full bg-red-500/20 h-1 rounded-full overflow-hidden">
+                                    <div class="bg-red-500 w-[10%] h-full"></div>
+                                </div>
+                                <div class="text-right text-[10px] text-red-400 uppercase">Response Time: 34 Hours</div>
                             </div>
                         </div>
-                        <blockquote class="text-lg text-slate-300 italic leading-relaxed mb-6">
-                            "Tyler didn't just give us a tool; he gave my team their sanity back. The 'Brain' he built
-                            handles 90% of our routine guest questions before we even see them."
-                        </blockquote>
-                        <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                            <div class="h-full bg-primary w-[85%]"></div>
-                        </div>
+
+                        <!-- After (Blue/Order) -->
                         <div
-                            class="flex justify-between mt-2 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
-                            <span>Efficiency Gained</span>
-                            <span>85%</span>
+                            class="glass-panel p-6 rounded-3xl relative border-primary/40 bg-background-dark shadow-2xl scale-105 transform translate-y-[-10px] z-10">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-xs text-primary uppercase tracking-widest font-bold">AI Maintenance Log
+                                </div>
+                                <span class="material-symbols-outlined text-primary text-sm">verified</span>
+                            </div>
+                            <div class="space-y-3 font-mono text-xs">
+                                <div class="flex justify-between text-white">
+                                    <span>Sat 11:42 PM</span>
+                                    <span class="text-primary">Call Answered</span>
+                                </div>
+                                <div class="bg-white/5 p-3 rounded text-slate-300 border-l-2 border-primary">
+                                    "Burst pipe detected. Emergency Protocol Activated. Plumber dispatched."
+                                </div>
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Sat 11:45 PM</span>
+                                    <span>Ticket #2948 Created</span>
+                                </div>
+                                <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+                                    <div class="bg-primary w-full h-full"></div>
+                                </div>
+                                <div class="text-right text-[10px] text-primary uppercase">Response Time: 30 Seconds
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -522,184 +615,162 @@
     <section class="py-32 bg-background-dark">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold text-white mb-4">Real Results, Real Businesses</h2>
-                <p class="text-slate-300">Case studies from companies already saving time and money with my automations.
-                </p>
+                <h2 class="text-4xl font-bold text-white mb-4">What happens when you miss a call?</h2>
+                <p class="text-slate-300">The difference between a 1-star review and a renewal.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8" data-reveal-stagger>
-                <div class="glass-panel p-8 rounded-2xl reveal-hidden border-l-4 border-l-primary">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="material-symbols-outlined text-primary text-3xl">shopping_bag</span>
+                <!-- The Old Way -->
+                <div class="glass-panel p-10 rounded-3xl reveal-hidden border-l-4 border-red-500/50 bg-red-500/5">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="material-symbols-outlined text-red-500 text-4xl">call_missed</span>
                         <div>
-                            <div class="text-white font-bold">E-Commerce Brand</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Remote Client</div>
+                            <div class="text-white font-bold text-xl">The Old Way</div>
+                            <div class="text-xs text-red-500 uppercase tracking-wider">Manual Process</div>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">How an Online Retailer Cut Response Times by 70%</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">I deployed custom AI sales agents that handle
-                        customer inquiries, check inventory, and follow up on abandoned carts around the clock. The
-                        owner reclaimed over 20 hours a week previously spent on manual responses.</p>
-                    <div class="flex gap-6">
-                        <div><span class="text-2xl font-bold text-primary">70%</span>
-                            <div class="text-[10px] text-slate-500 uppercase tracking-wider">Faster Responses</div>
-                        </div>
-                        <div><span class="text-2xl font-bold text-primary">20hrs</span>
-                            <div class="text-[10px] text-slate-500 uppercase tracking-wider">Saved Weekly</div>
-                        </div>
-                    </div>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-red-500 mt-1">close</span>
+                            <div>
+                                <strong class="text-white block mb-1">Voicemail Black Hole</strong>
+                                <p class="text-slate-400 text-sm">Tenant leaves an angry message. You don't hear it
+                                    until Monday morning.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-red-500 mt-1">close</span>
+                            <div>
+                                <strong class="text-white block mb-1">Expensive Damage</strong>
+                                <p class="text-slate-400 text-sm">A small leak becomes a flooded apartment because no
+                                    one picked up.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-red-500 mt-1">close</span>
+                            <div>
+                                <strong class="text-white block mb-1">Legal Risk</strong>
+                                <p class="text-slate-400 text-sm">No record of the call means no proof you tried to
+                                    help.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="glass-panel p-8 rounded-2xl reveal-hidden border-l-4 border-l-primary">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="material-symbols-outlined text-primary text-3xl">real_estate_agent</span>
+
+                <!-- The 24/7 System -->
+                <div class="glass-panel p-10 rounded-3xl reveal-hidden border-l-4 border-primary bg-primary/5">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
                         <div>
-                            <div class="text-white font-bold">Property Management Co.</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Remote Client</div>
+                            <div class="text-white font-bold text-xl">The 24/7 System</div>
+                            <div class="text-xs text-primary uppercase tracking-wider">Automated Safety Net</div>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">How a Property Manager Automated 15hrs/Week of
-                        Scheduling</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">Tenant communications, maintenance requests,
-                        and showing schedules were all running manually. I built a custom automation suite that handles
-                        the entire pipeline, from request to resolution, without lifting a finger.</p>
-                    <div class="flex gap-6">
-                        <div><span class="text-2xl font-bold text-primary">15hrs</span>
-                            <div class="text-[10px] text-slate-500 uppercase tracking-wider">Saved Weekly</div>
-                        </div>
-                        <div><span class="text-2xl font-bold text-primary">3x</span>
-                            <div class="text-[10px] text-slate-500 uppercase tracking-wider">Faster Resolution</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-panel p-8 rounded-2xl reveal-hidden border-l-4 border-l-primary">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="material-symbols-outlined text-primary text-3xl">hotel</span>
-                        <div>
-                            <div class="text-white font-bold">Boutique Hotel &amp; Spa</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Remote Client</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">How a Boutique Hotel Saved 20hrs/Week on Staff
-                        Coordination</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">Staff shift swaps, spa booking discrepancies,
-                        and guest requests were clogging up management's day. I built a centralized coordination hub
-                        that automates shift notifications and syncs booking data in real-time.</p>
-                    <div class="flex gap-6">
-                        <div><span class="text-2xl font-bold text-primary">20hrs</span>
-                            <div class="text-[10px] text-slate-500 uppercase tracking-wider">Saved Weekly</div>
-                        </div>
-                        <div><span class="text-2xl font-bold text-primary">4x</span>
-                            <div class="text-[10px] text-slate-500 uppercase tracking-wider">Faster Coordination</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-panel p-8 rounded-2xl reveal-hidden border-l-4 border-l-primary">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="material-symbols-outlined text-primary text-3xl">account_balance</span>
-                        <div>
-                            <div class="text-white font-bold">Professional Services Firm</div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Remote Client</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">How a Law Office Built a Private Knowledge Base in 2
-                        Weeks</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">Decades of case files, memos, and legal
-                        research were scattered across drives and filing cabinets. I built a secure, private AI "Brain"
-                        their attorneys can query instantly. Research that took hours now takes seconds.</p>
-                    <div class="flex gap-6">
-                        <div><span class="text-2xl font-bold text-primary">2wks</span>
-                            <div class="text-[10px] text-slate-500 uppercase tracking-wider">Deployed</div>
-                        </div>
-                        <div><span class="text-2xl font-bold text-primary">90%</span>
-                            <div class="text-[10px] text-slate-500 uppercase tracking-wider">Faster Research</div>
-                        </div>
-                    </div>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-primary mt-1">check</span>
+                            <div>
+                                <strong class="text-white block mb-1">Calculated Response</strong>
+                                <p class="text-slate-400 text-sm">We handle high priority calls instantly and log the
+                                    rest for morning review.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-primary mt-1">check</span>
+                            <div>
+                                <strong class="text-white block mb-1">Vendor Dispatch</strong>
+                                <p class="text-slate-400 text-sm">The system texts your on-call plumber immediately for
+                                    emergencies.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-primary mt-1">check</span>
+                            <div>
+                                <strong class="text-white block mb-1">Total Protection</strong>
+                                <p class="text-slate-400 text-sm">Every word is recorded and written down. You have
+                                    proof for every interaction.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
     <section class="py-32 bg-background-dark relative" id="pricing">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-24 tracking-tight">Investment Models
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-8 tracking-tight">Stop missing calls.
+                Start protecting assets.
             </h2>
+            <p class="text-xl text-slate-300 text-center max-w-3xl mx-auto mb-20 leading-relaxed">
+                We’ll identify exactly where your communication is breaking down and how to fix it in 7 days.
+            </p>
             <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto" data-reveal-stagger>
                 <div
-                    class="glass-panel rounded-3xl p-10 flex flex-col hover:border-primary/40 transition-all reveal-hidden">
+                    class="glass-panel rounded-3xl p-10 flex flex-col hover:border-primary/40 transition-all reveal-hidden relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-6 opacity-20">
+                        <span class="material-symbols-outlined text-8xl text-white">manage_search</span>
+                    </div>
                     <div class="mb-6">
                         <span
                             class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-slate-300 uppercase tracking-widest">Low
-                            Risk Start</span>
+                            Barrier</span>
                     </div>
-                    <h3 class="text-3xl font-bold text-white mb-4">The $50 Opportunity Audit</h3>
+                    <h3 class="text-3xl font-bold text-white mb-4">Portfolio Leakage Assessment</h3>
                     <div class="flex items-baseline gap-2 mb-8">
-                        <span class="text-5xl font-bold text-white">$50</span>
-                        <span class="text-slate-500 text-lg">/ one-time</span>
+                        <span class="text-5xl font-bold text-white">Free</span>
+                        <span class="text-slate-500 text-lg">/ 7-day turnaround</span>
                     </div>
                     <p class="text-slate-300 text-lg mb-6 flex-1 leading-relaxed">
-                        I come to your business in person for a full hour. I learn your workflows, identify automation
-                        opportunities, and show you a live, hands-on demo of exactly how we can save you time and money.
+                        We’ll find exactly where your staff is losing 10+ hours a week and where your biggest legal
+                        liabilities are hiding. If we can't find a way to save you $1,000/month in overhead, we'll tell
+                        you.
                     </p>
                     <ul class="text-slate-300 text-sm space-y-3 mb-10">
                         <li class="flex items-start gap-2"><span
                                 class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
-                            In-person,
-                            one-on-one deep dive</li>
-                        <li class="flex items-start gap-2"><span
-                                class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Live
-                            automation
-                            demo tailored to your business</li>
+                            Identify communication leaks</li>
                         <li class="flex items-start gap-2"><span
                                 class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
-                            Custom AI
-                            Roadmap you keep no matter what</li>
+                            Review housing rules</li>
+                        <li class="flex items-start gap-2"><span
+                                class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+                            No-obligation roadmap</li>
                     </ul>
                     <a href="https://calendar.app.google/YSyaZDwZx7AZUMRN9"
                         class="w-full py-5 bg-white hover:bg-slate-200 text-black font-bold rounded-xl transition-all shadow-xl block text-center">
-                        Book Your Audit
+                        Claim My 24/7 Safety Net
                     </a>
                 </div>
                 <div
                     class="relative bg-gradient-to-b from-primary/20 to-black rounded-3xl p-10 border border-primary/30 flex flex-col shadow-2xl shadow-primary/10 reveal-hidden">
-                    <div
-                        class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-1.5 bg-primary text-white text-xs font-black rounded-full tracking-widest uppercase shadow-lg">
-                        Full Partnership
-                    </div>
                     <div class="mb-6">
                         <span
-                            class="px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-xs font-bold text-primary uppercase tracking-widest">Scalable
-                            Success</span>
+                            class="px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-xs font-bold text-primary uppercase tracking-widest">Full
+                            System</span>
                     </div>
-                    <h3 class="text-3xl font-bold text-white mb-1">Ongoing Retainer</h3>
+                    <h3 class="text-3xl font-bold text-white mb-1">Standard Maintenance System</h3>
                     <div class="flex items-baseline gap-2 mb-2">
-                        <span class="text-2xl font-bold text-white tracking-tight">Tailored Pricing</span>
+                        <span class="text-2xl font-bold text-white tracking-tight">Tailored to Portfolio Size</span>
                     </div>
-                    <p class="text-slate-500 text-[10px] mb-6 font-medium italic uppercase tracking-wider">Scaled to
-                        your specific budget and goals.</p>
+                    <p class="text-slate-500 text-[10px] mb-6 font-medium italic uppercase tracking-wider">For
+                        portfolios with 25+ units</p>
 
                     <p class="text-slate-300 text-lg mb-6 flex-1 leading-relaxed">
-                        Your outsourced, fractional CTO on retainer. I embed into your operations, build custom
-                        software, train your staff, and implement a new automation every single month.
+                        The full implementation of The 24/7 Maintenance System. We answer the phone 24/7, sort
+                        emergencies, and write work orders into your existing software.
                     </p>
                     <ul class="text-slate-300 text-sm space-y-3 mb-10">
                         <li class="flex items-start gap-2"><span
                                 class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
-                            Monthly
-                            automation implementation</li>
+                            24/7 Emergency Checks</li>
                         <li class="flex items-start gap-2"><span
                                 class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
-                            Custom software
-                            built exclusively for you</li>
+                            Software Connection (AppFolio/Yardi)</li>
                         <li class="flex items-start gap-2"><span
                                 class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
-                            Staff training
-                            on every tool I build</li>
+                            Legal Records</li>
                         <li class="flex items-start gap-2"><span
                                 class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
-                            Maintenance,
-                            updates, and changes included</li>
-                        <li class="flex items-start gap-2"><span
-                                class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
-                            Single projects
-                            also available</li>
+                            Staff Training Included</li>
                     </ul>
                     <a href="https://calendar.app.google/YSyaZDwZx7AZUMRN9"
                         class="w-full py-5 bg-primary hover:bg-primary-dark text-white font-bold rounded-xl transition-all shadow-lg shadow-primary/20 block text-center">
@@ -723,15 +794,24 @@
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-5xl md:text-6xl font-bold text-white tracking-tight mb-10 leading-tight">Locally
-                        Engineered. <br /><span class="text-primary">Globally Aware.</span></h2>
+                    <h2 class="text-5xl md:text-6xl font-bold text-white tracking-tight mb-10 leading-tight">
+                        Built for Durango, <br /><span class="text-primary">by Durango.</span>
+                    </h2>
                     <div class="space-y-8 text-slate-300 text-xl leading-relaxed font-light">
-                        <p>When you hire Animas AI, you aren't getting a faceless agency or a chatbot response. You're
-                            getting me, Tyler, a dedicated AI partner based right here in Durango who meets with you in
-                            person, learns your business inside and out, and builds solutions hands-on.</p>
-                        <p>I sit down with your team, walk through your workflows, and show you exactly what automation
+                        <p>
+                            We don't do "general AI." We help local portfolios with 25+ units automate their hardest
+                            job: maintenance communication.
+                        </p>
+                        <p>
+                            We fix the problem between "I've heard AI can help" and a working system that saves you 10
+                            hours a week. Whether you are in <strong>Durango, Mancos, or Bayfield</strong>, we are your
+                            local partner.
+                        </p>
+                        <p>
+                            I sit down with your team, walk through your workflows, and show you exactly what automation
                             can do for you. Then I build it, train your staff on it, and maintain it. Coffee meetings,
-                            site visits, and real relationships are how I do business.</p>
+                            site visits, and real relationships are how I do business.
+                        </p>
                     </div>
                     <div class="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                         <div class="flex items-center gap-4">
@@ -741,7 +821,7 @@
                             </div>
                             <div>
                                 <p class="text-white font-bold">Headquartered in Durango</p>
-                                <p class="text-sm text-slate-500">Serving Southwest Colorado's best businesses.</p>
+                                <p class="text-sm text-slate-500">Serving Southwest Colorado.</p>
                             </div>
                         </div>
                         <a class="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-full transition-all flex items-center gap-2 whitespace-nowrap"
@@ -781,8 +861,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = {
-                threshold: 0.05,
-                rootMargin: '0px'
+                threshold: 0,
+                rootMargin: '0px 0px -150px 0px'
             };
 
             const revealItem = (item, delay = 0) => {
@@ -801,7 +881,7 @@
                         if (target.hasAttribute('data-reveal-stagger')) {
                             const children = target.querySelectorAll('.reveal-hidden');
                             children.forEach((child, index) => {
-                                revealItem(child, index * 100);
+                                revealItem(child, index * 150);
                             });
                         } else {
                             // Single element reveal (if not already handled by a staggered parent)
@@ -894,14 +974,6 @@
             });
 
             window.addEventListener('resize', resizeCanvas);
-
-            // Global safety reveal
-            setTimeout(() => {
-                document.querySelectorAll('.reveal-hidden').forEach(el => {
-                    el.classList.add('animate-reveal');
-                    el.classList.remove('reveal-hidden');
-                });
-            }, 6000);
 
             // Initial setup
             images[0].onload = () => {
