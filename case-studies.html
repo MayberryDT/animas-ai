@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700;800&amp;family=Inter:wght@300;400;600&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#303033",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-background": "#e5e1e6",
+              "inverse-primary": "#494bd6",
+              "tertiary": "#00daf3",
+              "surface-dim": "#131316",
+              "surface-container-highest": "#353438",
+              "surface-container-high": "#2a2a2d",
+              "surface-container-lowest": "#0e0e11",
+              "on-secondary-container": "#ffbad3",
+              "tertiary-container": "#009fb2",
+              "on-surface-variant": "#c7c4d7",
+              "on-secondary": "#640039",
+              "secondary": "#ffb0cd",
+              "surface-variant": "#353438",
+              "outline": "#908fa0",
+              "secondary-container": "#aa0266",
+              "surface-container-low": "#1b1b1e",
+              "secondary-fixed-dim": "#ffb0cd",
+              "surface": "#131316",
+              "background": "#131316",
+              "primary-container": "#8083ff",
+              "on-error-container": "#ffdad6",
+              "surface-container": "#1f1f22",
+              "on-primary-fixed": "#07006c",
+              "on-error": "#690005",
+              "primary-fixed": "#e1e0ff",
+              "on-secondary-fixed": "#3e0022",
+              "tertiary-fixed-dim": "#00daf3",
+              "inverse-surface": "#e5e1e6",
+              "primary-fixed-dim": "#c0c1ff",
+              "on-secondary-fixed-variant": "#8c0053",
+              "on-surface": "#e5e1e6",
+              "on-primary-container": "#0d0096",
+              "primary": "#c0c1ff",
+              "outline-variant": "#464554",
+              "on-tertiary-fixed-variant": "#004f58",
+              "error": "#ffb4ab",
+              "surface-tint": "#c0c1ff",
+              "on-primary": "#1000a9",
+              "surface-bright": "#39393c",
+              "on-tertiary-fixed": "#001f24",
+              "secondary-fixed": "#ffd9e4",
+              "on-tertiary-container": "#002f35",
+              "error-container": "#93000a",
+              "tertiary-fixed": "#9cf0ff",
+              "on-tertiary": "#00363d"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .terminal-grid {
+        background-image: radial-gradient(circle, #464554 1px, transparent 1px);
+        background-size: 24px 24px;
+        opacity: 0.05;
+      }
+      .neon-glow-primary {
+        box-shadow: 0 0 40px -10px rgba(192, 193, 255, 0.15);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(99,102,241,0.1)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<a class="text-xl font-bold tracking-[0.2em] text-white font-headline" href="index.html">ANIMAS AI</a>
+<div class="hidden md:flex gap-8 items-center font-label text-sm uppercase tracking-widest"><a class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider" href="open-claw.html">OpenClaw</a><a class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider" href="solutions.html">Solutions</a><a class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider" href="case-studies.html">Case Studies</a><a class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider" href="how-it-works.html">How it Works</a><a class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider" href="engagement-model.html">Engagement</a></div>
+<div class="flex items-center gap-4">
+<a class="bg-gradient-to-br from-primary to-primary-container text-neutral-950 font-label text-[10px] sm:text-xs font-bold uppercase tracking-wider px-4 py-2 sm:px-6 sm:py-2.5 rounded hover:opacity-90 transition-all active:scale-[0.98]" href="https://calendar.app.google/UJgrXnA1QFaD1YddA">
+                Book a Call
+            </a>
+<button id="mobile-menu-btn" class="md:hidden text-white flex items-center justify-center p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="relative pt-24 md:pt-32 pb-16 md:pb-24 px-6 md:px-8 max-w-screen-2xl mx-auto overflow-hidden">
+<!-- Decoration Grid -->
+<div class="absolute inset-0 terminal-grid pointer-events-none"></div>
+<!-- Header Section -->
+<header class="relative mb-16 md:mb-24 max-w-3xl">
+<div class="flex items-center gap-2 mb-4 text-primary font-label text-sm tracking-widest uppercase">
+<span class="opacity-70">&gt;</span>
+<span>Archive_System.Access_Granted</span>
+</div>
+<h1 class="font-headline text-5xl md:text-8xl font-extrabold tracking-tighter text-on-surface mb-6 leading-tight md:leading-none">
+                Real Results: Client Success Stories
+            </h1>
+<p class="font-body text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                We don't just build cool tech, we solve expensive problems. Here is exactly how we've eliminated operational friction to save clients hundreds of hours and thousands of dollars.
+            </p>
+</header>
+<!-- Case Studies Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Case 1: The Brander Group -->
+<section class="md:col-span-8 bg-surface-container-low border border-outline-variant/10 p-6 md:p-8 rounded-lg relative overflow-hidden group">
+<div class="flex justify-between items-start mb-8 md:mb-12">
+<div class="flex flex-col gap-1">
+<span class="font-label text-xs text-primary uppercase tracking-[0.2em]">&gt; LOG_001_NETWORK_INTEL</span>
+<h2 class="font-headline text-3xl md:text-4xl font-bold tracking-tight mt-2 text-white">The Brander Group: 140 Hours Saved/Mo</h2>
+</div>
+<div class="bg-tertiary/10 border border-tertiary/30 px-3 py-1 rounded-sm">
+<span class="font-label text-[10px] text-tertiary font-bold uppercase tracking-widest italic">ACTIVE_DEP</span>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-12 relative z-10">
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="font-label text-[10px] text-on-surface-variant/50 uppercase tracking-widest flex items-center gap-2">
+<span class="text-primary">&gt;</span> Deployment_Scope
+                            </label>
+<p class="font-body text-on-surface-variant">Replaced manual data entry and network analysis with an automated pipeline, cutting research time by over 80%.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label text-xs text-white uppercase tracking-widest font-bold">Business Outcomes:</h4>
+<ul class="space-y-3 font-body text-sm text-on-surface-variant">
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm" data-icon="terminal">terminal</span> Reclaimed 140 hours of engineering time every month.</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm" data-icon="terminal">terminal</span> Accelerated vendor scoring process from days to seconds.</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm" data-icon="terminal">terminal</span> Eliminated missing data points with 24/7 web scraping.</li>
+</ul>
+</div>
+</div>
+<div class="bg-surface-container-lowest/50 p-6 rounded border border-outline-variant/10 font-label text-[11px] leading-relaxed text-tertiary/80 space-y-2">
+<div class="text-on-surface-variant/40 mb-4 font-mono">// REALTIME_METRICS</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-2">
+<span>LATENCY_REDUCTION:</span>
+<span class="text-white">84.2%</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-2">
+<span>DATA_POINTS_SCRAPED/H:</span>
+<span class="text-white">12.4K</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-2">
+<span>MANUAL_HOURS_SAVED:</span>
+<span class="text-white">140/MO</span>
+</div>
+<div class="pt-4 opacity-50">
+                            SYSTEM READY... <br/>
+                            UPLOADING INTEL... <br/>
+                            ENCRYPTION: AES-256
+                        </div>
+</div>
+</div>
+<!-- Background Image Decor -->
+<div class="absolute -right-12 -bottom-12 opacity-5 scale-150 grayscale group-hover:opacity-10 transition-opacity pointer-events-none">
+<span class="material-symbols-outlined text-[300px]" data-icon="database">database</span>
+</div>
+</section>
+<!-- Lead Qualification Agent -->
+<section class="md:col-span-4 bg-surface-container border border-outline-variant/10 p-6 md:p-8 rounded-lg flex flex-col justify-between group">
+<div>
+<span class="font-label text-xs text-secondary uppercase tracking-[0.2em]">&gt; LOG_002_LEAD_VET</span>
+<h2 class="font-headline text-3xl font-bold tracking-tight mt-4 text-white">Automated Lead Qualification</h2>
+<p class="font-body text-sm text-on-surface-variant mt-6 leading-relaxed">
+                        Say goodbye to talking to unqualified leads. We built an automated system to instantly vet prospects and route only the best partners to your calendar.
+                    </p>
+</div>
+<div class="mt-12 space-y-4">
+<div class="h-1 w-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary w-3/4"></div>
+</div>
+<div class="flex justify-between font-label text-[10px] text-on-surface-variant uppercase tracking-widest">
+<span>ACCURACY_RATE</span>
+<span class="text-secondary font-bold">96.8%</span>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<div class="flex-1 bg-surface-container-low p-4 rounded text-center">
+<span class="block text-2xl font-bold text-white">2.4k</span>
+<span class="text-[9px] uppercase tracking-tighter opacity-50">Vetted</span>
+</div>
+<div class="flex-1 bg-surface-container-low p-4 rounded text-center">
+<span class="block text-2xl font-bold text-white">12s</span>
+<span class="text-[9px] uppercase tracking-tighter opacity-50">Response</span>
+</div>
+</div>
+</section>
+<!-- Blog Lifecycle Engine -->
+<section class="md:col-span-12 bg-surface-container-low border border-outline-variant/10 p-1 rounded-lg">
+<div class="bg-background m-px p-6 md:p-8 rounded-lg flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+<div class="flex-1 space-y-8">
+<div>
+<span class="font-label text-xs text-tertiary uppercase tracking-[0.2em]">&gt; LOG_003_SEO_GROWTH</span>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter mt-2 text-white">SEO Growth Engine</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+<div class="space-y-2">
+<span class="material-symbols-outlined text-primary" data-icon="youtube_activity">youtube_activity</span>
+<h4 class="font-label text-[10px] uppercase font-bold text-white">01. Content Generation</h4>
+<p class="text-[11px] text-on-surface-variant/70 leading-relaxed">Stop staring at a blank page. High-quality blogs are written instantly.</p>
+</div>
+<div class="space-y-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_stories">auto_stories</span>
+<h4 class="font-label text-[10px] uppercase font-bold text-white">02. Brand Alignment</h4>
+<p class="text-[11px] text-on-surface-variant/70 leading-relaxed">Trained on your past content to sound exactly like your team does.</p>
+</div>
+<div class="space-y-2">
+<span class="material-symbols-outlined text-primary" data-icon="cloud_upload">cloud_upload</span>
+<h4 class="font-label text-[10px] uppercase font-bold text-white">03. Auto-Publishing</h4>
+<p class="text-[11px] text-on-surface-variant/70 leading-relaxed">Uploaded straight to your website without any manual copying and pasting.</p>
+</div>
+</div>
+<button class="font-label text-xs font-bold text-secondary uppercase tracking-widest flex items-center group">
+                            VIEW_FULL_ENGINE_TRACE <span class="ml-2 group-hover:translate-x-2 transition-transform">_</span>
+</button>
+</div>
+<div class="w-full md:w-1/3 aspect-video bg-surface-container rounded-lg border border-outline-variant/10 overflow-hidden relative group">
+<img class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Dark terminal screen with glowing code blocks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq9MA7Nz521hnVqGlEOM4CF-f9W68X3_GXQyRE2KLC9YTYSS05NdBTunBQ1lY7illU8_BkVAoQ2O_aFVtxi82-dNAVt2vnGZ9NXRoGtseTVBaDIsW87AneYFkyen38BXYlhHdd_N01fLObD-pEsfO1qXFcDEkzSsVeZYHgy_vxvWekO8vLJ_zKWVpXbMhBg0yiqCWFe5AZLhxqqxHC9OkwHRTc3RwpDcWI2UurA6EyI5QR4EV8LWaeqtxn4_OhCBJiNrF-IGOX8nQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-white" data-icon="play_arrow">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Terminal Output Section (Call to Action) -->
+<section class="mt-16 md:mt-24 bg-surface-container-lowest border border-primary/20 p-8 md:p-12 rounded-lg relative overflow-hidden">
+<div class="max-w-2xl mx-auto text-center space-y-8 relative z-10">
+<div class="font-label text-xs text-primary animate-pulse">&gt; WAITING_FOR_COMMAND</div>
+<h3 class="font-headline text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">Ready to automate your operations?</h3>
+<p class="font-body text-on-surface-variant">
+                    Stop letting manual tasks slow down your growth. Let's get your first custom</p>
+<div class="text-center pt-16 md:pt-24 border-t border-outline-variant/10 relative">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+<a class="text-center w-full md:w-auto bg-gradient-to-br from-primary to-primary-container text-neutral-950 font-label text-sm font-bold uppercase tracking-[0.15em] px-6 py-4 md:px-10 rounded shadow-lg neon-glow-primary hover:brightness-110 active:scale-[0.98] transition-all inline-block" href="https://calendar.app.google/UJgrXnA1QFaD1YddA">
+                        Book Your Implementation Strategy
+                    </a>
+<button class="text-center w-full md:w-auto border border-outline-variant text-on-surface font-label text-sm font-bold uppercase tracking-[0.15em] px-6 py-4 md:px-10 rounded hover:bg-surface-container-high transition-colors">
+                        REVIEW_CAPABILITIES_
+                    </button>
+</div>
+</div>
+<!-- Grid Lines Background -->
+<div class="absolute inset-0 grid grid-cols-12 pointer-events-none opacity-10">
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+<div class="border-r border-primary/20 h-full"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-neutral-950 w-full py-12 px-8 border-t border-neutral-900">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 max-w-screen-2xl mx-auto">
+<div class="space-y-2">
+<div class="text-lg font-bold text-neutral-200 tracking-widest font-headline">ANIMAS AI</div>
+<div class="font-label text-[10px] text-neutral-500 uppercase tracking-widest">© 2024 ANIMAS AI. ALL RIGHTS RESERVED.</div>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label text-[10px] sm:text-xs text-neutral-600 uppercase tracking-widest mb-1">Navigation</span>
+<a class="text-neutral-500 font-body text-sm hover:text-white transition-all hover:underline underline-offset-4" href="open-claw.html">OpenClaw</a>
+<a class="text-neutral-500 font-body text-sm hover:text-white transition-all hover:underline underline-offset-4" href="how-it-works.html">How it Works</a>
+<a class="font-label text-xs uppercase tracking-widest text-neutral-500 hover:text-white transition-all hover:underline underline-offset-4" href="#">Solutions</a>
+<a class="font-label text-xs uppercase tracking-widest text-white transition-all hover:underline underline-offset-4" href="#">Case Studies</a>
+<a class="font-label text-xs uppercase tracking-widest text-neutral-500 hover:text-white transition-all hover:underline underline-offset-4" href="#">tyler@animasai.co</a>
+<a class="font-label text-xs uppercase tracking-widest text-neutral-500 hover:text-white transition-all hover:underline underline-offset-4" href="#">@mayberrytyler</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Menu & Script -->
+<div id="mobile-menu" class="fixed inset-0 bg-neutral-950/95 backdrop-blur-3xl z-[60] flex flex-col pt-24 px-8 hidden transition-all duration-300">
+    <button id="close-menu-btn" class="absolute top-6 right-8 text-white w-10 h-10 flex items-center justify-center bg-white/5 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
+        <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+    <div class="flex flex-col gap-8 text-center font-label text-xl uppercase tracking-widest mt-12">
+        <a class="text-neutral-400 hover:text-white transition-colors" href="open-claw.html">OpenClaw</a>
+        <a class="text-neutral-400 hover:text-white transition-colors" href="solutions.html">Solutions</a>
+        <a class="text-neutral-400 hover:text-white transition-colors" href="case-studies.html">Case Studies</a>
+        <a class="text-neutral-400 hover:text-white transition-colors" href="how-it-works.html">How it Works</a>
+        <a class="text-neutral-400 hover:text-white transition-colors" href="engagement-model.html">Engagement</a>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && closeBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        }
+    });
+</script>
+</body></html>

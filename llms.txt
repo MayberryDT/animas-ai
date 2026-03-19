@@ -1,7 +1,0 @@
-Animas AI is a Global Hospitality Automation Consultancy specializing in deploying autonomous AI agents using the open-source OpenClaw framework. Our services are engineered to optimize operations for hoteliers and short-term rental operators globally.
-
-We provide four core automation solutions:
-1. Omnichannel AI Concierge: We deploy OpenClaw agents across WhatsApp, Telegram, and SMS to handle guest vetting, continuous check-in coordination, and 24/7 guest inquiries using persistent conversational memory.
-2. Revenue & OTA Automation: Our AI agents utilize secure browser automation to continuously monitor competitor pricing on Online Travel Agencies (OTAs), dynamically adjusting daily rates to maximize RevPAR and TRevPAR.
-3. Maintenance & Turnover Orchestration: The AI autonomously monitors booking calendars, auto-dispatches cleaning staff for room turnovers, and intelligently triages maintenance requests strictly based on predefined owner budgets.
-4. Secure Infrastructure: We manage all technical overhead, providing secure VPS hosting, Docker sandboxing, and strict API credential management so operators can focus solely on the guest experience.
