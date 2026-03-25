@@ -1,406 +1,420 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>ANIMAS AI | Sovereign Automation</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-background": "#e5e1e6",
-            "primary-container": "#8083ff",
-            "inverse-on-surface": "#303033",
-            "on-secondary-fixed-variant": "#8c0053",
-            "on-secondary-container": "#ffbad3",
-            "on-surface": "#e5e1e6",
-            "on-secondary-fixed": "#3e0022",
-            "outline-variant": "#464554",
-            "inverse-primary": "#494bd6",
-            "surface-dim": "#131316",
-            "surface-container-low": "#1b1b1e",
-            "on-error-container": "#ffdad6",
-            "error": "#ffb4ab",
-            "secondary-fixed": "#ffd9e4",
-            "secondary-container": "#aa0266",
-            "on-secondary": "#640039",
-            "on-tertiary-fixed-variant": "#004f58",
-            "on-primary": "#1000a9",
-            "on-tertiary-fixed": "#001f24",
-            "error-container": "#93000a",
-            "primary": "#c0c1ff",
-            "tertiary": "#00daf3",
-            "on-surface-variant": "#c7c4d7",
-            "outline": "#908fa0",
-            "surface": "#131316",
-            "primary-fixed-dim": "#c0c1ff",
-            "surface-variant": "#353438",
-            "surface-container-high": "#2a2a2d",
-            "surface-container": "#1f1f22",
-            "on-primary-fixed": "#07006c",
-            "on-tertiary": "#00363d",
-            "on-tertiary-container": "#002f35",
-            "inverse-surface": "#e5e1e6",
-            "surface-container-lowest": "#0e0e11",
-            "on-primary-fixed-variant": "#2f2ebe",
-            "secondary": "#ffb0cd",
-            "surface-bright": "#39393c",
-            "surface-tint": "#c0c1ff",
-            "surface-container-highest": "#353438",
-            "on-error": "#690005",
-            "tertiary-fixed-dim": "#00daf3",
-            "on-primary-container": "#0d0096",
-            "background": "#131316",
-            "tertiary-container": "#009fb2",
-            "primary-fixed": "#e1e0ff",
-            "secondary-fixed-dim": "#ffb0cd",
-            "tertiary-fixed": "#9cf0ff"
-          },
-          fontFamily: {
-            "headline": ["Manrope"],
-            "body": ["Inter"],
-            "label": ["Space Grotesk"]
-          },
-          borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
-        },
-      },
-    }
-  </script>
-  <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      vertical-align: middle;
-    }
-
-    .bg-grid {
-      background-image: radial-gradient(circle, #464554 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-
-    .neon-glow {
-      box-shadow: 0 0 40px rgba(192, 193, 255, 0.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animas AI | Premium Business Automation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
 
-<body class="bg-background text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
-  <!-- TopNavBar -->
-  <nav
-    class="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(99,102,241,0.1)]">
-    <div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
-      <a class="text-xl font-bold tracking-[0.2em] text-white font-headline" href="index.html">ANIMAS AI</a>
-      <div class="hidden md:flex gap-8 items-center"><a
-          class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider"
-          href="open-claw.html">OpenClaw</a><a
-          class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider"
-          href="solutions.html">Solutions</a><a
-          class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider"
-          href="case-studies.html">Case Studies</a><a
-          class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider"
-          href="how-it-works.html">How it Works</a><a
-          class="text-neutral-400 font-medium hover:text-indigo-300 transition-colors duration-300 font-label text-sm uppercase tracking-wider"
-          href="engagement-model.html">Engagement</a></div>
-      <div class="flex items-center gap-4">
-        <a class="bg-gradient-to-br from-primary to-primary-container text-neutral-950 font-label font-bold uppercase text-xs px-6 py-2.5 rounded hover:opacity-90 transition-all active:scale-[0.99]"
-          href="https://calendar.app.google/UJgrXnA1QFaD1YddA">
-          Book a Call
-        </a>
-        <button id="mobile-menu-btn" class="md:hidden text-white flex items-center justify-center p-2">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-      </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="font-display font-bold text-xl tracking-tight text-slate-950">
+                    ANIMAS AI.
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How it Works</a>
+                    <a href="solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Solutions</a>
+                    <a href="case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Case Studies</a>
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">
+                        Book a Workflow Audit
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col transition-all duration-300">
+        <div class="flex justify-end p-6">
+            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center flex-1 space-y-8 text-xl font-display font-bold tracking-tight">
+            <a href="how-it-works.html" class="text-slate-900 hover:text-brand-600 transition-colors">How it Works</a>
+            <a href="solutions.html" class="text-slate-900 hover:text-brand-600 transition-colors">Solutions</a>
+            <a href="case-studies.html" class="text-slate-900 hover:text-brand-600 transition-colors">Case Studies</a>
+            <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Book an Audit</a>
+        </div>
     </div>
-  </nav>
-  <main class="relative pt-24">
-    <!-- Background Texture -->
-    <div class="fixed inset-0 bg-grid opacity-10 pointer-events-none -z-10"></div>
+
     <!-- Hero Section -->
-    <section class="px-6 md:px-8 pt-12 md:pt-20 pb-20 md:pb-32 max-w-screen-2xl mx-auto relative overflow-hidden">
-      <!-- Accent Light -->
-      <div class="absolute -top-40 -left-40 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
-      <div class="absolute top-1/2 -right-40 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full"></div>
-      <div class="relative z-10 max-w-4xl">
-        <div class="flex items-center gap-2 mb-6">
-          <span class="text-primary font-label text-sm uppercase tracking-widest font-bold">&gt; OPENCLAW FRAMEWORK:
-            ONLINE</span>
-          <div class="w-2 h-2 bg-tertiary rounded-full animate-pulse"></div>
-        </div>
-        <h1
-          class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-extrabold tracking-tighter leading-tight mb-6 md:mb-8">
-          <span class="md:whitespace-nowrap">Automate the Grunt Work.</span> <br />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Scale Your
-            Revenue.</span>
-        </h1>
-        <p class="text-on-surface-variant text-lg sm:text-xl md:text-2xl max-w-2xl leading-relaxed mb-8 md:mb-12">
-          Stop letting manual tasks choke your growth. Powered by the open-source OpenClaw framework, we deploy
-          sovereign AI agents that reason, plan, and execute tasks 24/7, saving you hours and removing operational
-          friction.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
-          <a class="bg-gradient-to-br from-primary to-primary-container text-neutral-950 px-6 py-4 md:px-8 md:py-5 font-label font-bold uppercase tracking-widest text-xs md:text-sm rounded-lg flex items-center justify-center gap-3 hover:scale-105 transition-transform text-center"
-            href="https://calendar.app.google/UJgrXnA1QFaD1YddA">
-            Book Your 48-Hour Workflow Audit
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
-          </a>
-          <a href="open-claw.html"
-            class="border border-secondary/30 text-secondary px-6 py-4 md:px-8 md:py-5 font-label font-bold uppercase tracking-widest text-xs md:text-sm rounded-lg flex items-center justify-center gap-3 hover:bg-secondary/5 transition-all text-center">
-            View OpenClaw Framework_
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- Bento Grid Features -->
-    <section class="px-8 py-24 max-w-screen-2xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-        <!-- Large Feature -->
-        <div
-          class="md:col-span-8 bg-surface-container-low p-8 rounded-xl border-l border-primary relative overflow-hidden group">
-          <div class="absolute top-0 right-0 p-4 opacity-20">
-            <span class="material-symbols-outlined text-8xl">precision_manufacturing</span>
-          </div>
-          <label class="text-primary font-label text-xs uppercase tracking-tighter block mb-4">&gt; YOUR UNLIMITED
-            LAB</label>
-          <h3 class="text-3xl font-headline font-bold mb-4">One Flat Monthly Rate. No Limits.</h3>
-          <p class="text-on-surface-variant text-lg max-w-xl">
-            No billable hours. No surprise invoices. Queue up as many automation requests as your team needs, and we
-            build them until your business runs itself.
-          </p>
-          <div class="mt-8 flex flex-col sm:flex-row gap-4">
-            <div class="bg-surface-container p-4 rounded-lg border border-outline-variant/30">
-              <span class="text-tertiary font-label font-bold text-xl block">Zero AI Costs</span>
-              <span class="text-on-surface-variant text-xs uppercase tracking-widest">We Cover API Fees</span>
-            </div>
-            <div class="bg-surface-container p-4 rounded-lg border border-outline-variant/30">
-              <span class="text-secondary font-label font-bold text-xl block">Fully Managed</span>
-              <span class="text-on-surface-variant text-xs uppercase tracking-widest">We Handle Hosting</span>
-            </div>
-          </div>
-        </div>
-        <!-- 7-Day Guarantee -->
-        <div
-          class="md:col-span-4 bg-surface-container-high p-8 rounded-xl flex flex-col justify-between border-t border-secondary/40">
-          <span class="material-symbols-outlined text-secondary text-4xl mb-6">verified_user</span>
-          <div>
-            <h3 class="text-2xl font-headline font-bold mb-2">7-Day Delivery</h3>
-            <p class="text-on-surface-variant text-sm">Your first custom automation goes live in under a week, saving
-              you hours immediately. If we miss the deadline, we work for free.</p>
-          </div>
-        </div>
-        <!-- 48-Hour Turnaround -->
-        <div class="md:col-span-4 bg-surface-container-high p-8 rounded-xl flex flex-col justify-between">
-          <div class="flex justify-between items-start">
-            <span class="material-symbols-outlined text-primary text-4xl">speed</span>
-            <span class="font-label text-[10px] text-primary bg-primary/10 px-2 py-1">VELOCITY_MAX</span>
-          </div>
-          <div class="mt-12">
-            <h3 class="text-2xl font-headline font-bold mb-2">48-Hour Turnarounds</h3>
-            <p class="text-on-surface-variant text-sm">Need a new feature or a bug fixed? We deploy updates within 48
-              hours, keeping your systems running flawlessly without stalling your business.</p>
-          </div>
-        </div>
-        <!-- Top 1% Credibility -->
-        <div class="md:col-span-8 bg-surface-container p-8 rounded-xl relative group cursor-crosshair">
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-          </div>
-          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
-            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-primary overflow-hidden shrink-0">
-              <img alt="Tyler Mayberry Headshot" class="w-full h-full object-cover grayscale"
-                data-alt="Technical founder portrait in techwear style" src="me.jpg" />
-            </div>
-            <div>
-              <label class="text-tertiary font-label text-xs uppercase tracking-[0.2em] block mb-1">YOUR TECHNICAL
-                PARTNER</label>
-              <h3 class="text-3xl font-headline font-bold mb-2">Built by Master Craftsmen</h3>
-              <p class="text-on-surface-variant leading-relaxed">
-                Led by Tyler Mayberry. You aren't getting junior devs; you're getting a dedicated engineer building
-                systems that directly increase your profit margins.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Use Cases - Data Dense Cluster -->
-    <section class="bg-surface-container-lowest py-20 md:py-32 border-y border-outline-variant/10">
-      <div class="px-6 md:px-8 max-w-screen-2xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 mb-12 md:mb-20">
-          <div class="max-w-xl">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight mb-4 md:mb-6">
-              Battle-Tested <span class="text-primary">Automations.</span></h2>
-            <p class="text-on-surface-variant text-sm sm:text-base">We don't just write scripts. We build reliable,
-              maintenance-free systems that handle your repetitive heavy-lifting so you can focus on growing your
-              business.</p>
-          </div>
-          <div
-            class="text-left md:text-right border-t border-outline-variant/10 md:border-none pt-4 md:pt-0 w-full md:w-auto">
-            <span class="text-primary font-label text-4xl font-bold block leading-none">500+</span>
-            <span class="text-on-surface-variant font-label text-[10px] md:text-xs uppercase">Automations
-              Deployed</span>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="bg-surface-container p-6 border-b-2 border-transparent hover:border-primary transition-all">
-            <span class="material-symbols-outlined text-primary mb-4">article</span>
-            <h4 class="font-headline font-bold mb-2">Content on Autopilot</h4>
-            <p class="text-sm text-on-surface-variant">Fully managed systems that research, draft, and publish
-              high-quality SEO blogs to drive traffic without your input.</p>
-          </div>
-          <div class="bg-surface-container p-6 border-b-2 border-transparent hover:border-primary transition-all">
-            <span class="material-symbols-outlined text-primary mb-4">video_search</span>
-            <h4 class="font-headline font-bold mb-2">Competitor Auditing</h4>
-            <p class="text-sm text-on-surface-variant">Automated daily reports analyzing your top competitors' content
-              velocity and market strategies.</p>
-          </div>
-          <div class="bg-surface-container p-6 border-b-2 border-transparent hover:border-primary transition-all">
-            <span class="material-symbols-outlined text-primary mb-4">hub</span>
-            <h4 class="font-headline font-bold mb-2">Zero-Touch CRM</h4>
-            <p class="text-sm text-on-surface-variant">Stop entering data manually. We sync your communications directly
-              into HubSpot or Salesforce instantly.</p>
-          </div>
-          <div class="bg-surface-container p-6 border-b-2 border-transparent hover:border-primary transition-all">
-            <span class="material-symbols-outlined text-primary mb-4">terminal</span>
-            <h4 class="font-headline font-bold mb-2">Custom Operations</h4>
-            <p class="text-sm text-on-surface-variant">If a process is repeatable, we can automate it. Custom solutions
-              built precisely for your unique business bottlenecks.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- YouTube Channel Section -->
-    <section class="px-6 md:px-8 py-20 md:py-32 max-w-screen-2xl mx-auto">
-      <div
-        class="bg-surface-container p-6 sm:p-8 md:p-12 rounded-2xl border border-outline-variant/20 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-16">
-        <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent pointer-events-none"></div>
-        <div class="flex-1 relative z-10 text-center md:text-left">
-          <label class="text-secondary font-label text-[10px] md:text-xs uppercase tracking-widest block mb-4">THE
-            BROADCAST_</label>
-          <h2
-            class="text-3xl sm:text-4xl md:text-6xl font-headline font-bold tracking-tighter mb-4 md:mb-8 leading-tight">
-            See Exactly How <br class="hidden md:block" />It Works.</h2>
-          <p class="text-on-surface-variant text-lg mb-10 max-w-lg">
-            Watch the raw, behind-the-scenes engineering of how we build these systems. See the exact automations we
-            deploy to save clients hundreds of hours per month.
-          </p>
-          <a class="inline-flex items-center gap-4 text-secondary font-label font-bold uppercase tracking-widest group"
-            href="https://youtube.com/@mayberrytyler">
-            @mayberrytyler
-            <span class="w-12 h-[1px] bg-secondary group-hover:w-20 transition-all"></span>
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
-        </div>
-        <div
-          class="w-full md:w-1/2 aspect-video bg-surface-container-highest rounded-lg border border-outline-variant overflow-hidden shadow-2xl relative group">
-          <img alt="YouTube Video Thumbnail"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            data-alt="Technical code on a monitor with neon lighting"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7kJYL0NbA8pWoK2V-HTUDw0O-9RFPz5Ecyddz7uzTsevmONU1XCHnYTJ2fnC3fS51-CKKr3Q6azYbS4AxbclXGuHUCzqwyp0TBis2wjHO5XgjwSs6NyNkqeD3wWOr6hZVr3hDMr2RwJJ5w7_Sjo2oJkADfvz_e9K3VEwxIiUQL7Y0LkjU1APfGrGT4IYJ52bI1onqvzwdvrSEbdKWvC2g7W3Ay8p1NfiHeB36Z64BCks7nU7XKjmJ9o9o3911JMyKvroqGlvnbTM" />
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="w-20 h-20 bg-secondary/90 rounded-full flex items-center justify-center text-on-secondary shadow-lg backdrop-blur-md">
-              <span class="material-symbols-outlined text-4xl"
-                style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Final CTA -->
-    <section class="px-6 md:px-8 py-24 md:py-40 max-w-screen-2xl mx-auto text-center relative overflow-hidden">
-      <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[400px] bg-primary/5 blur-[100px] md:blur-[150px] -z-10 rounded-full">
-      </div>
-      <h2 class="text-4xl sm:text-5xl md:text-7xl font-headline font-extrabold tracking-tighter mb-8 md:mb-12">Ready to
-        Automate?</h2>
-      <div class="flex flex-col items-center gap-6 md:gap-8">
-        <button
-          class="bg-gradient-to-r from-primary to-primary-container text-neutral-950 px-8 py-4 md:px-12 md:py-6 font-label font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-sm md:text-lg rounded shadow-2xl hover:brightness-110 transition-all w-full sm:w-auto">
-          Book Your Workflow Audit
-        </button>
-        <div
-          class="flex flex-col sm:flex-row items-center gap-2 text-on-surface-variant font-label text-[10px] sm:text-sm tracking-widest">
-          <span class="text-primary font-bold">LIMITED SLOTS AVAILABLE</span>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- Footer -->
-  <footer class="bg-neutral-950 border-t border-neutral-900 w-full py-12 px-8">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 max-w-screen-2xl mx-auto">
-      <div class="flex flex-col gap-4">
-        <div class="text-lg font-bold text-neutral-200 font-headline tracking-widest uppercase">ANIMAS AI</div>
-        <p class="font-label text-xs text-neutral-500 uppercase tracking-widest">© 2024 ANIMAS AI. ALL RIGHTS RESERVED.
-        </p>
-      </div>
-      <div class="flex flex-wrap gap-8">
-        <div class="flex flex-col gap-3">
-          <span class="font-label text-xs text-neutral-600 uppercase tracking-widest mb-1">Navigation</span>
-          <a class="text-neutral-500 font-body text-sm hover:text-white transition-all hover:underline underline-offset-4"
-            href="open-claw.html">OpenClaw</a>
-          <a class="text-neutral-500 font-body text-sm hover:text-white transition-all hover:underline underline-offset-4"
-            href="#">How it Works</a>
-          <a class="text-neutral-500 font-body text-sm hover:text-white transition-all hover:underline underline-offset-4"
-            href="#">Solutions</a>
-          <a class="text-neutral-500 font-body text-sm hover:text-white transition-all hover:underline underline-offset-4"
-            href="#">Case Studies</a>
-        </div>
-        <div class="flex flex-col gap-3">
-          <span class="font-label text-xs text-neutral-600 uppercase tracking-widest mb-1">Contact</span>
-          <a class="text-neutral-500 font-body text-sm hover:text-white transition-all hover:underline underline-offset-4"
-            href="mailto:tyler@animasai.co">tyler@animasai.co</a>
-          <a class="text-neutral-500 font-body text-sm hover:text-white transition-all hover:underline underline-offset-4"
-            href="#">@mayberrytyler</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Mobile Menu & Script -->
-  <div id="mobile-menu"
-    class="fixed inset-0 bg-neutral-950/95 backdrop-blur-3xl z-[60] flex flex-col pt-24 px-8 hidden transition-all duration-300">
-    <button id="close-menu-btn"
-      class="absolute top-6 right-8 text-white w-10 h-10 flex items-center justify-center bg-white/5 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
-      <span class="material-symbols-outlined text-2xl">close</span>
-    </button>
-    <div class="flex flex-col gap-8 text-center font-label text-xl uppercase tracking-widest mt-12">
-      <a class="text-neutral-400 hover:text-white transition-colors" href="open-claw.html">OpenClaw</a>
-      <a class="text-neutral-400 hover:text-white transition-colors" href="solutions.html">Solutions</a>
-      <a class="text-neutral-400 hover:text-white transition-colors" href="case-studies.html">Case Studies</a>
-      <a class="text-neutral-400 hover:text-white transition-colors" href="how-it-works.html">How it Works</a>
-      <a class="text-neutral-400 hover:text-white transition-colors" href="engagement-model.html">Engagement</a>
-    </div>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const closeBtn = document.getElementById('close-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
+    <main>
+        <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-semibold tracking-wide mb-8">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                    </span>
+                    ACCEPTING NEW PARTNERS
+                </div>
 
-      if (menuBtn && closeBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-          mobileMenu.classList.remove('hidden');
-          document.body.style.overflow = 'hidden';
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-slate-900 leading-[1.1] max-w-5xl mx-auto mb-8">
+                    Automate the Grunt Work. <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">Scale Your Revenue.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10">
+                    Stop letting manual tasks choke your growth. We deploy custom business automations that work 24/7, saving you hours and removing operational friction.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white font-semibold rounded-full hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all duration-300">
+                        Book Your Workflow Audit
+                    </a>
+                    <a href="how-it-works.html" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 font-semibold rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300">
+                        See How It Works
+                    </a>
+                </div>
+
+                <div class="mt-16 flex items-center justify-center gap-2 opacity-60">
+                    <span class="material-symbols-outlined text-[16px] text-slate-400">verified</span>
+                    <span class="text-xs text-slate-500 font-medium tracking-wide uppercase">Powered by the OpenClaw Framework</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Pipeline Banner -->
+        <section class="border-y border-gray-200 bg-gray-50 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-xs font-bold tracking-widest text-slate-400 uppercase">Our Proven Pipeline</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 items-center text-center">
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl font-display font-extrabold text-brand-600 mb-2">01</span>
+                        <span class="text-sm font-semibold text-slate-700">Discovery Call</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl font-display font-extrabold text-brand-600 mb-2">02</span>
+                        <span class="text-sm font-semibold text-slate-700">System Audit</span>
+                    </div>
+                    <div class="flex flex-col items-center col-span-2 md:col-span-1 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                        <span class="text-3xl font-display font-extrabold text-slate-900 mb-2">03</span>
+                        <span class="text-sm font-bold text-slate-900">7-Day Delivery</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl font-display font-extrabold text-brand-600 mb-2">04</span>
+                        <span class="text-sm font-semibold text-slate-700">Portal Access</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl font-display font-extrabold text-brand-600 mb-2">05</span>
+                        <span class="text-sm font-semibold text-slate-700">48hr Turnarounds</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition / Unlimited Lab -->
+        <section class="py-24 md:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-900 mb-6">
+                            One Flat Monthly Rate.<br/>No Limits.
+                        </h2>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                            No billable hours. No surprise invoices. Queue up as many automation requests as your team needs, and we build them one by one until your business runs itself. We handle the heavy lifting, the hosting, and the maintenance.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl flex-1">
+                                    <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center mb-4">
+                                        <span class="material-symbols-outlined text-brand-600">money_off</span>
+                                    </div>
+                                    <h3 class="font-bold text-slate-900 mb-2">Zero API Fees</h3>
+                                    <p class="text-sm text-slate-600">We cover all underlying software and API costs for the tools we deploy.</p>
+                                </div>
+                                <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl flex-1">
+                                    <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center mb-4">
+                                        <span class="material-symbols-outlined text-brand-600">cloud_done</span>
+                                    </div>
+                                    <h3 class="font-bold text-slate-900 mb-2">Fully Managed</h3>
+                                    <p class="text-sm text-slate-600">Say goodbye to server maintenance. We host and monitor everything 24/7.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="aspect-square md:aspect-[4/3] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
+                            <!-- Premium Abstract Graphic rather than terminal -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-950"></div>
+                            <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
+                            
+                            <div class="absolute inset-0 flex flex-col justify-center px-12 z-10">
+                                <div class="space-y-6">
+                                    <div class="flex items-center gap-4 opacity-50">
+                                        <div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-white text-[16px]">sync</span>
+                                        </div>
+                                        <div class="h-2 bg-white/20 rounded-full w-full max-w-[12rem]"></div>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-8 h-8 rounded bg-brand-500/20 flex items-center justify-center border border-brand-500/30">
+                                            <span class="material-symbols-outlined text-brand-400 text-[16px]">bolt</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="text-sm font-semibold text-white mb-1">CRM Synchronization Active</div>
+                                            <div class="text-xs text-slate-400">Saving 12 hours per week</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4 opacity-50">
+                                        <div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-white text-[16px]">analytics</span>
+                                        </div>
+                                        <div class="h-2 bg-white/20 rounded-full w-full max-w-[8rem]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Trust Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4">
+                            <span class="material-symbols-outlined text-4xl text-brand-600">verified_user</span>
+                            <div>
+                                <div class="font-bold text-slate-900">7-Day Guarantee</div>
+                                <div class="text-xs text-slate-500 font-medium">Results or a full refund</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases / Focus Areas -->
+        <section class="py-24 bg-gray-50 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-900 mb-6">
+                        Battle-Tested Business Processes.
+                    </h2>
+                    <p class="text-lg text-slate-600">
+                        We deploy reliable systems that handle your repetitive heavy-lifting, so you can focus entirely on strategic growth.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-indigo-600">article</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Content on Autopilot</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Fully managed systems that research, draft, and publish high-quality, brand-aligned SEO blogs to drive targeted traffic without your input.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-blue-600">hub</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Zero-Touch CRM</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Stop entering data manually. We sync your communications directly into HubSpot, Salesforce, or your custom CRM instantly.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-brand-600">settings_suggest</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Custom Operations</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            If a process is repeatable, we can automate it. Hand off your unique operational bottlenecks to a system built specifically for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Demonstration -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <div class="p-12 md:p-16 flex flex-col justify-center">
+                            <div class="inline-flex items-center gap-2 text-brand-400 font-semibold text-xs tracking-widest uppercase mb-4">
+                                <span class="material-symbols-outlined text-[16px]">play_circle</span>
+                                See the proof
+                            </div>
+                            <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+                                Watch How We Save Clients 40+ Hours a Week.
+                            </h2>
+                            <p class="text-slate-400 text-lg mb-8">
+                                Look behind the scenes at the exact automation systems we deploy. No hype, just real engineering that impacts the bottom line.
+                            </p>
+                            <div>
+                                <a href="https://youtube.com/@mayberrytyler" target="_blank" class="text-white font-medium hover:text-brand-400 transition-colors inline-flex items-center gap-2">
+                                    View more on YouTube <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800 p-4 lg:p-8 flex items-center">
+                            <div class="w-full aspect-video bg-slate-950 rounded-xl overflow-hidden shadow-inner relative">
+                                <iframe 
+                                    class="absolute inset-0 w-full h-full"
+                                    src="https://www.youtube-nocookie.com/embed/KPmkaElH46c" 
+                                    title="YouTube video player" 
+                                    frameborder="0" 
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder / Team Section -->
+        <section class="py-24 bg-gray-50 border-t border-gray-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-8">
+                    <div class="w-32 h-32 rounded-full overflow-hidden shrink-0 shadow-md">
+                        <img src="me.jpg" alt="Tyler Mayberry, Founder" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Your Technical Partner</h3>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-4">Built by Master Craftsmen</h4>
+                        <p class="text-slate-600 leading-relaxed max-w-2xl">
+                            Led by Tyler Mayberry. You aren't getting junior developers learning on your dime; you're getting a dedicated engineer building systems designed to directly increase your profit margins through ruthless efficiency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-32 bg-slate-900 relative overflow-hidden">
+            <!-- Abstract background element -->
+            <div class="absolute top-0 right-0 -mr-64 -mt-64 w-[800px] h-[800px] bg-brand-600/20 blur-[120px] rounded-full"></div>
+            <div class="absolute bottom-0 left-0 -ml-64 -mb-64 w-[600px] h-[600px] bg-indigo-600/20 blur-[120px] rounded-full"></div>
+            
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-white mb-8">
+                    Ready to Automate?
+                </h2>
+                <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
+                    Apply for partnership today and see your first custom automation live in 7 days.
+                </p>
+                <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="inline-block px-10 py-5 bg-white text-slate-900 font-bold rounded-full hover:bg-brand-50 hover:scale-105 transition-all duration-300 shadow-xl">
+                    Apply for Partnership
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-16 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <a href="index.html" class="font-display font-bold text-xl tracking-tight text-white mb-4 block">ANIMAS AI.</a>
+                    <p class="text-sm max-w-sm mb-6">Premium technical consulting and automation systems designed to scale your business.</p>
+                    <div class="text-xs">© 2024 ANIMAS AI. ALL RIGHTS RESERVED.</div>
+                </div>
+                
+                <div class="md:hidden border-t border-slate-800 my-2"></div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="how-it-works.html" class="hover:text-white transition-colors">How it Works</a></li>
+                        <li><a href="solutions.html" class="hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="mailto:tyler@animasai.co" class="hover:text-white transition-colors">tyler@animasai.co</a></li>
+                        <li><a href="https://youtube.com/@mayberrytyler" target="_blank" class="hover:text-white transition-colors">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuBtn && closeBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                });
+                closeBtn.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                });
+            }
         });
-        closeBtn.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          document.body.style.overflow = '';
-        });
-      }
-    });
-  </script>
+    </script>
 </body>
-
 </html>
