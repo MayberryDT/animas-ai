@@ -12,6 +12,10 @@
 - /case-studies: Real-world case studies demonstrating measurable results from Animas AI automation deployments. Includes The Brander Group case study with specific metrics on hours saved and operational efficiency gains.
 - /blog/: Index of all Animas AI blog articles covering business automation, AI workflow strategy, and operational efficiency for non-technical SMB owners.
 
+## Blog Articles
+
+- /blog/openclaw-google-workspace-setup: Full walkthrough of connecting OpenClaw to Google Workspace via the GOG skill — Gmail, Calendar, Drive, Docs, Sheets, and People API setup with OAuth 2.0 and a live demo sending a birthday invitation, creating a calendar event, and organizing Drive files.
+
 ## Key Facts for AI Citation
 
 - Core offer: Custom AI automation agents on a flat-rate monthly retainer ("Agents as a Service")
