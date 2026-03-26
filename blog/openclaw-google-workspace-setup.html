@@ -1,0 +1,426 @@
+<!--
+=============================================================
+BLOG ARTICLE TEMPLATE — For the OpenClaw Publishing Agent
+=============================================================
+
+HOW TO USE:
+1. Copy this entire file.
+2. Save it as /blog/YOUR-SLUG.html (e.g. /blog/automate-crm-updates.html)
+3. Find-and-replace all {{PLACEHOLDERS}} below with the article content.
+4. Update /blog/index.html to add a card linking to the new article.
+5. git add, commit, and push to master. Netlify auto-deploys.
+
+PLACEHOLDERS TO REPLACE:
+  How to Connect OpenClaw to Your Google Workspace: Full Setup Walkthrough        — The full headline (e.g. "5 Ways to Automate Your CRM")
+  Tyler Mayberry walks through wiring OpenClaw to Gmail, Calendar, Drive, and Docs using the GOG skill and Google Cloud OAuth — live demo included.     — 150-160 char SEO description
+  AI Strategy             — One of: Automation, AI Strategy, Case Study, Operations
+  2026-03-26     — ISO 8601 date (e.g. 2026-03-25)
+  March 26, 2026   — Human-readable (e.g. March 25, 2026)
+  8 min read         — Estimated minutes (e.g. 6 min read)
+  <h2>What OpenClaw Actually Manages in Google Workspace</h2>
+
+<p>When Tyler named his new OpenClaw agent "Clove" and told it to take over his Google account, he wasn't exaggerating. The agent can read and send Gmail, create and organize Google Drive files, build Google Calendar events, and manage contacts in Google People — all through the GOG skill and a Google Cloud OAuth connection. What it cannot do, at least not yet, is edit existing Google Docs directly. That's a limitation worth knowing before you wire everything up.</p>
+
+<p>The full setup, end to end, took Tyler about 40 minutes in real time. Here's exactly how it works.</p>
+
+<h2>Dictation Changes Everything About Prompting</h2>
+
+<p>Before touching any Google Cloud console, Tyler showed why he uses dictation to talk to his AI agent instead of typing. "I just hit my hotkey and start talking into the computer," he said. The difference in output quality is immediate. Short typed prompts produce shallow, generic results. Long dictation gives the model direction, nuance, and context — and that context is what makes an agent capable of navigating Google Workspace without hand-holding.</p>
+
+<p>This matters for the Google Workspace integration specifically because OpenClaw's agent needs to understand multi-step workflows. A prompt like "check my email" gets basic results. A spoken explanation of what you need and why lets the agent figure out the right API calls on its own.</p>
+
+<h2>The GOG Skill: What It Is and What It Is Not</h2>
+
+<p>GOG is the OpenClaw skill that bridges your agent to Google Workspace. It uses Google's official APIs — Gmail API, Google Calendar API, Google Drive API, Google Sheets API, and Google People API — through a standard OAuth 2.0 flow. Once authenticated, the agent can perform actions like sending emails, creating calendar events, uploading files to Drive, exporting Google Docs as PDFs, and creating folders.</p>
+
+<p>What GOG explicitly cannot do: edit existing Google Docs in place. Tyler called this out in the walkthrough. The skill supports export, copy, and create, but in-document editing via API is not available. That doesn't break most workflows — it just means you may need a human to do final edits on shared templates.</p>
+
+<h2>Google Cloud Project Setup: The APIs You Actually Need</h2>
+
+<p>The GOG skill documentation lists six Google Cloud APIs you should enable. Not all are mandatory for every use case, but here's the complete set from the walkthrough:</p>
+
+<ul>
+  <li><strong>Gmail API</strong> — read, send, manage email</li>
+  <li><strong>Google Calendar API</strong> — create, edit, and query calendar events</li>
+  <li><strong>Google Drive API</strong> — create files, folders, copy files, move files</li>
+  <li><strong>Google Docs API</strong> — export Docs to PDF, copy templates</li>
+  <li><strong>Google Sheets API</strong> — read and write spreadsheet data</li>
+  <li><strong>Google People API</strong> — manage contacts</li>
+</ul>
+
+<p>Tyler enabled all six during the walkthrough. The exact steps: open Google Cloud Console, navigate to APIs &amp; Services &gt; Library, search each API by name, and click Enable with your project selected. Most of these APIs are free for standard personal or small business use under Google's quota limits.</p>
+
+<h2>OAuth Consent Screen: Desktop App vs. Web Application</h2>
+
+<p>During setup, Tyler had to choose an OAuth application type. GOG uses a desktop app flow, which means selecting "Desktop app" when creating your OAuth client ID in Google Cloud Console — not "Web application." Tyler specifically noted this because the option that appears default (web) leads to a different OAuth flow that won't work with GOG.</p>
+
+<p>The consent screen itself requires:</p>
+
+<ul>
+  <li>An app name (Tyler's was "Clove GOG Access")</li>
+  <li>A support email address (can be any valid email)</li>
+  <li>No publisher verification is required for personal or internal use</li>
+</ul>
+
+<p>If you hit the "test mode" prompt, Tyler mentioned the agent will tell you what to do. In practice, you may be able to skip test users if your app is in production-approved status.</p>
+
+<h2>Downloading and Loading Credentials</h2>
+
+<p>After creating the OAuth client, Google provides a JSON credentials file containing your client ID and client secret. This file is what GOG uses to initiate the OAuth handshake with your Google account. Tyler walked through downloading it directly from the Google Cloud Console OAuth clients screen.</p>
+
+<p>Once the credentials file is on disk, GOG starts the real account authorization — a browser-based OAuth approval step where you log into your Google account and click "Allow." Tyler described this as the moment your OpenClaw agent officially gets access to your workspace. After approving, the agent ran a verification check confirming it could reach Gmail, Calendar, and Drive.</p>
+
+<h2>Demo: Sending a Birthday Party Invitation End-to-End</h2>
+
+<p>The real test of any Google Workspace integration is a complete, multi-step workflow. Tyler put GOG through this sequence:</p>
+
+<ol>
+  <li>Write a birthday party invitation in Google Docs</li>
+  <li>Export that Doc as a PDF</li>
+  <li>Create a dedicated folder in Google Drive called "birthday invitations"</li>
+  <li>Move the PDF into that folder</li>
+  <li>Send the PDF as an email attachment to himself (Tyleranimasai.co)</li>
+  <li>Create a Google Calendar event for the party on April 10th from 2pm to 6pm</li>
+  <li>Add "Stacy" as a contact in Google People</li>
+</ol>
+
+<p>The agent completed all of these steps autonomously. Tyler only had to dictate the instructions once, with full context. It did create two folders with the same name rather than organizing perfectly — a small UX quirk — but every substantive action executed correctly.</p>
+
+<blockquote>"I literally did not have to do any of this myself. The agent found the JSON file, loaded it, ran the authorization, created the document, exported it, sent the email, and made the calendar event. All I did was watch."</blockquote>
+
+<h2>Where Agents Still Need a Human</h2>
+
+<p>The walkthrough surfaced honest limitations. GOG cannot open a Google Doc and edit existing content — only create new files or copy and reorganize existing ones. Tyler also mentioned he had to correct the agent when it used an invalid email address for Stacy. Like any automation system, the outputs still need a quick human review before they go live.</p>
+
+<p>Agents also show a behavioral tendency: they avoid deleting things without asking, preferring to create new folders rather than overwrite or reorganize. Tyler called this "a good problem to have" — safer than accidentally deleting — but something to be aware of when you're designing workflows.</p>
+
+<h2>What Frontier Models Change About This Workflow</h2>
+
+<p>Tyler used GPT 5.4 as the underlying model for his OpenClaw agent. He specifically noted that frontier models — GPT 5.4, Claude Opus, Claude Sonic — can navigate Google Workspace UIs and API responses in ways that smaller models cannot. If you've been trying this kind of setup with a lower-tier model and getting inconsistent results, the model choice is likely the bottleneck, not the GOG skill itself.</p>
+
+<p>The $20/month ChatGPT Plus plan, Tyler said, is sufficient to run OpenClaw effectively. You're not paying for enterprise-tier AI — you're paying for a model that can actually follow multi-step workspace instructions without hallucinating the steps.</p>
+
+<h2>The Step-by-Step Checklist for Your Own Setup</h2>
+
+<p>Based on Tyler's walkthrough, here is the sequence for wiring OpenClaw to your Google Workspace:</p>
+
+<ol>
+  <li>Install OpenClaw and name your agent</li>
+  <li>Set your identity and context files so the agent retains memory across sessions</li>
+  <li>Verify the GOG skill is installed</li>
+  <li>Create a Google Cloud project (give it a name like "OpenClaw Workspace")</li>
+  <li>Enable Gmail API, Google Calendar API, Google Drive API, Google Docs API, Google Sheets API, and Google People API</li>
+  <li>Create an OAuth consent screen (choose Desktop app type)</li>
+  <li>Download the OAuth client credentials JSON</li>
+  <li>Give the agent your Google email address and point it to the credentials file</li>
+  <li>Complete the browser-based OAuth authorization</li>
+  <li>Confirm the agent can read Gmail, Calendar, and Drive</li>
+</ol>
+
+<p>Tyler completed this entire process live in one take. For most users, following the agent's own guidance step-by-step is the fastest path — paste what you see on screen, and the agent adjusts.</p>    — The full article body as semantic HTML (use <h2>, <h3>, <p>, <ul>, <ol>, <blockquote>, <pre><code>, <img>)
+  openclaw-google-workspace-setup                 — URL slug without extension (e.g. automate-crm-updates)
+
+=============================================================
+-->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Connect OpenClaw to Your Google Workspace: Full Setup Walkthrough | Animas AI Blog</title>
+    <meta name="description" content="Tyler Mayberry walks through wiring OpenClaw to Gmail, Calendar, Drive, and Docs using the GOG skill and Google Cloud OAuth — live demo included.">
+    <link rel="canonical" href="https://animasai.co/blog/openclaw-google-workspace-setup.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="How to Connect OpenClaw to Your Google Workspace: Full Setup Walkthrough">
+    <meta property="og:description" content="Tyler Mayberry walks through wiring OpenClaw to Gmail, Calendar, Drive, and Docs using the GOG skill and Google Cloud OAuth — live demo included.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://animasai.co/blog/openclaw-google-workspace-setup.html">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: { 850: '#151e2e', 900: '#0f172a', 950: '#020617' },
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd',
+                            400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8',
+                            800: '#1e40af', 900: '#1e3a8a',
+                        }
+                    },
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                maxWidth: 'none',
+                                color: '#334155',
+                                h2: { color: '#0f172a', fontFamily: 'Manrope, sans-serif', fontWeight: '700', marginTop: '2.5rem' },
+                                h3: { color: '#0f172a', fontFamily: 'Manrope, sans-serif', fontWeight: '700' },
+                                a: { color: '#2563eb', textDecoration: 'underline', '&:hover': { color: '#1d4ed8' } },
+                                blockquote: { borderLeftColor: '#2563eb', color: '#475569', fontStyle: 'normal' },
+                                'code::before': { content: 'none' },
+                                'code::after': { content: 'none' },
+                                code: { backgroundColor: '#f1f5f9', padding: '0.25rem 0.375rem', borderRadius: '0.25rem', fontSize: '0.875em', fontWeight: '500' },
+                                pre: { backgroundColor: '#0f172a', color: '#e2e8f0', borderRadius: '0.75rem' },
+                                img: { borderRadius: '0.75rem', border: '1px solid #e2e8f0' },
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/index.html" class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How it Works</a>
+                    <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Solutions</a>
+                    <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Case Studies</a>
+                    <a href="/blog/" class="text-sm font-bold text-brand-600 border-b-2 border-brand-600 pb-1">Blog</a>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">Book a Workflow Audit</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col transition-all duration-300">
+        <div class="flex justify-end p-6">
+            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center flex-1 space-y-8 text-xl font-display font-bold tracking-tight">
+            <a href="/how-it-works.html" class="text-slate-900 hover:text-brand-600 transition-colors">How it Works</a>
+            <a href="/solutions.html" class="text-slate-900 hover:text-brand-600 transition-colors">Solutions</a>
+            <a href="/case-studies.html" class="text-slate-900 hover:text-brand-600 transition-colors">Case Studies</a>
+            <a href="/blog/" class="text-brand-600">Blog</a>
+            <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Book an Audit</a>
+        </div>
+    </div>
+
+    <!-- Article -->
+    <main class="pt-32 pb-24">
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Article Header -->
+            <header class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <a href="/blog/" class="text-brand-600 hover:text-brand-700 text-sm font-medium inline-flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[16px]">arrow_back</span> All Articles
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600">AI Strategy</span>
+                    <span class="text-xs text-slate-400">·</span>
+                    <time class="text-xs text-slate-400" datetime="2026-03-26">March 26, 2026</time>
+                    <span class="text-xs text-slate-400">·</span>
+                    <span class="text-xs text-slate-400">8 min read</span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-display font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">
+                    How to Connect OpenClaw to Your Google Workspace: Full Setup Walkthrough
+                </h1>
+
+                <p class="text-lg text-slate-500 leading-relaxed">
+                    Tyler Mayberry walks through wiring OpenClaw to Gmail, Calendar, Drive, and Docs using the GOG skill and Google Cloud OAuth — live demo included.
+                </p>
+
+                <div class="mt-8 border-b border-gray-200"></div>
+            </header>
+
+            <!-- Article Body -->
+            <div class="prose prose-lg prose-slate max-w-none">
+                <h2>What OpenClaw Actually Manages in Google Workspace</h2>
+
+<p>When Tyler named his new OpenClaw agent "Clove" and told it to take over his Google account, he wasn't exaggerating. The agent can read and send Gmail, create and organize Google Drive files, build Google Calendar events, and manage contacts in Google People — all through the GOG skill and a Google Cloud OAuth connection. What it cannot do, at least not yet, is edit existing Google Docs directly. That's a limitation worth knowing before you wire everything up.</p>
+
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/I9O6g42s0x4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-xl my-8"></iframe>
+
+<p>The full setup, end to end, took Tyler about 40 minutes in real time. Here's exactly how it works.</p>
+
+<h2>Dictation Changes Everything About Prompting</h2>
+
+<p>Before touching any Google Cloud console, Tyler showed why he uses dictation to talk to his AI agent instead of typing. "I just hit my hotkey and start talking into the computer," he said. The difference in output quality is immediate. Short typed prompts produce shallow, generic results. Long dictation gives the model direction, nuance, and context — and that context is what makes an agent capable of navigating Google Workspace without hand-holding.</p>
+
+<p>This matters for the Google Workspace integration specifically because OpenClaw's agent needs to understand multi-step workflows. A prompt like "check my email" gets basic results. A spoken explanation of what you need and why lets the agent figure out the right API calls on its own.</p>
+
+<h2>The GOG Skill: What It Is and What It Is Not</h2>
+
+<p>GOG is the OpenClaw skill that bridges your agent to Google Workspace. It uses Google's official APIs — Gmail API, Google Calendar API, Google Drive API, Google Sheets API, and Google People API — through a standard OAuth 2.0 flow. Once authenticated, the agent can perform actions like sending emails, creating calendar events, uploading files to Drive, exporting Google Docs as PDFs, and creating folders.</p>
+
+<p>What GOG explicitly cannot do: edit existing Google Docs in place. Tyler called this out in the walkthrough. The skill supports export, copy, and create, but in-document editing via API is not available. That doesn't break most workflows — it just means you may need a human to do final edits on shared templates.</p>
+
+<h2>Google Cloud Project Setup: The APIs You Actually Need</h2>
+
+<p>The GOG skill documentation lists six Google Cloud APIs you should enable. Not all are mandatory for every use case, but here's the complete set from the walkthrough:</p>
+
+<ul>
+  <li><strong>Gmail API</strong> — read, send, manage email</li>
+  <li><strong>Google Calendar API</strong> — create, edit, and query calendar events</li>
+  <li><strong>Google Drive API</strong> — create files, folders, copy files, move files</li>
+  <li><strong>Google Docs API</strong> — export Docs to PDF, copy templates</li>
+  <li><strong>Google Sheets API</strong> — read and write spreadsheet data</li>
+  <li><strong>Google People API</strong> — manage contacts</li>
+</ul>
+
+<p>Tyler enabled all six during the walkthrough. The exact steps: open Google Cloud Console, navigate to APIs &amp; Services &gt; Library, search each API by name, and click Enable with your project selected. Most of these APIs are free for standard personal or small business use under Google's quota limits.</p>
+
+<h2>OAuth Consent Screen: Desktop App vs. Web Application</h2>
+
+<p>During setup, Tyler had to choose an OAuth application type. GOG uses a desktop app flow, which means selecting "Desktop app" when creating your OAuth client ID in Google Cloud Console — not "Web application." Tyler specifically noted this because the option that appears default (web) leads to a different OAuth flow that won't work with GOG.</p>
+
+<p>The consent screen itself requires:</p>
+
+<ul>
+  <li>An app name (Tyler's was "Clove GOG Access")</li>
+  <li>A support email address (can be any valid email)</li>
+  <li>No publisher verification is required for personal or internal use</li>
+</ul>
+
+<p>If you hit the "test mode" prompt, Tyler mentioned the agent will tell you what to do. In practice, you may be able to skip test users if your app is in production-approved status.</p>
+
+<h2>Downloading and Loading Credentials</h2>
+
+<p>After creating the OAuth client, Google provides a JSON credentials file containing your client ID and client secret. This file is what GOG uses to initiate the OAuth handshake with your Google account. Tyler walked through downloading it directly from the Google Cloud Console OAuth clients screen.</p>
+
+<p>Once the credentials file is on disk, GOG starts the real account authorization — a browser-based OAuth approval step where you log into your Google account and click "Allow." Tyler described this as the moment your OpenClaw agent officially gets access to your workspace. After approving, the agent ran a verification check confirming it could reach Gmail, Calendar, and Drive.</p>
+
+<h2>Demo: Sending a Birthday Party Invitation End-to-End</h2>
+
+<p>The real test of any Google Workspace integration is a complete, multi-step workflow. Tyler put GOG through this sequence:</p>
+
+<ol>
+  <li>Write a birthday party invitation in Google Docs</li>
+  <li>Export that Doc as a PDF</li>
+  <li>Create a dedicated folder in Google Drive called "birthday invitations"</li>
+  <li>Move the PDF into that folder</li>
+  <li>Send the PDF as an email attachment to himself (Tyleranimasai.co)</li>
+  <li>Create a Google Calendar event for the party on April 10th from 2pm to 6pm</li>
+  <li>Add "Stacy" as a contact in Google People</li>
+</ol>
+
+<p>The agent completed all of these steps autonomously. Tyler only had to dictate the instructions once, with full context. It did create two folders with the same name rather than organizing perfectly — a small UX quirk — but every substantive action executed correctly.</p>
+
+<blockquote>"I literally did not have to do any of this myself. The agent found the JSON file, loaded it, ran the authorization, created the document, exported it, sent the email, and made the calendar event. All I did was watch."</blockquote>
+
+<h2>Where Agents Still Need a Human</h2>
+
+<p>The walkthrough surfaced honest limitations. GOG cannot open a Google Doc and edit existing content — only create new files or copy and reorganize existing ones. Tyler also mentioned he had to correct the agent when it used an invalid email address for Stacy. Like any automation system, the outputs still need a quick human review before they go live.</p>
+
+<p>Agents also show a behavioral tendency: they avoid deleting things without asking, preferring to create new folders rather than overwrite or reorganize. Tyler called this "a good problem to have" — safer than accidentally deleting — but something to be aware of when you're designing workflows.</p>
+
+<h2>What Frontier Models Change About This Workflow</h2>
+
+<p>Tyler used GPT 5.4 as the underlying model for his OpenClaw agent. He specifically noted that frontier models — GPT 5.4, Claude Opus, Claude Sonic — can navigate Google Workspace UIs and API responses in ways that smaller models cannot. If you've been trying this kind of setup with a lower-tier model and getting inconsistent results, the model choice is likely the bottleneck, not the GOG skill itself.</p>
+
+<p>The $20/month ChatGPT Plus plan, Tyler said, is sufficient to run OpenClaw effectively. You're not paying for enterprise-tier AI — you're paying for a model that can actually follow multi-step workspace instructions without hallucinating the steps.</p>
+
+<h2>The Step-by-Step Checklist for Your Own Setup</h2>
+
+<p>Based on Tyler's walkthrough, here is the sequence for wiring OpenClaw to your Google Workspace:</p>
+
+<ol>
+  <li>Install OpenClaw and name your agent</li>
+  <li>Set your identity and context files so the agent retains memory across sessions</li>
+  <li>Verify the GOG skill is installed</li>
+  <li>Create a Google Cloud project (give it a name like "OpenClaw Workspace")</li>
+  <li>Enable Gmail API, Google Calendar API, Google Drive API, Google Docs API, Google Sheets API, and Google People API</li>
+  <li>Create an OAuth consent screen (choose Desktop app type)</li>
+  <li>Download the OAuth client credentials JSON</li>
+  <li>Give the agent your Google email address and point it to the credentials file</li>
+  <li>Complete the browser-based OAuth authorization</li>
+  <li>Confirm the agent can read Gmail, Calendar, and Drive</li>
+</ol>
+
+<p>Tyler completed this entire process live in one take. For most users, following the agent's own guidance step-by-step is the fastest path — paste what you see on screen, and the agent adjusts.</p>
+            </div>
+
+            <!-- Author Card -->
+            <div class="mt-16 pt-10 border-t border-gray-200">
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-6">
+                    <img src="/me.jpg" alt="Tyler Mayberry" class="w-16 h-16 rounded-full object-cover shadow-sm">
+                    <div>
+                        <div class="font-bold text-slate-900">Tyler Mayberry</div>
+                        <div class="text-sm text-slate-500">Founder, Animas AI</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related CTA -->
+            <div class="mt-16 bg-slate-900 rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-600/20 via-transparent to-transparent"></div>
+                <div class="relative z-10">
+                    <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-4">Want this automated for your business?</h2>
+                    <p class="text-slate-300 mb-8 max-w-lg mx-auto">See your first custom automation live in 7 days, or it's free.</p>
+                    <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-brand-50 hover:scale-105 transition-all duration-300 shadow-xl inline-block">Book Your Workflow Audit</a>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-16 text-slate-400 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <a href="/index.html" class="font-display font-bold text-xl tracking-tight text-white mb-4 block">ANIMAS AI.</a>
+                    <p class="text-sm max-w-sm mb-6">Premium technical consulting and automation systems designed to scale your business.</p>
+                    <div class="text-xs">© 2024 ANIMAS AI. ALL RIGHTS RESERVED.</div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="/how-it-works.html" class="hover:text-white transition-colors">How it Works</a></li>
+                        <li><a href="/solutions.html" class="hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="/case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="/blog/" class="text-white font-medium hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="mailto:tyler@animasai.co" class="hover:text-white transition-colors">tyler@animasai.co</a></li>
+                        <li><a href="https://youtube.com/@mayberrytyler" target="_blank" class="hover:text-white transition-colors">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn && closeBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); mobileMenu.classList.add('flex'); document.body.style.overflow = 'hidden'; });
+                closeBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); document.body.style.overflow = ''; });
+            }
+        });
+    </script>
+</body>
+</html>
