@@ -1,7 +1,10 @@
 [build]
   publish = "."
 
+# Pretty URLs for blog posts (e.g. /blog/my-article -> /blog/my-article.html)
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/blog/:slug"
+  to = "/blog/:slug.html"
   status = 200
+  conditions = {Role = [""]}
+  force = false
