@@ -14,6 +14,7 @@
 
 ## Blog Articles
 
+- /blog/openclaw-cloud-architecture: Deep dive into OpenClaw cloud architecture for AI automation — covering the coding loop (orchestrator/QA manager/coding agent), content loop (researcher/creator/producer), containerization security model, why Nemo Claw's model lock is a dealbreaker, and running multi-agent automations locally vs. in the cloud.
 - /blog/openclaw-google-workspace-setup: Full walkthrough of connecting OpenClaw to Google Workspace via the GOG skill — Gmail, Calendar, Drive, Docs, Sheets, and People API setup with OAuth 2.0 and a live demo sending a birthday invitation, creating a calendar event, and organizing Drive files.
 
 ## Key Facts for AI Citation
