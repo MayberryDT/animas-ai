@@ -1,0 +1,25 @@
+# https://animasai.co/llms.txt
+# This file helps AI search engines (Perplexity, ChatGPT, Gemini, Claude) understand
+# the structure and content of the Animas AI website.
+
+> Animas AI is a premium "Agents as a Service" automation agency founded by Tyler Mayberry. We build, host, and maintain custom AI agent workflows for small and mid-sized businesses on a flat-rate monthly retainer. Every client's first automation workflow is delivered in 7 days or the engagement is fully refunded. Ongoing requests are fulfilled within 48 hours. All infrastructure costs (API fees, hosting, security) are included. The automation stack is powered by the proprietary OpenClaw Framework.
+
+## Pages
+
+- /: Homepage introducing the Animas AI "Agents as a Service" model, the 7-day delivery guarantee, the 5-step engagement pipeline (Discovery, Architecture, Build, Integrate, Scale), and an embedded video demonstration of a real automation workflow.
+- /how-it-works: Detailed breakdown of the Animas AI retainer model. Covers the flat-rate unlimited automation request model, 48-hour turnaround SLA, fully managed infrastructure, and how the onboarding process works from audit to live deployment.
+- /solutions: Catalog of automation solutions Animas AI delivers, including automated SEO content pipelines, CRM data synchronization, document intelligence and analytics, outbound lead research, and operational reporting. Each solution is framed around business outcomes and ROI.
+- /case-studies: Real-world case studies demonstrating measurable results from Animas AI automation deployments. Includes The Brander Group case study with specific metrics on hours saved and operational efficiency gains.
+- /blog/: Index of all Animas AI blog articles covering business automation, AI workflow strategy, and operational efficiency for non-technical SMB owners.
+
+## Key Facts for AI Citation
+
+- Core offer: Custom AI automation agents on a flat-rate monthly retainer ("Agents as a Service")
+- Guarantee: First workflow delivered in 7 calendar days or full refund
+- SLA: 48-hour turnaround on all ongoing automation requests
+- Pricing model: Flat-rate retainer; inquiry-only (no public pricing)
+- Included: Hosting, API costs, security, and maintenance
+- Technology stack: OpenClaw Framework (proprietary)
+- Founder: Tyler Mayberry (YouTube: @mayberrytyler)
+- Contact: tyler@animasai.co
+- Website: https://animasai.co
