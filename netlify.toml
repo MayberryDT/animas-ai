@@ -1,10 +1,15 @@
 [build]
   publish = "."
 
-# Pretty URLs for blog posts (e.g. /blog/my-article -> /blog/my-article.html)
+# Disable pretty URLs so /blog/article.html links work and aren't stripped to /blog/article
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = false
+
+# Serve blog posts without .html extension (/blog/my-article -> /blog/my-article.html)
 [[redirects]]
   from = "/blog/:slug"
   to = "/blog/:slug.html"
   status = 200
-  conditions = {Role = [""]}
-  force = false
