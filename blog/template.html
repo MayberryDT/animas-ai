@@ -17,6 +17,7 @@ PLACEHOLDERS TO REPLACE:
   {{PUBLISH_DATE_ISO}}     — ISO 8601 date (e.g. 2026-03-25)
   {{PUBLISH_DATE_HUMAN}}   — Human-readable (e.g. March 25, 2026)
   {{READING_TIME}}         — Estimated minutes (e.g. 6 min read)
+  {{FEATURED_IMAGE}}       — Full <img> tag for the hero image (e.g. <img src="/blog/images/slug.jpg" ... />). If no image, leave blank.
   {{ARTICLE_BODY_HTML}}    — The full article body as semantic HTML (use <h2>, <h3>, <p>, <ul>, <ol>, <blockquote>, <pre><code>, <img>)
   {{SLUG}}                 — URL slug without extension (e.g. automate-crm-updates)
 
@@ -158,6 +159,7 @@ PLACEHOLDERS TO REPLACE:
 
             <!-- Article Body -->
             <div class="prose prose-lg prose-slate max-w-none">
+                {{FEATURED_IMAGE}}
                 {{ARTICLE_BODY_HTML}}
             </div>
 
