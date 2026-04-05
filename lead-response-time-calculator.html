@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lead Response Time Calculator — Animas AI</title>
+    <meta
+      name="description"
+      content="Measure how response speed affects lead conversion and revenue opportunity."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Cpath d='M9 16h14' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='11' cy='16' r='2' fill='white'/%3E%3C/svg%3E"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eef2ff',
+                100: '#e0e7ff',
+                600: '#4f46e5',
+                700: '#4338ca'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              display: ['Manrope', 'Inter', 'system-ui', 'sans-serif']
+            },
+            boxShadow: {
+              soft: '0 20px 60px rgba(15, 23, 42, 0.08)'
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .sr-only-focusable:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden">
+    <nav class="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="/index.html" class="flex items-center gap-3">
+            <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+            <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
+          </a>
+          <div class="hidden md:flex space-x-8 items-center">
+            <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How it Works</a>
+            <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Solutions</a>
+            <a href="/solutions.html#tools" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Tools</a>
+            <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Case Studies</a>
+            <a href="/blog/" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Blog</a>
+          </div>
+          <div class="hidden md:flex items-center">
+            <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">Book a Workflow Audit</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <a
+      href="#main-content"
+      class="sr-only sr-only-focusable absolute left-4 top-4 z-50 rounded-full bg-white px-4 py-2 font-semibold text-slate-900 shadow-lg focus:outline-none focus:ring-4 focus:ring-indigo-200"
+    >
+      Skip to main content
+    </a>
+    <div class="min-h-screen">
+      <header class="border-b border-slate-200/80 bg-white/90 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <a href="#hero" class="font-display text-lg font-extrabold tracking-tight text-slate-900 transition hover:text-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-offset-2 sm:text-xl">Lead Response Time Calculator</a>
+          <a
+            href="#cta"
+            class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-offset-2"
+            >Book a Workflow Audit</a
+          >
+        </div>
+      </header>
+
+      <main id="main-content">
+        <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-white via-indigo-50/40 to-slate-50" aria-labelledby="hero-heading">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/70 to-transparent"></div>
+          <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
+            <div class="space-y-8">
+              <div class="inline-flex items-center rounded-full border border-indigo-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700 shadow-sm">
+                Speed-to-Lead Audit
+              </div>
+              <div class="space-y-5">
+                <h1 id="hero-heading" class="max-w-4xl font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                  See What Slow Lead Response May Be Costing You
+                </h1>
+                <p class="max-w-2xl text-lg leading-8 text-slate-600">
+                  Estimate the revenue impact of delayed first response for inbound leads and see why speed matters more than most firms realize.
+                </p>
+              </div>
+              <ul class="grid gap-3 text-sm font-medium text-slate-700 sm:grid-cols-3 sm:gap-4">
+                <li class="rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-sm">Built for consulting firms, not sales teams</li>
+                <li class="rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-sm">See the cost of delay in minutes</li>
+                <li class="rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-sm">No signup required</li>
+              </ul>
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <a
+                  href="#calculator"
+                  class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-indigo-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-offset-2"
+                  >Calculate My Leakage</a
+                >
+                <a
+                  href="#faq"
+                  class="inline-flex min-h-[44px] items-center justify-center rounded-full px-2 text-base font-semibold text-slate-700 transition hover:text-slate-900 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-offset-2"
+                  >See how it works</a
+                >
+              </div>
+            </div>
+
+            <div class="rounded-[2rem] border border-white/70 bg-white p-6 shadow-soft sm:p-8">
+              <div class="space-y-6">
+                <div class="rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+                  <p class="text-sm font-semibold uppercase tracking-[0.16em] text-indigo-700">Lead Leakage Snapshot</p>
+                  <p class="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-900">Minutes matter.</p>
+                  <p class="mt-3 text-base leading-7 text-slate-600">
+                    The longer a qualified lead waits, the easier it gets for urgency, attention, and budget to disappear. That part was always obvious.
+                  </p>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-2xl bg-slate-50 p-5">
+                    <p class="text-sm font-medium text-slate-500">Built for</p>
+                    <p class="mt-3 font-display text-2xl font-bold text-slate-900">B2B consulting firms</p>
+                  </div>
+                  <div class="rounded-2xl bg-slate-50 p-5">
+                    <p class="text-sm font-medium text-slate-500">Outcome</p>
+                    <p class="mt-3 font-display text-2xl font-bold text-slate-900">Clearer revenue risk</p>
+                  </div>
+                </div>
+                <div class="rounded-2xl bg-slate-50 p-5">
+                  <p class="text-sm font-medium text-slate-500">What happens next</p>
+                  <p class="mt-3 text-base leading-7 text-slate-600">
+                    Use the calculator below when you are ready. The section stays hidden for now, because apparently scaffolding counts as progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="calculator" class="hidden px-4 py-16 sm:px-6 lg:px-8" aria-hidden="true" aria-labelledby="calculator-heading">
+          <div class="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-white p-5 shadow-soft sm:p-8 lg:p-10">
+            <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+              <div class="max-w-xl space-y-4">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Calculator</p>
+                <h2 id="calculator-heading" class="font-display text-3xl font-bold tracking-tight text-slate-900">Map your lead response inputs.</h2>
+                <p class="text-base leading-7 text-slate-600">
+                  Enter the inputs. The math does the rest. Assumptions are labeled so nobody mistakes them for divine truth.
+                </p>
+                <div class="rounded-2xl border border-indigo-100 bg-indigo-50 p-5">
+                  <p class="text-sm font-semibold text-indigo-700">What you will enter</p>
+                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-600">
+                    <li>Monthly lead volume and average deal size</li>
+                    <li>Current response timing and projected target timing</li>
+                    <li>Close rate plus optional fit-rate assumptions</li>
+                  </ul>
+                </div>
+              </div>
+
+              <form id="calculator-form" class="rounded-[1.75rem] border border-slate-200 bg-slate-50/70 p-6 lg:p-7" aria-labelledby="calculator-form-heading" novalidate>
+                <div class="space-y-6">
+                  <div class="space-y-2">
+                    <h3 id="calculator-form-heading" class="font-display text-2xl font-bold tracking-tight text-slate-900">Lead response calculator form</h3>
+                    <p class="text-sm leading-6 text-slate-600">Fill the required fields, then calculate. Optional fields use conservative defaults when left blank.</p>
+                  </div>
+
+                  <div id="form-error" class="hidden rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700" role="alert" tabindex="-1"></div>
+
+                  <div class="grid gap-5 md:grid-cols-2">
+                    <div class="space-y-2">
+                      <label for="monthly-leads" class="text-sm font-semibold text-slate-800">Monthly inbound leads</label>
+                      <input
+                        id="monthly-leads"
+                        name="monthlyLeads"
+                        type="number"
+                        inputmode="numeric"
+                        min="0"
+                        required
+                        aria-required="true"
+                        placeholder="e.g. 30"
+                        class="min-h-[44px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                      />
+                    </div>
+
+                    <div class="space-y-2">
+                      <label for="deal-value" class="text-sm font-semibold text-slate-800">Average deal value ($)</label>
+                      <input
+                        id="deal-value"
+                        name="dealValue"
+                        type="number"
+                        inputmode="decimal"
+                        min="0"
+                        required
+                        aria-required="true"
+                        placeholder="e.g. 5000"
+                        class="min-h-[44px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                      />
+                    </div>
+
+                    <div class="space-y-2">
+                      <label for="current-response-window" class="text-sm font-semibold text-slate-800">Current typical first-response window</label>
+                      <select
+                        id="current-response-window"
+                        name="currentResponseWindow"
+                        required
+                        aria-required="true"
+                        class="min-h-[44px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                      >
+                        <option value="" selected disabled>Select a response window</option>
+                        <option value="under-5">Under 5 minutes</option>
+                        <option value="5-15">5 to 15 minutes</option>
+                        <option value="15-60">15 to 60 minutes</option>
+                        <option value="same-business-day">Same business day</option>
+                        <option value="next-day-or-later">Next day or later</option>
+                      </select>
+                    </div>
+
+                    <div class="space-y-2">
+                      <label for="close-rate" class="text-sm font-semibold text-slate-800">Estimated close rate from qualified conversation (%)</label>
+                      <input
+                        id="close-rate"
+                        name="closeRate"
+                        type="number"
+                        inputmode="decimal"
+                        min="0"
+                        max="100"
+                        required
+                        aria-required="true"
+                        placeholder="e.g. 25"
+                        class="min-h-[44px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                      />
+                    </div>
+
+                    <div class="space-y-2">
+                      <label for="fit-rate" class="text-sm font-semibold text-slate-800">Percentage of leads that are a good fit <span class="font-medium text-slate-500">(optional)</span></label>
+                      <input
+                        id="fit-rate"
+                        name="fitRate"
+                        type="number"
+                        inputmode="decimal"
+                        min="0"
+                        max="100"
+                        aria-describedby="fit-rate-hint"
+                        placeholder="Optional"
+                        class="min-h-[44px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                      />
+                      <p id="fit-rate-hint" class="text-xs leading-5 text-slate-500">Leave blank to use the default assumption in the calculation step.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                      <label for="target-response-window" class="text-sm font-semibold text-slate-800">Target response window <span class="font-medium text-slate-500">(optional)</span></label>
+                      <select
+                        id="target-response-window"
+                        name="targetResponseWindow"
+                        aria-describedby="target-response-window-hint"
+                        class="min-h-[44px] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                      >
+                        <option value="" selected>Select a target response window</option>
+                        <option value="under-5">Under 5 minutes</option>
+                        <option value="5-15">5 to 15 minutes</option>
+                        <option value="15-60">15 to 60 minutes</option>
+                        <option value="same-business-day">Same business day</option>
+                        <option value="next-day-or-later">Next day or later</option>
+                      </select>
+                      <p id="target-response-window-hint" class="text-xs leading-5 text-slate-500">Uses the same scale as your current response window.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm leading-6 text-slate-500">Assumptions: fit rate defaults to 60% if blank. Response timing multipliers are directional estimates, not gospel.</p>
+                    <button
+                      type="submit"
+                      id="calculate-button"
+                      class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-indigo-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100"
+                    >
+                      Calculate My Leakage
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section id="results" class="hidden translate-y-4 px-4 pb-16 opacity-0 transition-all duration-500 ease-out sm:px-6 lg:px-8" aria-hidden="true" aria-labelledby="results-heading">
+          <div id="results-card" class="mx-auto max-w-5xl rounded-[2rem] border border-slate-200 bg-white p-5 shadow-soft sm:p-8 lg:p-10" tabindex="-1">
+            <div class="max-w-3xl space-y-3">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Results</p>
+              <h2 id="results-heading" class="font-display text-3xl font-bold tracking-tight text-slate-900">Your estimated revenue impact.</h2>
+              <p id="results-summary" class="text-lg font-medium leading-8 text-slate-700" aria-live="polite"></p>
+            </div>
+            <div class="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+              <article class="rounded-[1.75rem] border border-indigo-100 bg-indigo-50 p-6">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-indigo-700">Potential monthly revenue leakage</p>
+                <p id="monthly-upside-range" class="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-900">$0 to $0</p>
+                <p id="monthly-upside-detail" class="mt-3 text-sm leading-6 text-slate-600"></p>
+              </article>
+              <article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Estimated current monthly value</p>
+                <p id="current-monthly-value" class="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-900">$0</p>
+                <p id="current-monthly-detail" class="mt-3 text-sm leading-6 text-slate-600"></p>
+              </article>
+            </div>
+            <div class="mt-5 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+              <article class="rounded-[1.75rem] border border-slate-200 bg-white p-6">
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Tier comparison</p>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Current versus target response timing, with multiplier assumptions shown plainly.</p>
+                  </div>
+                  <p id="multiplier-arrow" class="hidden text-sm font-semibold text-indigo-600 lg:block"></p>
+                </div>
+                <div class="mt-5 grid gap-4 md:grid-cols-[1fr_auto_1fr] md:items-center">
+                  <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Current tier</p>
+                    <p id="current-tier-label" class="mt-3 font-display text-2xl font-bold text-slate-900">—</p>
+                    <p id="current-multiplier" class="mt-2 text-sm font-medium text-slate-600">—</p>
+                  </div>
+                  <div class="flex items-center justify-center text-2xl font-semibold text-indigo-600" aria-hidden="true">→</div>
+                  <div class="rounded-2xl border border-indigo-100 bg-indigo-50 p-5">
+                    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-700">Target tier</p>
+                    <p id="target-tier-label" class="mt-3 font-display text-2xl font-bold text-slate-900">—</p>
+                    <p id="target-multiplier" class="mt-2 text-sm font-medium text-slate-600">—</p>
+                  </div>
+                </div>
+              </article>
+              <article class="rounded-[1.75rem] border border-slate-200 bg-white p-6">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Calculation inputs used</p>
+                <dl class="mt-4 space-y-3 text-sm leading-6 text-slate-600">
+                  <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-3"><dt>Good-fit rate used</dt><dd id="fit-rate-used">—</dd></div>
+                  <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-3"><dt>Current multiplier</dt><dd id="current-multiplier-value">—</dd></div>
+                  <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-3"><dt>Target multiplier</dt><dd id="target-multiplier-value">—</dd></div>
+                </dl>
+              </article>
+            </div>
+            <div class="mt-5 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+              <article class="rounded-[1.75rem] border border-slate-200 bg-white p-6">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Why this happens</p>
+                <p id="why-this-happens" class="mt-3 text-sm leading-7 text-slate-600"></p>
+              </article>
+              <article class="rounded-[1.75rem] border border-slate-200 bg-white p-6">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Assumption notes</p>
+                <p id="assumption-notes" class="mt-3 text-sm leading-7 text-slate-600"></p>
+                <p id="results-disclaimer" class="mt-4 text-xs leading-5 text-slate-500">These figures are directional estimates based on observed response patterns, not guarantees.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="cta" class="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="cta-heading">
+          <div class="mx-auto max-w-6xl rounded-[2rem] border border-indigo-100 bg-indigo-50/70 px-5 py-10 shadow-soft sm:px-8 sm:py-12 lg:px-12 lg:py-14">
+            <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+              <div class="max-w-2xl space-y-4">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">Next Step</p>
+                <h2 id="cta-heading" class="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                  Your estimate showed a fixable problem.
+                </h2>
+                <p class="text-base leading-7 text-slate-600">
+                  If the numbers look uncomfortable, good. This is the natural next step: get a clearer diagnosis or see the sprint built to fix it fast. No hard sell. Just the obvious path forward.
+                </p>
+              </div>
+              <div class="flex w-full flex-col gap-3 lg:w-auto">
+                <a
+                  href="/speed-to-lead-audit.html"
+                  class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-indigo-600 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-offset-2"
+                  >Get a Fuller Diagnosis — Try the Speed-to-Lead Audit</a
+                >
+                <a
+                  href="/how-it-works.html"
+                  class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-slate-900 transition hover:border-indigo-300 hover:text-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-offset-2"
+                  >Fix This in 7 Days — See the Speed to Lead Sprint</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" class="px-4 pb-24 sm:px-6 lg:px-8" aria-labelledby="faq-heading">
+          <div class="mx-auto max-w-4xl space-y-8">
+            <div class="max-w-3xl space-y-3">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">FAQ</p>
+              <h2 id="faq-heading" class="font-display text-3xl font-bold tracking-tight text-slate-900">Common questions. Predictable answers.</h2>
+              <p class="text-base leading-7 text-slate-600">Short answers for the obvious objections. Because someone was going to ask.</p>
+            </div>
+            <div class="space-y-4" data-faq-accordion>
+              <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-soft transition hover:border-indigo-200">
+                <button
+                  type="button"
+                  class="flex min-h-[44px] w-full items-center justify-between gap-4 px-5 py-4 text-left transition focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-inset sm:px-7 sm:py-5"
+                  data-faq-trigger
+                  aria-expanded="false"
+                  aria-controls="faq-panel-1"
+                >
+                  <span class="font-display text-xl font-bold text-slate-900">How accurate is this estimate?</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-2xl font-light text-indigo-600 transition" data-faq-icon aria-hidden="true">+</span>
+                </button>
+                <div id="faq-panel-1" class="hidden border-t border-slate-100 px-6 pb-6 pt-1 sm:px-7" data-faq-panel>
+                  <p class="text-sm leading-7 text-slate-600">
+                    It is directional, not precise. The estimate is based on observed response patterns in similar consulting firms, so it is useful for sizing the problem, not pretending to be a forensic accounting exercise.
+                  </p>
+                </div>
+              </article>
+
+              <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-soft transition hover:border-indigo-200">
+                <button
+                  type="button"
+                  class="flex min-h-[44px] w-full items-center justify-between gap-4 px-5 py-4 text-left transition focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-inset sm:px-7 sm:py-5"
+                  data-faq-trigger
+                  aria-expanded="false"
+                  aria-controls="faq-panel-2"
+                >
+                  <span class="font-display text-xl font-bold text-slate-900">Is this for all businesses?</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-2xl font-light text-indigo-600 transition" data-faq-icon aria-hidden="true">+</span>
+                </button>
+                <div id="faq-panel-2" class="hidden border-t border-slate-100 px-6 pb-6 pt-1 sm:px-7" data-faq-panel>
+                  <p class="text-sm leading-7 text-slate-600">
+                    No. This calculator is specifically for consulting firms with inbound lead flow. If your model works differently, the numbers stop being especially meaningful. Annoying, but true.
+                  </p>
+                </div>
+              </article>
+
+              <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-soft transition hover:border-indigo-200">
+                <button
+                  type="button"
+                  class="flex min-h-[44px] w-full items-center justify-between gap-4 px-5 py-4 text-left transition focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-inset sm:px-7 sm:py-5"
+                  data-faq-trigger
+                  aria-expanded="false"
+                  aria-controls="faq-panel-3"
+                >
+                  <span class="font-display text-xl font-bold text-slate-900">Does this replace a full audit?</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-2xl font-light text-indigo-600 transition" data-faq-icon aria-hidden="true">+</span>
+                </button>
+                <div id="faq-panel-3" class="hidden border-t border-slate-100 px-6 pb-6 pt-1 sm:px-7" data-faq-panel>
+                  <p class="text-sm leading-7 text-slate-600">
+                    No. The Speed-to-Lead Audit gives a fuller picture. This calculator is the quick estimate. The audit is where you get the more complete diagnosis.
+                  </p>
+                </div>
+              </article>
+
+              <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-soft transition hover:border-indigo-200">
+                <button
+                  type="button"
+                  class="flex min-h-[44px] w-full items-center justify-between gap-4 px-5 py-4 text-left transition focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:ring-inset sm:px-7 sm:py-5"
+                  data-faq-trigger
+                  aria-expanded="false"
+                  aria-controls="faq-panel-4"
+                >
+                  <span class="font-display text-xl font-bold text-slate-900">What if our response is already fast?</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-2xl font-light text-indigo-600 transition" data-faq-icon aria-hidden="true">+</span>
+                </button>
+                <div id="faq-panel-4" class="hidden border-t border-slate-100 px-6 pb-6 pt-1 sm:px-7" data-faq-panel>
+                  <p class="text-sm leading-7 text-slate-600">
+                    Then check the numbers anyway. The calculator is free, and fast teams still benefit from seeing whether their current response standard is actually protecting revenue the way they assume.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const RESPONSE_WINDOWS = {
+        'under-5': { label: 'Under 5 minutes', multiplier: 1.0, range: { low: 1.0, high: 1.0 } },
+        '5-15': { label: '5 to 15 minutes', multiplier: 0.92, range: { low: 0.88, high: 0.96 } },
+        '15-60': { label: '15 to 60 minutes', multiplier: 0.8, range: { low: 0.74, high: 0.86 } },
+        'same-business-day': { label: 'Same business day', multiplier: 0.65, range: { low: 0.58, high: 0.7 } },
+        'next-day-or-later': { label: 'Next day or later', multiplier: 0.45, range: { low: 0.35, high: 0.5 } }
+      };
+
+      const DEFAULT_GOOD_FIT_PCT = 0.6;
+
+      function formatCurrency(value) {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          maximumFractionDigits: 0
+        }).format(value);
+      }
+
+      function formatPercent(value) {
+        return `${(value * 100).toFixed(value * 100 % 1 === 0 ? 0 : 1)}%`;
+      }
+
+      function parsePercent(value, fallback = null) {
+        if (value === '' || value === null || value === undefined) {
+          return fallback;
+        }
+
+        return Number(value) / 100;
+      }
+
+      function calculateLeadResponseValue(inputs) {
+        const currentWindow = RESPONSE_WINDOWS[inputs.currentResponseWindow];
+        const targetWindow = inputs.targetResponseWindow ? RESPONSE_WINDOWS[inputs.targetResponseWindow] : null;
+        const goodFitPct = inputs.goodFitPct ?? DEFAULT_GOOD_FIT_PCT;
+
+        const baseOpportunity = inputs.monthlyLeads * goodFitPct * inputs.closeRate * inputs.dealValue;
+        const currentMonthlyValue = baseOpportunity * currentWindow.multiplier;
+
+        let upsideLow = 0;
+        let upsideHigh = 0;
+
+        if (targetWindow) {
+          const lowDelta = Math.max(0, targetWindow.range.low - currentWindow.range.high);
+          const highDelta = Math.max(0, targetWindow.range.high - currentWindow.range.low);
+          upsideLow = baseOpportunity * lowDelta;
+          upsideHigh = baseOpportunity * highDelta;
+        }
+
+        return {
+          baseOpportunity,
+          currentMonthlyValue,
+          upsideLow,
+          upsideHigh,
+          currentWindow,
+          currentResponseWindowKey: inputs.currentResponseWindow,
+          targetWindow,
+          goodFitPct,
+          usedDefaultGoodFit: inputs.goodFitPct == null
+        };
+      }
+
+      const heroRevealLink = document.querySelector('a[href="#calculator"]');
+      const calculatorSection = document.getElementById('calculator');
+      const resultsSection = document.getElementById('results');
+      const form = document.getElementById('calculator-form');
+      const errorBox = document.getElementById('form-error');
+      const faqTriggers = document.querySelectorAll('[data-faq-trigger]');
+      const resultsCard = document.getElementById('results-card');
+
+      function revealCalculator() {
+        calculatorSection.classList.remove('hidden');
+        calculatorSection.setAttribute('aria-hidden', 'false');
+      }
+
+      function revealResults() {
+        resultsSection.classList.remove('hidden');
+        resultsSection.setAttribute('aria-hidden', 'false');
+
+        requestAnimationFrame(() => {
+          resultsSection.classList.remove('opacity-0', 'translate-y-4');
+          resultsCard.focus();
+        });
+      }
+
+      function setError(message) {
+        if (!message) {
+          errorBox.textContent = '';
+          errorBox.classList.add('hidden');
+          return;
+        }
+
+        errorBox.textContent = message;
+        errorBox.classList.remove('hidden');
+        errorBox.focus();
+      }
+
+      function validateInputs(inputs) {
+        if (!Number.isFinite(inputs.monthlyLeads) || inputs.monthlyLeads <= 0) {
+          return 'Monthly inbound leads must be greater than zero.';
+        }
+
+        if (!Number.isFinite(inputs.dealValue) || inputs.dealValue <= 0) {
+          return 'Average deal value must be greater than zero.';
+        }
+
+        if (!RESPONSE_WINDOWS[inputs.currentResponseWindow]) {
+          return 'Select your current response window.';
+        }
+
+        if (!Number.isFinite(inputs.closeRate) || inputs.closeRate <= 0 || inputs.closeRate > 1) {
+          return 'Close rate must be between 0 and 100.';
+        }
+
+        if (inputs.goodFitPct != null && (!Number.isFinite(inputs.goodFitPct) || inputs.goodFitPct < 0 || inputs.goodFitPct > 1)) {
+          return 'Good-fit rate must be between 0 and 100 when provided.';
+        }
+
+        if (inputs.targetResponseWindow && !RESPONSE_WINDOWS[inputs.targetResponseWindow]) {
+          return 'Select a valid target response window.';
+        }
+
+        return null;
+      }
+
+      function getTierHeadline(windowKey) {
+        switch (windowKey) {
+          case 'next-day-or-later':
+          case 'same-business-day':
+            return 'Your current response speed may be leaving 2 to 5 client conversations on the table each month.';
+          case '15-60':
+            return 'Your current response speed may be leaving 1 to 3 client conversations on the table each month.';
+          case '5-15':
+            return "Your current response speed may be costing you some deals, but you're already ahead.";
+          case 'under-5':
+            return "You're already responding fast — here's the upside of staying there.";
+          default:
+            return 'Your estimated revenue impact.';
+        }
+      }
+
+      function renderResults(result) {
+        const targetWindow = result.targetWindow || RESPONSE_WINDOWS['under-5'];
+        const revenueLeakageLow = result.baseOpportunity * Math.max(0, targetWindow.multiplier - result.currentWindow.range.high);
+        const revenueLeakageHigh = result.baseOpportunity * Math.max(0, targetWindow.multiplier - result.currentWindow.range.low);
+
+        document.getElementById('results-summary').textContent = getTierHeadline(result.currentResponseWindowKey);
+        document.getElementById('current-monthly-value').textContent = formatCurrency(result.currentMonthlyValue);
+        document.getElementById('current-monthly-detail').textContent = `Estimated current monthly value based on your lead volume, close rate, fit rate, and the ${result.currentWindow.label.toLowerCase()} multiplier.`;
+        document.getElementById('monthly-upside-range').textContent = `${formatCurrency(revenueLeakageLow)} to ${formatCurrency(revenueLeakageHigh)}`;
+        document.getElementById('monthly-upside-detail').textContent = `Potential monthly revenue leakage: ${formatCurrency(revenueLeakageLow)} to ${formatCurrency(revenueLeakageHigh)}.`;
+        document.getElementById('current-tier-label').textContent = result.currentWindow.label;
+        document.getElementById('current-multiplier').textContent = `Multiplier ${result.currentWindow.multiplier.toFixed(2)}`;
+        document.getElementById('target-tier-label').textContent = targetWindow.label;
+        document.getElementById('target-multiplier').textContent = `Multiplier ${targetWindow.multiplier.toFixed(2)}`;
+        document.getElementById('multiplier-arrow').textContent = `${result.currentWindow.multiplier.toFixed(2)} → ${targetWindow.multiplier.toFixed(2)}`;
+        document.getElementById('fit-rate-used').textContent = result.usedDefaultGoodFit
+          ? `${formatPercent(result.goodFitPct)} default`
+          : formatPercent(result.goodFitPct);
+        document.getElementById('current-multiplier-value').textContent = result.currentWindow.multiplier.toFixed(2);
+        document.getElementById('target-multiplier-value').textContent = targetWindow.multiplier.toFixed(2);
+        document.getElementById('why-this-happens').textContent = 'Contact rate drops as time passes, so the odds of reaching a lead while intent is still fresh start slipping almost immediately. Every extra minute gives that buyer more time to get distracted, compare options, or move on mentally. Conversion does not usually fail in one dramatic step; it erodes through a stack of small delays.';
+        document.getElementById('assumption-notes').textContent = 'Response multipliers are directional assumptions: Under 5 minutes 1.00, 5–15 minutes 0.92, 15–60 minutes 0.80, same business day 0.65, next day or later 0.45. Good-fit rate defaults to 60% when left blank. Estimated ranges use the multiplier spread for the current response tier.';
+      }
+
+      heroRevealLink.addEventListener('click', function () {
+        revealCalculator();
+      });
+
+      faqTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+          const icon = trigger.querySelector('[data-faq-icon]');
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+          trigger.setAttribute('aria-expanded', String(!isExpanded));
+          panel.classList.toggle('hidden', isExpanded);
+          icon.textContent = isExpanded ? '+' : '−';
+          icon.classList.toggle('bg-indigo-50', isExpanded);
+          icon.classList.toggle('bg-indigo-600', !isExpanded);
+          icon.classList.toggle('text-indigo-600', isExpanded);
+          icon.classList.toggle('text-white', !isExpanded);
+        });
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        revealCalculator();
+
+        const formData = new FormData(form);
+        const inputs = {
+          monthlyLeads: Number(formData.get('monthlyLeads')),
+          dealValue: Number(formData.get('dealValue')),
+          currentResponseWindow: formData.get('currentResponseWindow'),
+          closeRate: parsePercent(formData.get('closeRate')),
+          goodFitPct: parsePercent(formData.get('fitRate'), null),
+          targetResponseWindow: formData.get('targetResponseWindow') || ''
+        };
+
+        const errorMessage = validateInputs(inputs);
+        if (errorMessage) {
+          setError(errorMessage);
+          return;
+        }
+
+        setError(null);
+        const result = calculateLeadResponseValue(inputs);
+
+        resultsSection.classList.add('opacity-0', 'translate-y-4');
+        renderResults(result);
+        revealResults();
+      });
+    </script>
+      <footer class="bg-slate-950 py-16 text-slate-400 border-t border-slate-900 mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <a href="/index.html" class="flex items-center gap-3 mb-4">
+                <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                <span class="font-display font-bold text-xl tracking-tight text-white">ANIMAS AI.</span>
+              </a>
+              <p class="text-sm max-w-sm mb-6">Automation systems for founder-led consulting firms that need faster lead handling and cleaner operations.</p>
+              <div class="text-xs">© 2026 ANIMAS AI. ALL RIGHTS RESERVED.</div>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-6">Company</h4>
+              <ul class="space-y-4 text-sm">
+                <li><a href="/how-it-works.html" class="hover:text-white transition-colors">How it Works</a></li>
+                <li><a href="/solutions.html" class="hover:text-white transition-colors">Solutions</a></li>
+                <li><a href="/solutions.html#tools" class="hover:text-white transition-colors">Tools</a></li>
+                <li><a href="/case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
+                <li><a href="/blog/" class="hover:text-white transition-colors">Blog</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-6">Contact</h4>
+              <ul class="space-y-4 text-sm">
+                <li><a href="mailto:tyler@animasai.co" class="hover:text-white transition-colors">tyler@animasai.co</a></li>
+                <li><a href="https://youtube.com/@mayberrytyler" target="_blank" class="hover:text-white transition-colors">YouTube</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </body>
+</html>
