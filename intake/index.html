@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intake Form Teardown — Animas AI</title>
+    <meta property="og:url" content="https://animasai.co/intake/">
+    <link rel="canonical" href="https://animasai.co/intake/">
+    <meta
+      name="description"
+      content="Quickly assess how well your intake form qualifies leads, captures context, and sets expectations."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234f46e5'/%3E%3Cpath d='M20 24h24M20 32h24M20 40h16' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#4f46e5',
+                dark: '#4338ca',
+                soft: '#eef2ff'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              heading: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+              display: ['Manrope', 'Inter', 'system-ui', 'sans-serif']
+            },
+            boxShadow: {
+              soft: '0 20px 45px -25px rgba(15, 23, 42, 0.22)'
+            },
+            borderRadius: {
+              '2xl': '1rem'
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Score Ring — CSS conic-gradient meter */
+      .score-ring {
+        --ring-color: #e2e8f0;
+        --ring-fill: #4f46e5;
+      }
+      .score-ring-track {
+        background: var(--ring-color);
+      }
+      .score-ring-fill {
+        background: conic-gradient(
+          var(--ring-fill) calc(var(--ring-pct) * 1%),
+          transparent calc(var(--ring-pct) * 1%)
+        );
+        -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 14px), #fff calc(100% - 13px));
+        mask: radial-gradient(farthest-side, transparent calc(100% - 14px), #fff calc(100% - 13px));
+        transform: rotate(-90deg);
+      }
+      /* Fade-in animation for results section */
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      #results.animating-in > div {
+        animation: fadeSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden">
+    <nav class="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="/index.html" class="flex items-center gap-3">
+            <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+            <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
+          </a>
+          <div class="hidden md:flex space-x-8 items-center">
+            <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How it Works</a>
+            <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Solutions</a>
+            <a href="/tools.html" class="text-sm font-bold text-brand-600 border-b-2 border-brand-600 pb-1">Tools</a>
+            <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Case Studies</a>
+            <a href="/blog/" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Blog</a>
+          </div>
+          <div class="hidden md:flex items-center">
+            <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">Book a Workflow Audit</a>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2" aria-label="Open menu">
+            <span class="sr-only">Open menu</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col transition-all duration-300">
+      <div class="flex justify-end p-6">
+        <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full" aria-label="Close menu">
+          <span class="sr-only">Close menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col items-center justify-center flex-1 space-y-8 text-xl font-display font-bold tracking-tight">
+        <a href="/how-it-works.html" class="text-slate-900 hover:text-brand-600 transition-colors">How it Works</a>
+        <a href="/solutions.html" class="text-slate-900 hover:text-brand-600 transition-colors">Solutions</a>
+        <a href="/tools.html" class="text-brand-600 transition-colors">Tools</a>
+        <a href="/case-studies.html" class="text-slate-900 hover:text-brand-600 transition-colors">Case Studies</a>
+        <a href="/blog/" class="text-slate-900 hover:text-brand-600 transition-colors">Blog</a>
+        <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Book a Workflow Audit</a>
+      </div>
+    </div>
+    <div class="min-h-screen">
+      <section id="hero" aria-label="Introduction" class="bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
+          <div class="max-w-4xl">
+            <div class="mb-4 inline-flex items-center rounded-full bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-700 ring-1 ring-inset ring-indigo-100">
+              Intake Form Teardown
+            </div>
+            <h1 class="max-w-3xl font-heading text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              See If Your Lead Intake Form Is Helping or Hurting Qualification
+            </h1>
+            <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+              Run a fast teardown of your intake process and spot the missing fields, friction points, and routing gaps that can weaken lead quality before follow-up even begins.
+            </p>
+            <ul class="mt-8 grid gap-3 text-sm font-medium text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
+              <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 shadow-sm">
+                <span class="h-2.5 w-2.5 rounded-full bg-indigo-600"></span>
+                <span>Diagnose intake gaps in under 3 minutes</span>
+              </li>
+              <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 shadow-sm">
+                <span class="h-2.5 w-2.5 rounded-full bg-indigo-600"></span>
+                <span>Built for consulting firms, not agencies</span>
+              </li>
+              <li class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 shadow-sm">
+                <span class="h-2.5 w-2.5 rounded-full bg-indigo-600"></span>
+                <span>No signup required</span>
+              </li>
+            </ul>
+            <div class="mt-8 flex flex-col items-start gap-4">
+              <button
+                id="start-teardown"
+                type="button"
+                class="inline-flex items-center justify-center rounded-full bg-indigo-700 px-6 py-3 text-base font-semibold text-white shadow-soft transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 min-h-[44px]"
+              >
+                Start the Teardown
+              </button>
+              <a href="#faq" class="text-sm font-semibold text-indigo-600 transition hover:text-indigo-700">
+                See how it works
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main class="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-12">
+        <section id="assessment" aria-label="Assessment form" class="hidden">
+          <div class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft sm:p-8 lg:p-10">
+            <div class="flex flex-col gap-6 border-b border-slate-100 pb-8 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600">Assessment</p>
+                <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-slate-900">Answer all seven. Or at least the first four if you insist on doing the bare minimum.</h2>
+                <p class="mt-3 max-w-3xl text-base leading-7 text-slate-600">
+                  Everything is on one page. Select the option that best matches the current state of your intake form.
+                </p>
+              </div>
+              <div class="w-full max-w-sm rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-100">
+                <div class="flex items-center justify-between text-sm font-medium text-slate-600">
+                  <span>Progress</span>
+                  <span id="progress-label">0 of 7 complete</span>
+                </div>
+                <div class="mt-3 h-3 overflow-hidden rounded-full bg-slate-200" aria-live="polite" aria-atomic="true">
+                  <div id="progress-bar" class="h-full w-0 rounded-full bg-indigo-600 transition-all duration-300"></div>
+                </div>
+              </div>
+            </div>
+
+            <form id="assessment-form" class="mt-8 space-y-8">
+              <fieldset class="question rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm" data-question="q1">
+                <legend class="text-lg font-heading font-extrabold text-slate-900">1. Do you ask for service need or problem type?</legend>
+                <div class="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                  <label for="q1-opt1" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm min-h-[44px] flex flex-col justify-center focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
+                    <input id="q1-opt1" class="sr-only" type="radio" name="q1" value="Yes, always" />
+                    <span class="block text-sm font-semibold text-slate-900">Yes, always</span>
+                    <span class="mt-2 block text-sm text-slate-500">It is explicit and impossible to miss.</span>
+                  </label>
+                  <label for="q1-opt2" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm min-h-[44px] flex flex-col justify-center focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
+                    <input id="q1-opt2" class="sr-only" type="radio" name="q1" value="Usually" />
+                    <span class="block text-sm font-semibold text-slate-900">Usually</span>
+                    <span class="mt-2 block text-sm text-slate-500">Most leads provide it without much friction.</span>
+                  </label>
+                  <label for="q1-opt3" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm min-h-[44px] flex flex-col justify-center focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
+                    <input id="q1-opt3" class="sr-only" type="radio" name="q1" value="Sometimes" />
+                    <span class="block text-sm font-semibold text-slate-900">Sometimes</span>
+                    <span class="mt-2 block text-sm text-slate-500">You get a hint. On good days.</span>
+                  </label>
+                  <label for="q1-opt4" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm min-h-[44px] flex flex-col justify-center focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
+                    <input id="q1-opt4" class="sr-only" type="radio" name="q1" value="Rarely" />
+                    <span class="block text-sm font-semibold text-slate-900">Rarely</span>
+                    <span class="mt-2 block text-sm text-slate-500">The form barely points at the actual need.</span>
+                  </label>
+                  <label for="q1-opt5" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm min-h-[44px] flex flex-col justify-center focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
+                    <input id="q1-opt5" class="sr-only" type="radio" name="q1" value="No, never" />
+                    <span class="block text-sm font-semibold text-slate-900">No, never</span>
+                    <span class="mt-2 block text-sm text-slate-500">Chaos dressed up as a form.</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm" data-question="q2">
+                <legend class="text-lg font-heading font-extrabold text-slate-900">2. Do you capture enough context to tell good-fit from bad-fit leads?</legend>
+                <div class="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                  <label for="q2-opt1" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q2-opt1" class="sr-only" type="radio" name="q2" value="Yes, definitely" /><span class="block text-sm font-semibold text-slate-900">Yes, definitely</span><span class="mt-2 block text-sm text-slate-500">You can screen with confidence.</span></label>
+                  <label for="q2-opt2" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q2-opt2" class="sr-only" type="radio" name="q2" value="Mostly" /><span class="block text-sm font-semibold text-slate-900">Mostly</span><span class="mt-2 block text-sm text-slate-500">A few missing details, but workable.</span></label>
+                  <label for="q2-opt3" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q2-opt3" class="sr-only" type="radio" name="q2" value="Somewhat" /><span class="block text-sm font-semibold text-slate-900">Somewhat</span><span class="mt-2 block text-sm text-slate-500">Enough to guess. Not enough to trust.</span></label>
+                  <label for="q2-opt4" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q2-opt4" class="sr-only" type="radio" name="q2" value="Barely" /><span class="block text-sm font-semibold text-slate-900">Barely</span><span class="mt-2 block text-sm text-slate-500">Fit is more myth than system.</span></label>
+                  <label for="q2-opt5" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q2-opt5" class="sr-only" type="radio" name="q2" value="Not at all" /><span class="block text-sm font-semibold text-slate-900">Not at all</span><span class="mt-2 block text-sm text-slate-500">Every lead looks equally mysterious.</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm" data-question="q3">
+                <legend class="text-lg font-heading font-extrabold text-slate-900">3. Can someone assign the lead to the right person based on what the form captures?</legend>
+                <div class="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                  <label for="q3-opt1" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q3-opt1" class="sr-only" type="radio" name="q3" value="Yes, easily" /><span class="block text-sm font-semibold text-slate-900">Yes, easily</span><span class="mt-2 block text-sm text-slate-500">Routing is obvious.</span></label>
+                  <label for="q3-opt2" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q3-opt2" class="sr-only" type="radio" name="q3" value="Usually" /><span class="block text-sm font-semibold text-slate-900">Usually</span><span class="mt-2 block text-sm text-slate-500">Most submissions map cleanly.</span></label>
+                  <label for="q3-opt3" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q3-opt3" class="sr-only" type="radio" name="q3" value="Sometimes" /><span class="block text-sm font-semibold text-slate-900">Sometimes</span><span class="mt-2 block text-sm text-slate-500">It depends how charitable the reviewer feels.</span></label>
+                  <label for="q3-opt4" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q3-opt4" class="sr-only" type="radio" name="q3" value="Rarely" /><span class="block text-sm font-semibold text-slate-900">Rarely</span><span class="mt-2 block text-sm text-slate-500">Too much manual interpretation.</span></label>
+                  <label for="q3-opt5" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q3-opt5" class="sr-only" type="radio" name="q3" value="No" /><span class="block text-sm font-semibold text-slate-900">No</span><span class="mt-2 block text-sm text-slate-500">The handoff is a coin flip.</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm" data-question="q4">
+                <legend class="text-lg font-heading font-extrabold text-slate-900">4. Is it clear what happens after the form is submitted?</legend>
+                <div class="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                  <label for="q4-opt1" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q4-opt1" class="sr-only" type="radio" name="q4" value="Crystal clear" /><span class="block text-sm font-semibold text-slate-900">Crystal clear</span><span class="mt-2 block text-sm text-slate-500">Next steps and timeline are obvious.</span></label>
+                  <label for="q4-opt2" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q4-opt2" class="sr-only" type="radio" name="q4" value="Mostly clear" /><span class="block text-sm font-semibold text-slate-900">Mostly clear</span><span class="mt-2 block text-sm text-slate-500">Minor gaps, nothing fatal.</span></label>
+                  <label for="q4-opt3" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q4-opt3" class="sr-only" type="radio" name="q4" value="Somewhat clear" /><span class="block text-sm font-semibold text-slate-900">Somewhat clear</span><span class="mt-2 block text-sm text-slate-500">People probably still wonder what now.</span></label>
+                  <label for="q4-opt4" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q4-opt4" class="sr-only" type="radio" name="q4" value="Barely clear" /><span class="block text-sm font-semibold text-slate-900">Barely clear</span><span class="mt-2 block text-sm text-slate-500">Submission lands in a black box.</span></label>
+                  <label for="q4-opt5" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q4-opt5" class="sr-only" type="radio" name="q4" value="Not clear at all" /><span class="block text-sm font-semibold text-slate-900">Not clear at all</span><span class="mt-2 block text-sm text-slate-500">Silence. The classic.</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm" data-question="q5">
+                <legend class="text-lg font-heading font-extrabold text-slate-900">5. How many required fields does your form have?</legend>
+                <div class="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                  <label for="q5-opt1" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q5-opt1" class="sr-only" type="radio" name="q5" value="1-2" /><span class="block text-sm font-semibold text-slate-900">1–2</span><span class="mt-2 block text-sm text-slate-500">Minimal friction. Miraculous restraint.</span></label>
+                  <label for="q5-opt2" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q5-opt2" class="sr-only" type="radio" name="q5" value="3-5" /><span class="block text-sm font-semibold text-slate-900">3–5</span><span class="mt-2 block text-sm text-slate-500">Reasonable for most cases.</span></label>
+                  <label for="q5-opt3" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q5-opt3" class="sr-only" type="radio" name="q5" value="6-8" /><span class="block text-sm font-semibold text-slate-900">6–8</span><span class="mt-2 block text-sm text-slate-500">You are testing their patience.</span></label>
+                  <label for="q5-opt4" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q5-opt4" class="sr-only" type="radio" name="q5" value="9-12" /><span class="block text-sm font-semibold text-slate-900">9–12</span><span class="mt-2 block text-sm text-slate-500">That is not a form. It is an ordeal.</span></label>
+                  <label for="q5-opt5" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q5-opt5" class="sr-only" type="radio" name="q5" value="13+" /><span class="block text-sm font-semibold text-slate-900">13+</span><span class="mt-2 block text-sm text-slate-500">You built a hostage situation.</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm" data-question="q6">
+                <legend class="text-lg font-heading font-extrabold text-slate-900">6. Are there any fields that feel low-value or redundant?</legend>
+                <div class="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                  <label for="q6-opt1" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q6-opt1" class="sr-only" type="radio" name="q6" value="None" /><span class="block text-sm font-semibold text-slate-900">None</span><span class="mt-2 block text-sm text-slate-500">Every field earns its keep.</span></label>
+                  <label for="q6-opt2" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q6-opt2" class="sr-only" type="radio" name="q6" value="A couple" /><span class="block text-sm font-semibold text-slate-900">A couple</span><span class="mt-2 block text-sm text-slate-500">Some cleanup would help.</span></label>
+                  <label for="q6-opt3" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q6-opt3" class="sr-only" type="radio" name="q6" value="Several" /><span class="block text-sm font-semibold text-slate-900">Several</span><span class="mt-2 block text-sm text-slate-500">You can feel the drag.</span></label>
+                  <label for="q6-opt4" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q6-opt4" class="sr-only" type="radio" name="q6" value="Many" /><span class="block text-sm font-semibold text-slate-900">Many</span><span class="mt-2 block text-sm text-slate-500">Too much form. Not enough value.</span></label>
+                  <label for="q6-opt5" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q6-opt5" class="sr-only" type="radio" name="q6" value="Not sure" /><span class="block text-sm font-semibold text-slate-900">Not sure</span><span class="mt-2 block text-sm text-slate-500">Which is usually its own answer.</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm" data-question="q7">
+                <legend class="text-lg font-heading font-extrabold text-slate-900">7. Is expected response timing communicated after submission?</legend>
+                <div class="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+                  <label for="q7-opt1" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q7-opt1" class="sr-only" type="radio" name="q7" value="Yes, clearly" /><span class="block text-sm font-semibold text-slate-900">Yes, clearly</span><span class="mt-2 block text-sm text-slate-500">The timing is stated outright.</span></label>
+                  <label for="q7-opt2" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q7-opt2" class="sr-only" type="radio" name="q7" value="Usually" /><span class="block text-sm font-semibold text-slate-900">Usually</span><span class="mt-2 block text-sm text-slate-500">Most users can infer it.</span></label>
+                  <label for="q7-opt3" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q7-opt3" class="sr-only" type="radio" name="q7" value="Sometimes" /><span class="block text-sm font-semibold text-slate-900">Sometimes</span><span class="mt-2 block text-sm text-slate-500">It depends where they land.</span></label>
+                  <label for="q7-opt4" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q7-opt4" class="sr-only" type="radio" name="q7" value="Rarely" /><span class="block text-sm font-semibold text-slate-900">Rarely</span><span class="mt-2 block text-sm text-slate-500">Expectations are mostly wishful thinking.</span></label>
+                  <label for="q7-opt5" class="option-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"><input id="q7-opt5" class="sr-only" type="radio" name="q7" value="No" /><span class="block text-sm font-semibold text-slate-900">No</span><span class="mt-2 block text-sm text-slate-500">The void will answer when it feels like it.</span></label>
+                </div>
+              </fieldset>
+
+              <div class="rounded-2xl border border-dashed border-slate-300 bg-white p-5">
+                <label for="form-url" class="block text-sm font-semibold text-slate-900">Optional: Form URL</label>
+                <p id="form-url-helper" class="mt-2 text-sm text-slate-500">Paste the page you want reviewed. Or do not. The field survives either way.</p>
+                <input
+                  id="form-url"
+                  name="formUrl"
+                  type="url"
+                  placeholder="https://example.com/contact"
+                  aria-describedby="form-url-helper"
+                  class="mt-4 w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                />
+              </div>
+
+              <div class="flex flex-col gap-4 border-t border-slate-100 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <p id="submit-hint" class="text-sm text-slate-500">Answer questions 1–4 to unlock the submit button.</p>
+                <button
+                  id="submit-button"
+                  type="submit"
+                  disabled
+                  class="inline-flex items-center justify-center rounded-full bg-slate-300 px-6 py-3 text-base font-semibold text-white transition disabled:cursor-not-allowed disabled:bg-slate-300 sm:min-w-[220px] min-h-[44px]"
+                >
+                  See My Results
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section id="results" role="region" aria-label="Assessment results" class="hidden pt-12">
+          <div class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft sm:p-8 lg:p-10">
+            <div id="form-url-callout" class="mb-6 hidden rounded-xl border border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-indigo-700"></div>
+            <div class="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-between">
+              <!-- Score Ring -->
+              <div class="flex shrink-0 flex-col items-center">
+                <div id="score-ring" class="score-ring relative flex h-48 w-48 shrink-0 items-center justify-center">
+                  <div class="score-ring-track absolute inset-0 rounded-full"></div>
+                  <div id="score-ring-fill" class="score-ring-fill absolute inset-0 rounded-full"></div>
+                  <div class="score-ring-inner absolute inset-[14px] rounded-full bg-white flex flex-col items-center justify-center">
+                    <span id="score-number" class="font-heading text-5xl font-extrabold text-slate-900 leading-none">—</span>
+                    <span class="text-sm font-medium text-slate-500 mt-1">out of 100</span>
+                  </div>
+                </div>
+                <div class="mt-4 text-center">
+                  <span id="score-band" class="inline-block rounded-full px-4 py-1.5 text-sm font-bold uppercase tracking-wider"></span>
+                </div>
+              </div>
+              <!-- Category Breakdown -->
+              <div class="flex-1 w-full">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600 mb-4">Category Breakdown</p>
+                <div id="category-cards" class="grid gap-4 sm:grid-cols-2">
+                  <!-- Injected by JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Weaknesses + Recommendations -->
+            <div id="weaknesses-recommendations" class="mt-8 hidden">
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+                <div class="grid gap-6 lg:grid-cols-2">
+                  <div>
+                    <p class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-red-600">Top Weaknesses</p>
+                    <ul id="weaknesses-list" class="space-y-3">
+                      <!-- Injected by JS -->
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">Recommendations</p>
+                    <ul id="recommendations-list" class="space-y-3">
+                      <!-- Injected by JS -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pt-12">
+          <div class="rounded-[2rem] bg-indigo-600 px-6 py-10 text-white shadow-soft sm:px-8 lg:flex lg:items-center lg:justify-between lg:px-10">
+            <div class="max-w-2xl">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-100">Next step</p>
+              <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight">Want the teardown? Finish the assessment and hand over the form URL.</h2>
+              <p class="mt-3 text-base leading-7 text-indigo-100">
+                The CTA block stays visible below results. Because burying the next action would be sloppy.
+              </p>
+            </div>
+            <a
+              href="#hero"
+              class="mt-6 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-base font-semibold text-indigo-700 transition hover:bg-indigo-50 lg:mt-0 min-h-[44px]"
+            >
+              Back to top
+            </a>
+          </div>
+        </section>
+
+        <!-- US-008: CTA Section — Speed-to-Lead Audit Bridge -->
+        <section id="cta" aria-label="Call to action" class="pt-12">
+          <div class="rounded-[2rem] bg-indigo-950 px-6 py-10 text-white shadow-soft sm:px-8 lg:px-10">
+            <div class="max-w-3xl">
+              <h2 class="font-heading text-3xl font-extrabold tracking-tight text-white">Your teardown revealed a fixable intake problem.</h2>
+              <p class="mt-3 text-base leading-7 text-indigo-200">
+                The gaps are real. Here are two ways to close them — one thorough, one fast.
+              </p>
+            </div>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a
+                href="//audit/"
+                class="inline-flex items-center justify-center rounded-full bg-indigo-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-indigo-400 sm:min-w-[280px] min-h-[44px]"
+              >
+                Get a Fuller Diagnosis — Try the Speed-to-Lead Audit
+              </a>
+              <a
+                href="/how-it-works.html"
+                class="inline-flex items-center justify-center rounded-full border border-indigo-400 bg-transparent px-6 py-3 text-base font-semibold text-indigo-100 transition hover:bg-indigo-800 hover:text-white sm:min-w-[280px] min-h-[44px]"
+              >
+                Fix This in 7 Days — See the Speed to Lead Sprint
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" aria-label="Frequently asked questions" class="pb-16 pt-12">
+          <div class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft sm:p-8 lg:p-10">
+            <div class="max-w-3xl">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600">FAQ</p>
+              <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-slate-900">Questions people ask when a form starts judging them.</h2>
+            </div>
+            <div class="mt-8 grid gap-4">
+              <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100" open>
+                <summary class="cursor-pointer list-none font-semibold text-slate-900 flex items-center min-h-[44px]">How accurate is this teardown?</summary>
+                <p class="mt-3 text-sm leading-6 text-slate-600">Directional, not precise. It is based on intake best practices — not a deep audit of your specific form. Think of it as a gut check with structure.</p>
+              </details>
+              <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100">
+                <summary class="cursor-pointer list-none font-semibold text-slate-900 flex items-center min-h-[44px]">Is this for all businesses?</summary>
+                <p class="mt-3 text-sm leading-6 text-slate-600">No. It is specifically built for consulting firms with inbound lead flows. If you are not capturing leads through a form, this will be less useful to you.</p>
+              </details>
+              <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100">
+                <summary class="cursor-pointer list-none font-semibold text-slate-900 flex items-center min-h-[44px]">Does this replace a full audit?</summary>
+                <p class="mt-3 text-sm leading-6 text-slate-600">No. The Speed-to-Lead Audit gives you a fuller picture — including scoring, benchmarks, and a structured remediation plan. This teardown is the fast, free entry point.</p>
+              </details>
+              <details class="group rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100">
+                <summary class="cursor-pointer list-none font-semibold text-slate-900 flex items-center min-h-[44px]">What if our form is already good?</summary>
+                <p class="mt-3 text-sm leading-6 text-slate-600">Still worth running it. Even good forms have gaps that are easy to miss when you are close to them. The tool is free — no downside in checking.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // ─── SCORING ENGINE ────────────────────────────────────────────────────────
+      // Clearly separated from rendering logic. Pure function: same answers always
+      // produce the same scores.
+
+      const SCORING = {
+        // Option values in DOM order: index 0 = strongest (4 pts) → index 4 = weakest (0 pts)
+        options: {
+          q1: ["Yes, always", "Usually", "Sometimes", "Rarely", "No, never"],
+          q2: ["Yes, definitely", "Mostly", "Somewhat", "Barely", "Not at all"],
+          q3: ["Yes, easily", "Usually", "Sometimes", "Rarely", "No"],
+          q4: ["Crystal clear", "Mostly clear", "Somewhat clear", "Barely clear", "Not clear at all"],
+          q5: ["1–2", "3–5", "6–8", "9–12", "13+"],
+          q6: ["None", "A couple", "Several", "Many", "Not sure"],
+          q7: ["Yes, clearly", "Usually", "Sometimes", "Rarely", "No"],
+        },
+        // Category definitions: which questions feed each, and the weight
+        categories: {
+          qualificationDepth: { questions: ["q1", "q2"],     weight: 0.35 },
+          routingReadiness:   { questions: ["q3"],            weight: 0.25 },
+          frictionRisk:       { questions: ["q5", "q6"],     weight: 0.25 },
+          nextStepClarity:   { questions: ["q4", "q7"],     weight: 0.15 },
+        },
+        bands: { strong: 85, uneven: 70 },
+      };
+
+      /**
+       * Pure scoring function.
+       * @param {Object} answers - { q1: "Yes, always", q2: "Mostly", ... }
+       * @returns {Object} { raw, cats, overall, band }
+       *   raw:    { q1: 4, q2: 3, ... } — raw points per question (0–4)
+       *   cats:   { qualificationDepth: 87.5, routingReadiness: 100, ... } — category scores out of 100
+       *   overall: 0–100 — weighted overall score
+       *   band:   "Strong" | "Uneven" | "Leaky"
+       */
+      function computeScore(answers) {
+        // Raw points: index in option array (0=first=4pts, 1=3pts, 2=2pts, 3=1pt, 4=last=0pts)
+        // formula: 4 - indexOf, then clamp to [0,4]; -1 (not found) becomes 0 via max
+        const raw = {};
+        for (const [q, opts] of Object.entries(SCORING.options)) {
+          const idx = opts.indexOf(answers[q] ?? "");
+          raw[q] = Math.min(Math.max(4 - idx, 0), 4);
+        }
+
+        // Category scores: average raw points of member questions × 25 → score out of 100
+        const catScores = {};
+        for (const [catId, cat] of Object.entries(SCORING.categories)) {
+          const scores = cat.questions.map((q) => raw[q]);
+          const avgRaw = scores.reduce((a, b) => a + b, 0) / scores.length;
+          catScores[catId] = avgRaw * 25;
+        }
+
+        // Weighted overall
+        const overall = Object.entries(SCORING.categories).reduce((sum, [catId, cat]) => {
+          return sum + catScores[catId] * cat.weight;
+        }, 0);
+
+        // Band
+        const band =
+          overall >= SCORING.bands.strong ? "Strong" :
+          overall >= SCORING.bands.uneven  ? "Uneven" :
+          "Leaky";
+
+        return { raw, cats: catScores, overall, band };
+      }
+
+      // ─── RESULTS RENDERER ────────────────────────────────────────────────────
+
+      const CATEGORY_LABELS = {
+        qualificationDepth: "Qualification Depth",
+        routingReadiness:   "Routing Readiness",
+        frictionRisk:       "Friction Risk",
+        nextStepClarity:    "Next-Step Clarity",
+      };
+
+      /**
+       * Returns a color class string based on score threshold.
+       * @param {number} score 0–100
+       * @returns {{ bar: string, badge: string }}
+       */
+      function scoreColors(score) {
+        if (score >= 85) return { bar: "bg-emerald-500", badge: "bg-emerald-100 text-emerald-700 ring-emerald-200" };
+        if (score >= 70) return { bar: "bg-amber-500",   badge: "bg-amber-100 text-amber-700 ring-amber-200" };
+        return             { bar: "bg-red-500",       badge: "bg-red-100 text-red-700 ring-red-200" };
+      }
+
+      const WEAKNESS_DETAILS = {
+        qualificationDepth: {
+          weakness: (answers) => {
+            if (["No, never", "Rarely"].includes(answers.q1)) {
+              return "Add one field that clarifies service need or buyer intent before anyone reviews the lead.";
+            }
+            if (["Not at all", "Barely"].includes(answers.q2)) {
+              return "Ask for enough context to tell good-fit from bad-fit leads before a call gets booked.";
+            }
+            return "Tighten the qualification questions so the form shows what the lead needs, not just that they submitted it.";
+          },
+          recommendation: (answers) => {
+            if (["No, never", "Rarely", "Sometimes"].includes(answers.q1)) {
+              return "Add a required service-need or problem-type field. If the lead cannot tell you what they need, the form should force the choice.";
+            }
+            return "Add one short context field that explains business need, urgency, or buyer intent so qualification stops relying on guesswork.";
+          }
+        },
+        routingReadiness: {
+          weakness: (answers) => {
+            if (["No", "Rarely"].includes(answers.q3)) {
+              return "Add a routing-critical field so the right owner can act immediately instead of decoding every submission by hand.";
+            }
+            return "Routing still depends on interpretation when the form should make ownership obvious.";
+          },
+          recommendation: () => "Capture the variable that determines ownership — location, service line, team, or request type — and use it to route the lead on submit."
+        },
+        frictionRisk: {
+          weakness: (answers) => {
+            if (["9–12", "13+"].includes(answers.q5)) {
+              return "Remove fields that increase friction without improving qualification. Right now the form asks for too much up front.";
+            }
+            if (["Many", "Several"].includes(answers.q6)) {
+              return "Cut the low-value or redundant fields that slow submission without changing what happens next.";
+            }
+            return "The form has more friction than it can justify.";
+          },
+          recommendation: (answers) => {
+            if (["9–12", "13+"].includes(answers.q5)) {
+              return "Reduce required fields first. Keep only the fields needed to qualify, route, and respond. Push everything else later in the process.";
+            }
+            return "Audit each field against one question: does this change qualification, routing, or follow-up? If not, remove it or make it optional.";
+          }
+        },
+        nextStepClarity: {
+          weakness: (answers) => {
+            if (["Not clear at all", "Barely clear"].includes(answers.q4)) {
+              return "Tell the lead exactly what happens after submission instead of dropping them into a black box.";
+            }
+            if (["No", "Rarely"].includes(answers.q7)) {
+              return "State expected response timing so leads know when someone will follow up.";
+            }
+            return "The post-submit experience leaves too much room for uncertainty.";
+          },
+          recommendation: (answers) => {
+            if (["No", "Rarely", "Sometimes"].includes(answers.q7)) {
+              return "Add a plain-language confirmation message with the next step, the owner if relevant, and a response window such as \"we reply within one business day.\"";
+            }
+            return "Use the thank-you state to explain the next step in operational terms: who reviews the lead, what happens next, and how fast follow-up should happen.";
+          }
+        },
+      };
+
+      /**
+       * Render the score ring, band label, category cards, and weaknesses/recommendations into #results.
+       * @param {{ raw: object, cats: object, overall: number, band: string }} score
+       */
+      function renderResults(score) {
+        const { cats, overall, band } = score;
+
+        // ── Ring ──────────────────────────────────────────────────────────────
+        const ring = document.getElementById("score-ring");
+        const fill = document.getElementById("score-ring-fill");
+        const num  = document.getElementById("score-number");
+        const bandEl = document.getElementById("score-band");
+
+        const pct = Math.round(overall);
+        ring.style.setProperty("--ring-pct", pct);
+        ring.style.setProperty("--ring-fill", overall >= 85 ? "#10b981" : overall >= 70 ? "#f59e0b" : "#ef4444");
+        num.textContent = Math.round(overall);
+
+        const bandColor = overall >= 85 ? "Strong" : overall >= 70 ? "Uneven" : "Leaky";
+        bandEl.textContent = band;
+        const bc = scoreColors(overall);
+        bandEl.className = `inline-block rounded-full px-4 py-1.5 text-sm font-bold uppercase tracking-wider ring-1 ring-inset ${bc.badge}`;
+
+        // ── Category cards ───────────────────────────────────────────────────
+        const container = document.getElementById("category-cards");
+        container.innerHTML = "";
+
+        const sorted = Object.entries(cats).sort(([, a], [, b]) => a - b);
+        const lowestCat = sorted[0][0];
+
+        for (const [catId, catScore] of sorted) {
+          const { bar } = scoreColors(catScore);
+          const isLowest = catId === lowestCat;
+          const barPct  = Math.round(catScore);
+
+          const card = document.createElement("div");
+          card.className = "rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100 flex flex-col gap-3";
+          card.innerHTML = `
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-semibold text-slate-700">${CATEGORY_LABELS[catId] ?? catId}</span>
+              <span class="text-sm font-bold text-slate-900">${Math.round(catScore)}</span>
+            </div>
+            <div class="h-2.5 overflow-hidden rounded-full bg-slate-200">
+              <div class="h-full rounded-full transition-all duration-700 ${bar}" style="width:${barPct}%"></div>
+            </div>
+            ${isLowest ? `<span class="text-xs font-semibold text-red-600">Biggest opportunity</span>` : ""}
+          `;
+          container.appendChild(card);
+        }
+
+        // ── Weaknesses + Recommendations ─────────────────────────────────────
+        renderWeaknessesAndRecommendations(cats, window.__teardownAnswers ?? {});
+      }
+
+      /**
+       * Render weaknesses and recommendations from score categories.
+       * Weak = score below 85. Sorted ascending (weakest first). Max 3.
+       * @param {{ qualificationDepth: number, routingReadiness: number, frictionRisk: number, nextStepClarity: number }} cats
+       */
+      function renderWeaknessesAndRecommendations(cats, answers) {
+        const THRESHOLD = 85;
+        const MAX = 3;
+
+        const weakCats = Object.entries(cats)
+          .filter(([, score]) => score < THRESHOLD)
+          .sort(([, a], [, b]) => a - b)
+          .slice(0, MAX);
+
+        const wrSection = document.getElementById("weaknesses-recommendations");
+        const weakList  = document.getElementById("weaknesses-list");
+        const recList   = document.getElementById("recommendations-list");
+
+        if (weakCats.length === 0) {
+          wrSection.classList.add("hidden");
+          return;
+        }
+
+        wrSection.classList.remove("hidden");
+        weakList.innerHTML = "";
+        recList.innerHTML  = "";
+
+        for (const [catId] of weakCats) {
+          const detail = WEAKNESS_DETAILS[catId];
+          const weaknessText = detail?.weakness ? detail.weakness(answers) : catId;
+          const recommendationText = detail?.recommendation ? detail.recommendation(answers) : catId;
+
+          const li = document.createElement("li");
+          li.className = "rounded-xl border border-red-100 bg-white px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-red-50";
+          li.innerHTML = `
+            <span class="block text-xs font-semibold uppercase tracking-[0.18em] text-red-600">${CATEGORY_LABELS[catId] ?? catId}</span>
+            <span class="mt-2 block">${weaknessText}</span>
+          `;
+          weakList.appendChild(li);
+
+          const ri = document.createElement("li");
+          ri.className = "rounded-xl border border-indigo-100 bg-white px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-indigo-50";
+          ri.innerHTML = `
+            <span class="block text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">${CATEGORY_LABELS[catId] ?? catId}</span>
+            <span class="mt-2 block">${recommendationText}</span>
+          `;
+          recList.appendChild(ri);
+        }
+      }
+
+      // ─── UI STATE ─────────────────────────────────────────────────────────────
+
+      const startButton = document.getElementById('start-teardown');
+      const assessmentSection = document.getElementById('assessment');
+      const resultsSection = document.getElementById('results');
+      const form = document.getElementById('assessment-form');
+      const progressLabel = document.getElementById('progress-label');
+      const progressBar = document.getElementById('progress-bar');
+      const submitButton = document.getElementById('submit-button');
+      const submitHint = document.getElementById('submit-hint');
+      const requiredForSubmit = ['q1', 'q2', 'q3', 'q4'];
+      const allQuestions = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'];
+
+      function updateProgress() {
+        const completedCount = allQuestions.filter((question) => form.elements[question] && form.elements[question].value).length;
+        const percent = (completedCount / allQuestions.length) * 100;
+        const canSubmit = requiredForSubmit.every((question) => form.elements[question] && form.elements[question].value);
+
+        progressLabel.textContent = `${completedCount} of 7 complete`;
+        progressBar.style.width = `${percent}%`;
+        submitButton.disabled = !canSubmit;
+        submitButton.classList.toggle('bg-indigo-700', canSubmit);
+        submitButton.classList.toggle('hover:bg-indigo-800', canSubmit);
+        submitButton.classList.toggle('bg-slate-300', !canSubmit);
+        submitHint.textContent = canSubmit
+          ? 'Required questions answered. Submit whenever you are done.'
+          : 'Answer questions 1–4 to unlock the submit button.';
+      }
+
+      function updateSelectedCards() {
+        document.querySelectorAll('.option-card').forEach((card) => {
+          const input = card.querySelector('input');
+          const selected = input.checked;
+          card.classList.toggle('border-indigo-500', selected);
+          card.classList.toggle('bg-indigo-50', selected);
+          card.classList.toggle('ring-2', selected);
+          card.classList.toggle('ring-indigo-100', selected);
+          card.classList.toggle('border-slate-200', !selected);
+          card.classList.toggle('bg-white', !selected);
+        });
+      }
+
+      startButton.addEventListener('click', () => {
+        assessmentSection.classList.remove('hidden');
+        assessmentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      form.addEventListener('change', () => {
+        updateSelectedCards();
+        updateProgress();
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        updateSelectedCards();
+        updateProgress();
+
+        if (submitButton.disabled) {
+          return;
+        }
+
+        // Collect all answers
+        const answers = {};
+        for (const q of allQuestions) {
+          answers[q] = form.elements[q] ? form.elements[q].value : "";
+        }
+
+        // Compute scores using the scoring engine
+        window.__teardownAnswers = answers;
+        const scores = computeScore(answers);
+        // scores.raw  — { q1: 0-4, q2: 0-4, ... }
+        // scores.cats — { qualificationDepth: 0-100, routingReadiness: 0-100, frictionRisk: 0-100, nextStepClarity: 0-100 }
+        // scores.overall — 0-100
+        // scores.band — "Strong" | "Uneven" | "Leaky"
+
+        // Expose on window for results-display story (US-006)
+        window.__teardownScore = scores;
+
+        // Render results display
+        renderResults(scores);
+
+        // Show results section with fade-in
+        resultsSection.classList.remove('hidden');
+        resultsSection.classList.add('animating-in');
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Async URL reachability check — does not block results display
+        const formUrlInput = document.getElementById('form-url');
+        const formUrl = formUrlInput ? formUrlInput.value.trim() : '';
+        const callout = document.getElementById('form-url-callout');
+
+        if (!formUrl) {
+          callout.classList.add('hidden');
+          return;
+        }
+
+        // Basic URL validation: must start with http:// or https://
+        if (!/^https?:\/\//i.test(formUrl)) {
+          callout.textContent = "We couldn't reach that URL — you can still get your teardown results.";
+          callout.classList.remove('hidden');
+          return;
+        }
+
+        // Attempt HEAD fetch with no-cors fallback
+        let reachable = false;
+        const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 5000));
+
+        const checkReachability = async () => {
+          try {
+            const response = await Promise.race([
+              fetch(formUrl, { method: 'HEAD', mode: 'no-cors' }),
+              timeout
+            ]);
+            // no-cors mode returns opaque response — if we get here without throwing, treat as reachable
+            reachable = true;
+          } catch (err) {
+            reachable = false;
+          }
+
+          if (reachable) {
+            callout.textContent = "Your form is accessible — we'll include it in your results.";
+          } else {
+            callout.textContent = "We couldn't reach that URL — you can still get your teardown results.";
+          }
+          callout.classList.remove('hidden');
+        };
+
+        checkReachability();
+      });
+
+      window.waitingOnVeego = true;
+
+      updateSelectedCards();
+      updateProgress();
+    </script>
+      <footer class="bg-slate-950 py-16 text-slate-400 border-t border-slate-900 mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <a href="/index.html" class="flex items-center gap-3 mb-4">
+                <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                <span class="font-display font-bold text-xl tracking-tight text-white">ANIMAS AI.</span>
+              </a>
+              <p class="text-sm max-w-sm mb-6">Automation systems for founder-led consulting firms that need faster lead handling and cleaner operations.</p>
+              <div class="text-xs">© 2026 ANIMAS AI. ALL RIGHTS RESERVED.</div>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-6">Company</h4>
+              <ul class="space-y-4 text-sm">
+                <li><a href="/how-it-works.html" class="hover:text-white transition-colors">How it Works</a></li>
+                <li><a href="/solutions.html" class="hover:text-white transition-colors">Solutions</a></li>
+                <li><a href="/tools.html" class="text-white font-medium hover:text-white transition-colors">Tools</a></li>
+                <li><a href="/case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
+                <li><a href="/blog/" class="hover:text-white transition-colors">Blog</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-6">Contact</h4>
+              <ul class="space-y-4 text-sm">
+                <li><a href="mailto:tyler@animasai.co" class="hover:text-white transition-colors">tyler@animasai.co</a></li>
+                <li><a href="https://youtube.com/@mayberrytyler" target="_blank" class="hover:text-white transition-colors">YouTube</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('close-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && closeBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        });
+        closeBtn.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('flex');
+          document.body.style.overflow = '';
+        });
+      }
+      });
+    </script>
+</body>
+</html>
