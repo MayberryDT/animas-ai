@@ -257,14 +257,14 @@
               What the audit measures
             </h2>
             <p class="mt-4 text-lg leading-8 text-slate-600">
-              Six operating categories. Weighted on purpose. Because not every failure mode deserves equal blame.
+              Four operating categories. Weighted on purpose. Because not every failure mode deserves equal blame.
             </p>
           </div>
-          <div class="mt-12 grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <div class="mt-12 grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
             <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
               <div class="flex items-start justify-between gap-4">
                 <span class="text-2xl" aria-hidden="true">⚡</span>
-                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">20%</span>
+                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">28%</span>
               </div>
               <h3 class="mt-5 text-lg font-bold text-indigo-700">Response Speed</h3>
               <p class="mt-3 text-sm leading-6 text-slate-600">Measures how quickly qualified inquiries receive a real first response before intent cools off.</p>
@@ -272,7 +272,7 @@
             <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
               <div class="flex items-start justify-between gap-4">
                 <span class="text-2xl" aria-hidden="true">📝</span>
-                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">18%</span>
+                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">24%</span>
               </div>
               <h3 class="mt-5 text-lg font-bold text-indigo-700">Intake Quality</h3>
               <p class="mt-3 text-sm leading-6 text-slate-600">Checks whether the team captures enough detail to qualify, prioritize, and act without rework.</p>
@@ -280,7 +280,7 @@
             <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
               <div class="flex items-start justify-between gap-4">
                 <span class="text-2xl" aria-hidden="true">🧭</span>
-                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">18%</span>
+                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">24%</span>
               </div>
               <h3 class="mt-5 text-lg font-bold text-indigo-700">Routing Clarity</h3>
               <p class="mt-3 text-sm leading-6 text-slate-600">Evaluates how clearly ownership is assigned so leads reach the right person without guesswork.</p>
@@ -288,26 +288,10 @@
             <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
               <div class="flex items-start justify-between gap-4">
                 <span class="text-2xl" aria-hidden="true">🔁</span>
-                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">18%</span>
+                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">24%</span>
               </div>
               <h3 class="mt-5 text-lg font-bold text-indigo-700">Follow-Up Discipline</h3>
               <p class="mt-3 text-sm leading-6 text-slate-600">Looks for a repeatable follow-up rhythm instead of random outreach and crossed fingers.</p>
-            </article>
-            <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-              <div class="flex items-start justify-between gap-4">
-                <span class="text-2xl" aria-hidden="true">🤝</span>
-                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">14%</span>
-              </div>
-              <h3 class="mt-5 text-lg font-bold text-indigo-700">Handoff Reliability</h3>
-              <p class="mt-3 text-sm leading-6 text-slate-600">Assesses whether transitions between people or teams happen cleanly, consistently, and on time.</p>
-            </article>
-            <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-              <div class="flex items-start justify-between gap-4">
-                <span class="text-2xl" aria-hidden="true">📊</span>
-                <span class="rounded-full bg-indigo-50 px-3 py-1 text-sm font-semibold text-indigo-700">12%</span>
-              </div>
-              <h3 class="mt-5 text-lg font-bold text-indigo-700">Pipeline Visibility</h3>
-              <p class="mt-3 text-sm leading-6 text-slate-600">Measures whether leaders can actually see where leads are sitting, aging, and getting stuck.</p>
             </article>
           </div>
         </div>
@@ -330,11 +314,11 @@
             </div>
             <form id="assessment-form" class="mt-5 space-y-5">
               <div aria-live="polite" aria-atomic="true" class="sr-only" id="step-announcer">
-                Question <span id="current-step-announce">1</span> of <span id="total-steps-announce">16</span>
+                Question <span id="current-step-announce">1</span> of <span id="total-steps-announce">8</span>
               </div>
               <div id="question-dots" class="flex flex-wrap justify-center gap-2" aria-label="Assessment progress"></div>
               <div id="step-heading" class="space-y-1">
-                <p id="progress-label" class="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">Question 1 of 16</p>
+                <p id="progress-label" class="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">Question 1 of 8</p>
                 <h3 id="step-title" class="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">Response Speed</h3>
                 <p id="step-description" class="text-sm leading-5 text-slate-500">
                   Start with the part people always swear is fine. It usually is not.
@@ -473,7 +457,7 @@
                 <span class="mt-1 inline-flex h-8 w-8 flex-none items-center justify-center rounded-full bg-indigo-50 text-indigo-600 transition group-open:rotate-45">+</span>
               </summary>
               <p id="faq-panel-1" class="mt-4 max-w-3xl text-sm leading-6 text-slate-600">
-                It scores the six operating categories that determine whether inbound leads actually move: response speed, intake quality, routing clarity, follow-up discipline, handoff reliability, and pipeline visibility. The output shows where the process is strong, where leads stall, and which failure pattern needs attention first.
+                It scores the four operating categories that most directly shape conversion early: response speed, intake quality, routing clarity, and follow-up discipline. The output shows where the process is strong, where leads stall, and which failure pattern needs attention first.
               </p>
             </details>
             <details class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
@@ -491,7 +475,7 @@
                 <span class="mt-1 inline-flex h-8 w-8 flex-none items-center justify-center rounded-full bg-indigo-50 text-indigo-600 transition group-open:rotate-45">+</span>
               </summary>
               <p id="faq-panel-3" class="mt-4 max-w-3xl text-sm leading-6 text-slate-600">
-                About 3 to 5 minutes. It is short enough to finish in one sitting and specific enough to expose whether the process runs on defined operating rules or on whoever happens to be paying attention.
+                About 2 to 3 minutes. It is short enough to finish in one sitting and specific enough to expose whether the process runs on defined operating rules or on whoever happens to be paying attention.
               </p>
             </details>
             <details class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
@@ -693,119 +677,6 @@
             },
           ],
         },
-        {
-          title: 'Handoff Reliability',
-          description: 'Context should move with the lead. Revolutionary, apparently.',
-          questions: [
-            {
-              id: 'q9',
-              prompt: 'How cleanly do handoffs happen between teams or stages in the process?',
-              options: [
-                'Very cleanly with clear notes, ownership, and timing.',
-                'Mostly clean with occasional cleanup needed.',
-                'Mixed. Some handoffs are solid, others sloppy.',
-                'Often messy and dependent on manual follow-through.',
-                'Usually messy. Handoffs are where context goes to die.',
-              ],
-            },
-            {
-              id: 'q10',
-              prompt: 'How often is important context lost between stages or owners?',
-              options: [
-                'Almost never.',
-                'Occasionally, but recoverable.',
-                'Regularly enough to create friction.',
-                'Frequently enough to cause rework and delay.',
-                'Constantly. Everyone keeps reconstructing the same story.',
-              ],
-            },
-          ],
-        },
-        {
-          title: 'Pipeline Visibility',
-          description: 'If you cannot see lead status clearly, you are not managing a pipeline. You are guessing with software open.',
-          questions: [
-            {
-              id: 'q11',
-              prompt: 'How easily can your team see the current status of every active lead?',
-              options: [
-                'Very easily. Status is current, visible, and trusted across the team.',
-                'Mostly easily with minor gaps or lag.',
-                'Somewhat easily, but updates are uneven.',
-                'Difficult. Status often needs manual checking or clarification.',
-                'Barely at all. Lead status is a scavenger hunt.',
-              ],
-            },
-            {
-              id: 'q12',
-              prompt: 'How quickly can you detect when a high-value lead has stalled?',
-              options: [
-                'Immediately. Alerts or dashboards make stalls obvious.',
-                'Usually within the same day.',
-                'Within a few days if someone remembers to look.',
-                'Often too late to recover cleanly.',
-                'We usually notice after the opportunity is already dead.',
-              ],
-            },
-          ],
-        },
-        {
-          title: 'Founder Dependence',
-          description: 'If the founder keeps patching delays by hand, that is not leadership. It is an expensive workaround.',
-          questions: [
-            {
-              id: 'q13',
-              prompt: 'How often does the founder have to step in personally to unstick lead-response delays?',
-              options: [
-                'Almost never. The system runs without founder intervention.',
-                'Occasionally for unusual edge cases.',
-                'Regularly enough to be noticeable.',
-                'Frequently. The founder patches delays all the time.',
-                'Constantly. The process leans on the founder like a crutch.',
-              ],
-            },
-            {
-              id: 'q14',
-              prompt: 'If the founder disappeared for two weeks, how confident are you that inbound leads would be handled well?',
-              options: [
-                'Very confident. The system would keep running cleanly.',
-                'Mostly confident with a few manageable dips.',
-                'Moderately confident, but some cracks would show.',
-                'Not very confident. Performance would slide quickly.',
-                'Not confident at all. Things would fall apart fast.',
-              ],
-            },
-          ],
-        },
-        {
-          title: 'Segmentation',
-          description: 'These last two do not affect the core score. They just change how the verdict gets framed. Context matters. Annoying, I know.',
-          scoreable: false,
-          questions: [
-            {
-              id: 'q15',
-              prompt: 'What is your current company size?',
-              options: [
-                'Solo founder or operator.',
-                '2-5 people.',
-                '6-10 people.',
-                '11-25 people.',
-                '26+ people.',
-              ],
-            },
-            {
-              id: 'q16',
-              prompt: 'How many inbound leads do you typically receive in a month?',
-              options: [
-                '0-10 inbound leads.',
-                '11-25 inbound leads.',
-                '26-50 inbound leads.',
-                '51-100 inbound leads.',
-                '101+ inbound leads.',
-              ],
-            },
-          ],
-        },
       ];
 
       const assessmentQuestions = assessmentSteps.flatMap((step) =>
@@ -831,14 +702,6 @@
         q6: 'Removing assignment lag pays off faster than most teams expect.',
         q7: 'A repeatable follow-up rhythm quietly outperforms good intentions every time.',
         q8: 'Persistent follow-up is usually the difference between interest and revenue.',
-        q9: 'Clean handoffs protect trust and keep the next step moving.',
-        q10: 'Preserved context makes the whole pipeline feel sharper and faster.',
-        q11: 'Visibility is what lets you fix leaks before they become habits.',
-        q12: 'Spotting stalls early gives you a real chance to recover the deal.',
-        q13: 'Low founder dependency is a sign the system can actually stand on its own.',
-        q14: 'Resilience shows up when the process keeps working without heroics.',
-        q15: 'Team size changes the shape of the problem, not whether it exists.',
-        q16: 'Lead volume decides how expensive small process leaks become.',
       };
 
       const patternInsights = {
@@ -916,12 +779,10 @@
 
       const scoreConfig = {
         categories: [
-          { key: 'responseSpeed', label: 'Response Speed', weight: 0.2, questionIds: ['q1', 'q2'] },
-          { key: 'intakeQuality', label: 'Intake Quality', weight: 0.18, questionIds: ['q3', 'q4'] },
-          { key: 'routingClarity', label: 'Routing Clarity', weight: 0.18, questionIds: ['q5', 'q6'] },
-          { key: 'followUpDiscipline', label: 'Follow-Up Discipline', weight: 0.18, questionIds: ['q7', 'q8'] },
-          { key: 'handoffReliability', label: 'Handoff Reliability', weight: 0.14, questionIds: ['q9', 'q10'] },
-          { key: 'pipelineVisibility', label: 'Pipeline Visibility', weight: 0.12, questionIds: ['q11', 'q12'] },
+          { key: 'responseSpeed', label: 'Response Speed', weight: 0.28, questionIds: ['q1', 'q2'] },
+          { key: 'intakeQuality', label: 'Intake Quality', weight: 0.24, questionIds: ['q3', 'q4'] },
+          { key: 'routingClarity', label: 'Routing Clarity', weight: 0.24, questionIds: ['q5', 'q6'] },
+          { key: 'followUpDiscipline', label: 'Follow-Up Discipline', weight: 0.24, questionIds: ['q7', 'q8'] },
         ],
         bands: [
           { min: 85, label: 'Strong System' },
@@ -953,7 +814,7 @@
         return scoreConfig.bands.find((band) => score >= band.min) || scoreConfig.bands[scoreConfig.bands.length - 1];
       }
 
-      function detectPatterns(categories, answers) {
+      function detectPatterns(categories) {
         const categoryScores = categories.reduce((scores, category) => {
           scores[category.label] = category.score;
           return scores;
@@ -976,15 +837,7 @@
           patterns.push('Follow-Up Dropoff Pattern');
         }
 
-        if ((answers.q13 ?? 4) <= 1 || (answers.q14 ?? 4) <= 1) {
-          patterns.push('Founder Dependency Risk');
-        }
-
-        if (categoryScores['Pipeline Visibility'] < 40) {
-          patterns.push('Invisible Pipeline Problem');
-        }
-
-        if (categoryScores['Handoff Reliability'] < 40) {
+        if (categoryScores['Response Speed'] < 50 && categoryScores['Routing Clarity'] < 50) {
           patterns.push('Handoff Instability Pattern');
         }
 
@@ -1250,8 +1103,6 @@
           'Intake Quality': 'Intake Quality stands out as your strongest area.',
           'Routing Clarity': 'Routing Clarity is giving your process its best shot at staying organized.',
           'Follow-Up Discipline': 'Your follow-up discipline is the engine keeping leads alive.',
-          'Handoff Reliability': 'Handoff Reliability is doing the most to keep momentum intact.',
-          'Pipeline Visibility': 'Pipeline Visibility is the clearest sign your team can still see what is happening.',
         };
 
         const weakestLabel = scores.weakestCategory.label;
