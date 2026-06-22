@@ -5,50 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <title>Animas AI | 7-Day Speed to Lead Sprint for Consulting Firms</title>
-    <meta name="description" content="Animas AI helps founder-led consulting firms automate follow up, qualification, and lead routing in 7 days so fewer opportunities get lost to slow response and messy handoffs.">
+    <title>Animas AI | Tyler Mayberry's AI Systems Studio</title>
+    <meta name="description" content="Animas AI builds practical AI systems, agentic workflows, internal tools, automation, and AI-native products including Pip, Tyler Mayberry's current flagship product build.">
     <link rel="canonical" href="https://animasai.co/">
-
-    <meta property="og:title" content="Animas AI | 7-Day Speed to Lead Sprint for Consulting Firms">
-    <meta property="og:description" content="Fix speed to lead before it costs you another client. Animas AI helps consulting firms automate follow up, qualification, and lead routing in 7 days.">
+    <meta property="og:title" content="Animas AI | Tyler Mayberry's AI Systems Studio">
+    <meta property="og:description" content="Animas AI builds practical AI systems, agentic workflows, internal tools, automation, and AI-native products including Pip, Tyler Mayberry's current flagship product build.">
     <meta property="og:url" content="https://animasai.co/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Animas AI">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "Animas AI",
-          "url": "https://animasai.co",
-          "logo": "https://animasai.co/me.jpg",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "tyler@animasai.co",
-            "contactType": "sales"
-          },
-          "founder": {
-            "@type": "Person",
-            "name": "Tyler Mayberry"
-          },
-          "sameAs": ["https://youtube.com/@mayberrytyler"]
-        },
-        {
-          "@type": "Service",
-          "serviceType": "Speed to lead workflow design and implementation",
-          "name": "7-Day Speed to Lead Sprint",
-          "provider": {"@type": "Organization", "name": "Animas AI"},
-          "description": "Animas AI helps founder-led consulting firms automate follow up, qualification, and routing in 7 days so new opportunities get handled faster and fewer deals die in the gap."
-        }
-      ]
+      "@type": "Organization",
+      "name": "Animas AI",
+      "url": "https://animasai.co",
+      "logo": "https://animasai.co/logo-mark-v2-lg.webp",
+      "email": "tyler@animasai.co",
+      "founder": {
+        "@type": "Person",
+        "name": "Tyler Mayberry",
+        "url": "https://tylermayberry.dev"
+      },
+      "description": "Animas AI builds practical AI systems, agent workflows, internal tools, automation, AI media workflows, and product prototypes for messy real-world operations."
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script>
+        <link rel="stylesheet" href="/site.css">
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -57,22 +42,11 @@
                         display: ['Manrope', 'sans-serif'],
                     },
                     colors: {
-                        slate: {
-                            850: '#151e2e',
-                            900: '#0f172a',
-                            950: '#020617',
-                        },
+                        slate: { 850: '#151e2e', 900: '#0f172a', 950: '#020617' },
                         brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            200: '#bfdbfe',
-                            300: '#93c5fd',
-                            400: '#60a5fa',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd',
+                            400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb',
+                            700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a'
                         }
                     }
                 }
@@ -80,36 +54,28 @@
         }
     </script>
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     </style>
+
 </head>
 <body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
-
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="flex items-center gap-3">
+                <a href="/" class="flex items-center gap-3">
                     <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
                     <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
                 </a>
-
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How it Works</a>
-                    <a href="solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Solutions</a>
-                    <a href="tools.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Tools</a>
-                    <a href="case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Case Studies</a>
-                    <a href="/blog/" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Blog</a>
+                    <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How I Work</a>
+                    <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">What I Build</a>
+                    <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Work</a>
+                    <a href="/pip.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Pip</a>
                 </div>
-
-                <div class="hidden md:flex items-center">
-                    <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">
-                        Book a Speed-to-Lead Audit
-                    </a>
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="mailto:tyler@animasai.co" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">Email Tyler</a>
                 </div>
-
-                <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2">
+                <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2" aria-label="Open menu">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
             </div>
@@ -118,365 +84,324 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col transition-all duration-300">
         <div class="flex justify-end p-6">
-            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full">
+            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full" aria-label="Close menu">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
         <div class="flex flex-col items-center justify-center flex-1 space-y-8 text-xl font-display font-bold tracking-tight">
-            <a href="how-it-works.html" class="text-slate-900 hover:text-brand-600 transition-colors">How it Works</a>
-            <a href="solutions.html" class="text-slate-900 hover:text-brand-600 transition-colors">Solutions</a>
-            <a href="tools.html" class="text-slate-900 hover:text-brand-600 transition-colors">Tools</a>
-            <a href="case-studies.html" class="text-slate-900 hover:text-brand-600 transition-colors">Case Studies</a>
-            <a href="/blog/" class="text-slate-900 hover:text-brand-600 transition-colors">Blog</a>
-            <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Book a Speed-to-Lead Audit</a>
+            <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How I Work</a>
+            <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">What I Build</a>
+            <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Work</a>
+                    <a href="/pip.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Pip</a>
+            <a href="mailto:tyler@animasai.co" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Email Tyler</a>
         </div>
     </div>
 
     <main>
-        <section class="relative pt-24 pb-14 md:pt-32 md:pb-18 overflow-hidden bg-white">
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40"></div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-semibold tracking-wide mb-5">
-                    <span class="flex h-2 w-2 relative">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-                    </span>
-                    BUILT FOR FOUNDER-LED CONSULTING FIRMS
-                </div>
-
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-slate-900 leading-[1.02] max-w-5xl mx-auto mb-5">
-                    Stop qualified leads from going cold <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">before your team can act.</span>
-                </h1>
-
-                <p class="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-6">
-                    We help founder-led consulting firms fix slow follow up, weak intake, and messy routing in 7 days so good-fit opportunities stop dying in manual chaos.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white font-semibold rounded-full hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all duration-300">
-                        Book a Speed-to-Lead Audit
-                    </a>
-                    <a href="case-studies.html" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 font-semibold rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300">
-                        See Proof and Examples
-                    </a>
-                </div>
-
-                <div class="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500">
-                    <span class="px-3 py-1 rounded-full bg-gray-100 border border-gray-200">7-Day Speed to Lead Sprint</span>
-                    <span class="px-3 py-1 rounded-full bg-gray-100 border border-gray-200">3 to 20 person consulting firms</span>
-                    <span class="px-3 py-1 rounded-full bg-gray-100 border border-gray-200">Built for revenue-critical workflows</span>
-                </div>
-
-                <div class="mt-6 max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm text-left">
-                    <div class="mb-4 flex items-center justify-between gap-4">
-                        <div>
-                            <div class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-1">Brander Group</div>
-                            <div class="text-sm font-medium text-slate-700">Recent workflow improvement snapshot</div>
-                        </div>
-                        <a href="case-studies.html" class="hidden sm:inline text-sm font-semibold text-brand-600 hover:text-brand-700">See case study</a>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
-                        <div class="rounded-xl border border-gray-200 bg-gray-50 px-4 py-4">
-                            <div class="text-3xl font-display font-bold text-slate-900 mb-1">67%</div>
-                            <div class="text-sm font-medium text-slate-900 mb-1">Less manual chasing</div>
-                            <div class="text-xs text-slate-600">Less time spent checking status, nudging steps, and babysitting the workflow.</div>
-                        </div>
-                        <div class="rounded-xl border border-gray-200 bg-gray-50 px-4 py-4">
-                            <div class="text-3xl font-display font-bold text-slate-900 mb-1">38%</div>
-                            <div class="text-sm font-medium text-slate-900 mb-1">Faster workflow movement</div>
-                            <div class="text-xs text-slate-600">Quicker movement once handoff logic, ownership, and next actions were tightened.</div>
-                        </div>
-                        <div class="rounded-xl border border-gray-200 bg-gray-50 px-4 py-4">
-                            <div class="text-3xl font-display font-bold text-slate-900 mb-1">Clearer</div>
-                            <div class="text-sm font-medium text-slate-900 mb-1">Handoffs and ownership</div>
-                            <div class="text-xs text-slate-600">Fewer dropped steps because responsibility and execution became more consistent.</div>
-                        </div>
-                    </div>
-                    <a href="case-studies.html" class="sm:hidden inline-block mt-4 text-sm font-semibold text-brand-600 hover:text-brand-700">See case study</a>
-                </div>
+    <section class="relative pt-24 pb-8 md:pt-28 md:pb-12 overflow-hidden bg-white">
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-gray-50 to-transparent"></div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="home-hero-copy max-w-5xl">
+          <div class="inline-flex items-center gap-3 mb-4 rounded-lg border border-gray-200 bg-white/85 px-3 py-2 shadow-sm">
+            <img src="/me.jpg" alt="Tyler Mayberry" class="w-10 h-10 rounded-md object-cover border border-gray-200 shadow-sm">
+            <div class="text-left">
+              <div class="font-display font-medium text-sm text-slate-950 leading-tight">Tyler Mayberry</div>
+              <div class="text-xs text-slate-600">Animas AI · Tulsa, OK · Remote</div>
             </div>
-        </section>
+          </div>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-slate-950 leading-[1.02] mb-6">
+            I build <span class="blue-underline">AI systems</span> for messy real-world work.
+          </h1>
+          <p class="text-base md:text-xl text-slate-600 max-w-3xl leading-relaxed mb-6">
+            I turn scattered context into working software: agentic workflows, internal tools, automation, and product systems people can actually use.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4 md:justify-center">
+            <a href="mailto:tyler@animasai.co" class="px-5 py-3 md:px-8 md:py-4 bg-slate-950 text-white text-sm md:text-base font-semibold rounded-full hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all duration-300 text-center">Email Tyler</a>
+            <a href="/case-studies.html" class="px-5 py-3 md:px-8 md:py-4 bg-white text-slate-800 text-sm md:text-base font-semibold rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 text-center">See the Work</a>
+            <a href="https://tylermayberry.dev" target="_blank" class="px-5 py-3 md:px-8 md:py-4 bg-amber-50 text-amber-900 text-sm md:text-base font-semibold rounded-full border border-amber-200 hover:bg-amber-100 transition-all duration-300 text-center">Portfolio</a>
+          </div>
+          <div class="flex flex-wrap gap-2 text-sm text-slate-600 md:justify-center">
+            <span class="px-3 py-1.5 bg-white/80 border border-gray-200 rounded-full">Agents and internal tools</span>
+            <span class="px-3 py-1.5 bg-white/80 border border-gray-200 rounded-full">Automation</span>
+            <span class="px-3 py-1.5 bg-white/80 border border-gray-200 rounded-full">Product-minded builder</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section class="border-y border-gray-200 bg-gray-50 py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto text-center mb-14">
-                    <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-900 mb-6">
-                        Most consulting firms do not have a lead gen problem.
-                    </h2>
-                    <p class="text-lg text-slate-600 leading-relaxed">
-                        They have a lead handling problem. Response is slow. Intake is incomplete. Routing is messy. Follow up depends on someone noticing the lead in time. That is how good opportunities disappear.
-                    </p>
-                </div>
+    <section class="border-y border-gray-200 bg-gray-50 py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mb-12">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">What Animas AI is for</div>
+          <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-950 mb-5">I build the layer between people, agents, tools, and messy operations.</h2>
+          <p class="text-lg text-slate-600 leading-relaxed">Most AI work does not fail because the model is weak. It fails because nobody captured the context, workflow rules, handoffs, review loops, and ownership model. That is the layer I like building.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+            <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4"><span class="material-symbols-outlined text-brand-600">psychology</span></div>
+            <h3 class="font-bold text-slate-900 mb-2">Agentic workflows</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Agents with durable context, task state, tool access, and judgment boundaries.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+            <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4"><span class="material-symbols-outlined text-emerald-600">dashboard</span></div>
+            <h3 class="font-bold text-slate-900 mb-2">Internal tools</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Dashboards, admin panels, intake flows, and control surfaces for repeated work.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4"><span class="material-symbols-outlined text-amber-700">auto_awesome_motion</span></div>
+            <h3 class="font-bold text-slate-900 mb-2">AI media systems</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Avatar, voice, video, content, and review pipelines using modern AI media APIs.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+            <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-4"><span class="material-symbols-outlined text-rose-600">api</span></div>
+            <h3 class="font-bold text-slate-900 mb-2">Product engineering</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">React, TypeScript, SQLite, Supabase, PocketBase, APIs, and pragmatic glue code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                        <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
-                            <span class="material-symbols-outlined text-brand-600">schedule</span>
-                        </div>
-                        <h3 class="font-bold text-slate-900 mb-2">Slow first response</h3>
-                        <p class="text-sm text-slate-600">Leads sit too long before anyone reaches out with context or intent.</p>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                        <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
-                            <span class="material-symbols-outlined text-indigo-600">assignment</span>
-                        </div>
-                        <h3 class="font-bold text-slate-900 mb-2">Incomplete intake</h3>
-                        <p class="text-sm text-slate-600">Forms miss the details your team actually needs to qualify and respond properly.</p>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                        <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4">
-                            <span class="material-symbols-outlined text-sky-600">route</span>
-                        </div>
-                        <h3 class="font-bold text-slate-900 mb-2">Messy routing</h3>
-                        <p class="text-sm text-slate-600">The right person gets looped in late, or not at all, because ownership is fuzzy.</p>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                        <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
-                            <span class="material-symbols-outlined text-emerald-600">trending_down</span>
-                        </div>
-                        <h3 class="font-bold text-slate-900 mb-2">Quiet revenue leaks</h3>
-                        <p class="text-sm text-slate-600">Good-fit opportunities go cold before a real conversation starts.</p>
-                    </div>
+    <section class="py-20 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <div class="max-w-3xl">
+            <div class="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-3">Selected work</div>
+            <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-950 mb-4">Current builds.</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">Working systems, products, and experiments that show how I think, build, and turn ambiguity into useful software. Pip is the current flagship.</p>
+          </div>
+          <a href="/case-studies.html" class="inline-flex items-center gap-2 text-sm font-bold text-brand-600 hover:text-brand-700">
+            Open the work page <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+        <div class="work-bento-grid">
+          <article class="work-bento-card work-bento-feature work-bento-pip border border-gray-200 rounded-3xl bg-[#f4f1e8] overflow-hidden shadow-sm">
+            <div class="grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr]">
+              <div class="p-7 md:p-8">
+                <div class="inline-flex px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-bold uppercase tracking-wide mb-4">Current flagship product</div>
+                <h3 class="font-display text-3xl font-bold tracking-tight text-slate-950 mb-3">Pip</h3>
+                <p class="text-slate-700 leading-relaxed mb-5">An AI-native spending companion built around one daily number: Spendable Cash Today. Pip uses real account data, deterministic money logic, and an agent interface that explains the why only when the user asks.</p>
+                <p class="text-sm text-slate-600 leading-relaxed mb-5">It is the clearest current example of the Animas AI pattern: reduce a messy real-world decision into a small, agent-assisted product surface.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 bg-white/80 border border-slate-200 rounded-full text-xs font-semibold text-slate-700">Next.js / TypeScript</span>
+                  <span class="px-3 py-1 bg-white/80 border border-slate-200 rounded-full text-xs font-semibold text-slate-700">Supabase</span>
+                  <span class="px-3 py-1 bg-white/80 border border-slate-200 rounded-full text-xs font-semibold text-slate-700">Plaid</span>
+                  <span class="px-3 py-1 bg-white/80 border border-slate-200 rounded-full text-xs font-semibold text-slate-700">OpenAI Agents SDK</span>
+                  <span class="px-3 py-1 bg-white/80 border border-slate-200 rounded-full text-xs font-semibold text-slate-700">Netlify</span>
                 </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a href="/pip.html" class="inline-flex items-center justify-center gap-2 font-bold text-slate-950 hover:text-brand-600">See the Pip build <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+                  <a href="https://spendwithpip.com" target="_blank" class="inline-flex items-center justify-center gap-2 font-bold text-slate-700 hover:text-brand-600">View Pip <span class="material-symbols-outlined text-base">open_in_new</span></a>
+                </div>
+              </div>
+              <div class="work-bento-pip-media bg-[#dfe8d7] p-4 flex items-center">
+                <img src="/work-assets/pip-app-showcase.png" alt="Pip app screens showing Spendable Cash Today and chat." class="work-bento-pip-image rounded-2xl border border-white/70 shadow-lg">
+              </div>
             </div>
-        </section>
-
-        <section class="py-24 md:py-32 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-900 mb-6">
-                            What we usually find first.
-                        </h2>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-8">
-                            Most firms do not need more hustle. They need the front of the pipeline to stop depending on memory, inbox babysitting, and founder intervention. These are the patterns we usually see first.
-                        </p>
-
-                        <div class="space-y-4">
-                            <div class="flex gap-4 items-start bg-gray-50 border border-gray-100 rounded-2xl p-5">
-                                <span class="material-symbols-outlined text-brand-600">person_alert</span>
-                                <div>
-                                    <h3 class="font-bold text-slate-900 mb-1">The founder is still patching the pipeline</h3>
-                                    <p class="text-sm text-slate-600">Leads get saved because someone important notices the problem in time, not because the workflow is reliable.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start bg-gray-50 border border-gray-100 rounded-2xl p-5">
-                                <span class="material-symbols-outlined text-brand-600">timer</span>
-                                <div>
-                                    <h3 class="font-bold text-slate-900 mb-1">Speed depends on who saw the message first</h3>
-                                    <p class="text-sm text-slate-600">Response time changes by channel, by person, and by how chaotic the day is.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start bg-gray-50 border border-gray-100 rounded-2xl p-5">
-                                <span class="material-symbols-outlined text-brand-600">assignment_late</span>
-                                <div>
-                                    <h3 class="font-bold text-slate-900 mb-1">Qualification happens after the lead arrives</h3>
-                                    <p class="text-sm text-slate-600">Your team has to chase missing context before they can decide what to do next.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start bg-gray-50 border border-gray-100 rounded-2xl p-5">
-                                <span class="material-symbols-outlined text-brand-600">warning</span>
-                                <div>
-                                    <h3 class="font-bold text-slate-900 mb-1">Good opportunities die quietly</h3>
-                                    <p class="text-sm text-slate-600">No one meant to drop the lead. The system just never made the next action obvious enough or fast enough.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="aspect-square md:aspect-[4/3] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-950"></div>
-                            <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-
-                            <div class="absolute inset-0 flex flex-col justify-center px-10 z-10">
-                                <div class="space-y-5">
-                                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
-                                        <div class="text-xs uppercase tracking-widest text-brand-300 font-bold mb-2">Before</div>
-                                        <div class="text-white font-semibold mb-1">Lead comes in</div>
-                                        <div class="text-sm text-slate-400">Inbox wait time, incomplete notes, manual forwarding, inconsistent follow up</div>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <span class="material-symbols-outlined text-brand-400 text-3xl">south</span>
-                                    </div>
-                                    <div class="bg-brand-500/10 border border-brand-400/20 rounded-2xl p-5">
-                                        <div class="text-xs uppercase tracking-widest text-brand-200 font-bold mb-2">After</div>
-                                        <div class="text-white font-semibold mb-1">Lead gets handled fast</div>
-                                        <div class="text-sm text-slate-300">Qualified consistently, routed cleanly, and moved to the right next step without manual chaos</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4">
-                            <span class="material-symbols-outlined text-4xl text-brand-600">verified_user</span>
-                            <div>
-                                <div class="font-bold text-slate-900">7-Day Sprint</div>
-                                <div class="text-xs text-slate-500 font-medium">Focused on one urgent workflow first</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </article>
+          <article class="work-bento-card work-bento-medium work-bento-executioner border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
+            <img src="/work-assets/executioner.png" alt="Executioner product screenshot" class="w-full aspect-[16/9] object-cover object-top border-b border-gray-200">
+            <div class="p-7">
+              <div class="inline-flex px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold uppercase tracking-wide mb-4">Product build</div>
+              <h3 class="font-display text-3xl font-bold tracking-tight text-slate-950 mb-3">Executioner</h3>
+              <p class="text-slate-600 leading-relaxed mb-5">A deployed personal execution system with onboarding, payments, email, and AI-assisted planning flows.</p>
+              <a href="https://executionr.com" target="_blank" class="inline-flex items-center gap-2 font-bold text-slate-950 hover:text-brand-600">View Executioner <span class="material-symbols-outlined text-base">open_in_new</span></a>
             </div>
-        </section>
-
-        <section class="py-24 bg-gray-50 border-t border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-900 mb-6">
-                        The 7-Day Speed to Lead Sprint.
-                    </h2>
-                    <p class="text-lg text-slate-600">
-                        This is the front-end engagement. We audit your current lead handling, design the workflow, and implement the core automation needed to improve how opportunities are contacted, qualified, and routed. The point is to stop qualified leads from stalling, going cold, or getting stuck in founder-dependent chaos.
-                    </p>
-                    <p class="text-sm text-slate-500 mt-4">Want the receipts first? <a href="case-studies.html" class="text-brand-600 font-semibold hover:text-brand-700">See the workflow proof and case studies</a>.</p>
+          </article>
+          <article class="work-bento-card work-bento-medium work-bento-nova border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
+            <div class="bg-slate-950 p-5 border-b border-gray-200">
+              <div class="rounded-2xl border border-white/10 bg-slate-900 p-4">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+                  <div class="text-xs font-bold uppercase tracking-widest text-indigo-200">Central Brain</div>
+                  <div class="flex gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-300"></span><span class="w-2 h-2 rounded-full bg-amber-300"></span><span class="w-2 h-2 rounded-full bg-brand-300"></span></div>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                        <h3 class="text-xl font-bold text-slate-900 mb-5">What is included</h3>
-                        <ul class="space-y-4 text-slate-600">
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-brand-600 mt-0.5">check_circle</span><span>Review of your current lead intake and follow up flow</span></li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-brand-600 mt-0.5">check_circle</span><span>Identification of response delays, routing gaps, and handoff failures</span></li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-brand-600 mt-0.5">check_circle</span><span>Workflow design for faster contact and cleaner qualification</span></li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-brand-600 mt-0.5">check_circle</span><span>Implementation of the core speed to lead automation</span></li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-brand-600 mt-0.5">check_circle</span><span>Clear next-step recommendations for what to improve after the sprint</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-slate-900 p-8 rounded-2xl shadow-xl">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-500/20 text-brand-300 text-[10px] font-bold tracking-widest uppercase mb-6">
-                            Why this offer works
-                        </div>
-                        <h3 class="text-3xl font-display font-bold text-white mb-4">One workflow. One urgent revenue problem.</h3>
-                        <p class="text-slate-300 leading-relaxed mb-8">
-                            The sprint is focused on the workflow closest to revenue. It is fast, easy to understand, and concrete enough for a consulting firm owner to buy without sitting through a bloated strategy process.
-                        </p>
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
-                                <div class="text-sm font-semibold text-white mb-1">Built fast</div>
-                                <div class="text-sm text-slate-400">Seven days keeps momentum high and friction low.</div>
-                            </div>
-                            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
-                                <div class="text-sm font-semibold text-white mb-1">Easy to expand</div>
-                                <div class="text-sm text-slate-400">After the first win, broader automation work becomes much easier to justify.</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="grid grid-cols-3 gap-2 mb-3">
+                  <div class="rounded-lg bg-white/10 p-2">
+                    <div class="text-[10px] font-bold uppercase tracking-wide text-indigo-200 mb-1">Decisions</div>
+                    <div class="text-xs text-white leading-snug">What changed and why</div>
+                  </div>
+                  <div class="rounded-lg bg-white/10 p-2">
+                    <div class="text-[10px] font-bold uppercase tracking-wide text-emerald-200 mb-1">State</div>
+                    <div class="text-xs text-white leading-snug">Current owner and next step</div>
+                  </div>
+                  <div class="rounded-lg bg-white/10 p-2">
+                    <div class="text-[10px] font-bold uppercase tracking-wide text-amber-200 mb-1">Follow-up</div>
+                    <div class="text-xs text-white leading-snug">What needs another pass</div>
+                  </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl">
-                    <div class="grid grid-cols-1 lg:grid-cols-2">
-                        <div class="p-12 md:p-16 flex flex-col justify-center">
-                            <div class="inline-flex items-center gap-2 text-brand-400 font-semibold text-xs tracking-widest uppercase mb-4">
-                                <span class="material-symbols-outlined text-[16px]">conversion_path</span>
-                                How the sprint works
-                            </div>
-                            <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">
-                                Audit, design, implement, then expand.
-                            </h2>
-                            <p class="text-slate-400 text-lg mb-8">
-                                The process is simple on purpose. Start with the lead handling bottleneck. Fix that first. Then decide whether the next workflow worth improving is onboarding, reporting, client communication, or another operational handoff.
-                            </p>
-                            <div class="space-y-4 text-slate-300">
-                                <div class="flex items-start gap-4"><span class="text-brand-400 font-bold">01</span><span>Audit the current lead handling workflow</span></div>
-                                <div class="flex items-start gap-4"><span class="text-brand-400 font-bold">02</span><span>Design the system Tyler would build first</span></div>
-                                <div class="flex items-start gap-4"><span class="text-brand-400 font-bold">03</span><span>Implement the core automation inside the sprint</span></div>
-                                <div class="flex items-start gap-4"><span class="text-brand-400 font-bold">04</span><span>Map the next expansion only after the first workflow win</span></div>
-                            </div>
-                        </div>
-                        <div class="bg-slate-800 p-4 lg:p-8 flex items-center">
-                            <div class="w-full aspect-video bg-slate-950 rounded-xl overflow-hidden shadow-inner relative">
-                                <iframe
-                                    class="absolute inset-0 w-full h-full"
-                                    src="https://www.youtube-nocookie.com/embed/KPmkaElH46c"
-                                    title="YouTube video player"
-                                    frameborder="0"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
+                <div class="space-y-2 text-xs text-slate-200">
+                  <div class="rounded-lg bg-white/10 px-3 py-2">Project memory: source, decision, current shape.</div>
+                  <div class="rounded-lg bg-white/10 px-3 py-2">Review loop: visible owner, status, and context.</div>
+                  <div class="rounded-lg bg-white/10 px-3 py-2">Operator view: notes that become usable controls.</div>
                 </div>
+              </div>
             </div>
-        </section>
+            <div class="p-7">
+              <div class="inline-flex px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-wide mb-4">Private infrastructure</div>
+              <h3 class="font-display text-3xl font-bold tracking-tight text-slate-950 mb-3">Nova OS / Central Brain</h3>
+              <p class="text-slate-600 leading-relaxed mb-5">A private pattern for agent memory, project state, decisions, incidents, follow-ups, and dashboards so AI work has continuity.</p>
+              <div class="space-y-3 text-sm text-slate-700">
+                <div class="flex gap-2"><span class="material-symbols-outlined text-indigo-600 text-base">database</span><span>SQLite-backed project context</span></div>
+                <div class="flex gap-2"><span class="material-symbols-outlined text-indigo-600 text-base">hub</span><span>Agent coordination patterns</span></div>
+                <div class="flex gap-2"><span class="material-symbols-outlined text-indigo-600 text-base">fact_check</span><span>Human-readable task state</span></div>
+              </div>
+            </div>
+          </article>
+          <article class="work-bento-card work-bento-compact work-bento-brander border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
+            <div class="bg-emerald-50 p-5 border-b border-emerald-100">
+              <div class="rounded-2xl bg-white border border-emerald-100 p-4 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-xs font-bold uppercase tracking-widest text-emerald-700">Workflow board</div>
 
-        <section class="py-24 bg-gray-50 border-t border-gray-200">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-8">
-                    <div class="w-32 h-32 rounded-full overflow-hidden shrink-0 shadow-md">
-                        <img src="me.jpg" alt="Tyler Mayberry, Founder" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-center sm:text-left">
-                        <h3 class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Why Animas AI</h3>
-                        <h4 class="text-2xl font-bold text-slate-900 mb-4">You need a system that gets built properly the first time.</h4>
-                        <p class="text-slate-600 leading-relaxed max-w-2xl mb-4">
-                            Tyler leads the work as the system architect and implementation owner. Instead of handing off pieces to a chain of people who barely understand the workflow, you work with someone who can look at the problem, decide what should happen, and build the system end to end.
-                        </p>
-                        <p class="text-slate-600 leading-relaxed max-w-2xl">
-                            That matters when speed, handoffs, and response quality sit this close to revenue. Fix the front of the pipeline first, then improve the next bottleneck once the first workflow is holding together.
-                        </p>
-                    </div>
                 </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="rounded-xl bg-gray-50 border border-gray-100 p-3">
+                    <div class="text-[10px] font-bold uppercase tracking-wide text-emerald-700 mb-2">Intake</div>
+                    <div class="text-xs font-medium text-slate-900 leading-snug">Capture the real process</div>
+                  </div>
+                  <div class="rounded-xl bg-gray-50 border border-gray-100 p-3">
+                    <div class="text-[10px] font-bold uppercase tracking-wide text-brand-700 mb-2">Build</div>
+                    <div class="text-xs font-medium text-slate-900 leading-snug">Shape tools around the work</div>
+                  </div>
+                  <div class="rounded-xl bg-gray-50 border border-gray-100 p-3">
+                    <div class="text-[10px] font-bold uppercase tracking-wide text-amber-700 mb-2">Review</div>
+                    <div class="text-xs font-medium text-slate-900 leading-snug">Tighten from actual use</div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
-
-        <section class="py-32 bg-slate-900 relative overflow-hidden">
-            <div class="absolute top-0 right-0 -mr-64 -mt-64 w-[800px] h-[800px] bg-brand-600/20 blur-[120px] rounded-full"></div>
-            <div class="absolute bottom-0 left-0 -ml-64 -mb-64 w-[600px] h-[600px] bg-indigo-600/20 blur-[120px] rounded-full"></div>
-
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-white mb-8">
-                    Want to see where your lead handling is leaking revenue?
-                </h2>
-                <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-                    Book a speed-to-lead audit and get a clear breakdown of where follow up slows down, where routing breaks, and what should be fixed first.
-                </p>
-                <a href="https://calendar.app.google/UJgrXnA1QFaD1YddA" class="inline-block px-10 py-5 bg-white text-slate-900 font-bold rounded-full hover:bg-brand-50 hover:scale-105 transition-all duration-300 shadow-xl">
-                    Book a Speed-to-Lead Audit
-                </a>
+            <div class="p-7">
+              <div class="inline-flex px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wide mb-4">Client environment</div>
+              <h3 class="font-display text-3xl font-bold tracking-tight text-slate-950 mb-3">Brander Group</h3>
+              <p class="text-slate-600 leading-relaxed">Contracted AI systems work in a real operating environment. Public details stay high-level while still showing the operating pattern: context, workflow state, agentic support, and practical delivery.</p>
             </div>
-        </section>
-    </main>
+          </article>
+          <article class="work-bento-card work-bento-wide work-bento-julian border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
+            <img src="/work-assets/julian-control-panel-github.png" alt="Julian control panel repository screenshot" class="w-full aspect-[16/9] object-cover object-top border-b border-gray-200">
+            <div class="p-7">
+              <div class="inline-flex px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wide mb-4">AI media systems</div>
+              <h3 class="font-display text-3xl font-bold tracking-tight text-slate-950 mb-3">Julian / media workflows</h3>
+              <p class="text-slate-600 leading-relaxed">Control panels and experiments around AI avatar video, voice, generated media, content review, and API-driven production loops.</p>
+            </div>
+          </article>
+          <article class="work-bento-card work-bento-compact work-bento-rat border border-gray-200 rounded-3xl bg-slate-950 overflow-hidden shadow-sm">
+            <img src="/work-assets/rat-detective-online.png" alt="Rat Detective Online game screenshot" class="w-full aspect-[16/9] object-cover border-b border-white/10">
+            <div class="p-7">
+              <div class="inline-flex px-3 py-1 rounded-full bg-white/10 text-rose-200 text-xs font-bold uppercase tracking-wide mb-4">Playable game</div>
+              <h3 class="font-display text-3xl font-bold tracking-tight text-white mb-3">Rat Detective Online</h3>
+              <p class="text-slate-300 leading-relaxed mb-5">A playable multiplayer browser game showing 3D, TypeScript, physics, and real-time interaction.</p>
+              <a href="https://rat-detective-online.netlify.app" target="_blank" class="inline-flex items-center gap-2 font-bold text-white hover:text-rose-200">Play live <span class="material-symbols-outlined text-base">open_in_new</span></a>
+            </div>
+          </article>
+          <article class="work-bento-card work-bento-half work-bento-paycheck border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
+            <img src="/work-assets/paycheck-sanity-checker.png" alt="Paycheck Sanity Checker screenshot" class="w-full aspect-[16/9] object-cover border-b border-gray-200">
+            <div class="p-7">
+              <div class="inline-flex px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold uppercase tracking-wide mb-4">Workflow tool</div>
+              <h3 class="font-display text-3xl font-bold tracking-tight text-slate-950 mb-3">Paycheck Sanity Checker</h3>
+              <p class="text-slate-600 leading-relaxed">A focused tool for turning confusing pay questions into a simple review flow.</p>
+            </div>
+          </article>
+          <article class="work-bento-card work-bento-half work-bento-aml border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
+            <img src="/work-assets/aml-risk-navigator.png" alt="AML Risk Navigator screenshot" class="w-full aspect-[16/9] object-cover border-b border-gray-200">
+            <div class="p-7">
+              <div class="inline-flex px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wide mb-4">Decision support</div>
+              <h3 class="font-display text-3xl font-bold tracking-tight text-slate-950 mb-3">AML Risk Navigator</h3>
+              <p class="text-slate-600 leading-relaxed">A compliance-oriented prototype for making structured review easier to follow.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 border-y border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 items-start">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Operating thesis</div>
+            <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-950 mb-5">The person using the system is part of the system.</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">Good AI work is not just prompts. It is context capture, interfaces, review loops, permissions, data shape, failure handling, and the human confidence to use the thing when the work gets noisy.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <span class="material-symbols-outlined text-brand-600 mb-4">groups</span>
+              <h3 class="font-bold text-slate-900 mb-2">Strong with nontechnical operators</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">Hospitality and customer-facing work taught me how to translate messy human context into tools people can trust.</p>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <span class="material-symbols-outlined text-emerald-600 mb-4">construction</span>
+              <h3 class="font-bold text-slate-900 mb-2">Comfortable without clean specs</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">Most valuable systems start as fog. I can explore, prototype, test, and tighten until the shape appears.</p>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <span class="material-symbols-outlined text-amber-700 mb-4">manage_accounts</span>
+              <h3 class="font-bold text-slate-900 mb-2">Ownership beats micromanagement</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">I do my best work with room to own the problem, make decisions, and show progress through working artifacts.</p>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <span class="material-symbols-outlined text-rose-600 mb-4">verified</span>
+              <h3 class="font-bold text-slate-900 mb-2">Honest about AI limits</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">AI does not fix chaos by magic. It needs rules, memory, context, and maintenance to become useful infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-8 md:gap-10 items-center">
+          <img src="/me.jpg" alt="Tyler Mayberry, Founder" class="w-36 h-36 md:w-44 md:h-44 rounded-3xl object-cover shadow-md border border-gray-200 mx-auto md:mx-0">
+          <div class="text-center md:text-left">
+            <div class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-3">Built directly</div>
+            <h4 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950 mb-4">Animas AI is Tyler Mayberry turning ambiguous AI work into working systems.</h4>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-3xl">My best work is turning unclear operational problems into concrete systems: interfaces, workflows, data shape, automations, and agent loops that people can trust. Available for aligned full-time remote roles, contract work, and consulting where practical AI tooling matters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-28 bg-gradient-to-br from-emerald-950 via-slate-950 to-amber-950 relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-white mb-8">Need someone who can turn ambiguous AI work into something real?</h2>
+        <p class="text-xl text-slate-200 mb-10 max-w-2xl mx-auto">Send me the context. I will tell you what I would build first, what I would leave alone, and where a useful version probably starts.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="mailto:tyler@animasai.co" class="px-10 py-5 bg-white text-slate-950 font-bold rounded-full hover:bg-emerald-50 transition-all duration-300 shadow-xl">Email Tyler</a>
+          <a href="https://www.linkedin.com/in/mayberrydt/" target="_blank" class="px-10 py-5 bg-white/10 text-white font-bold rounded-full border border-white/20 hover:bg-white/15 transition-all duration-300">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
     <footer class="bg-slate-950 py-16 text-slate-400">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
-                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                    <a href="/" class="flex items-center gap-3 mb-4">
                         <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
                         <span class="font-display font-bold text-xl tracking-tight text-white">ANIMAS AI.</span>
                     </a>
-                    <p class="text-sm max-w-sm mb-6">Automation systems for founder-led consulting firms that need faster lead handling and cleaner operations.</p>
+                    <p class="text-sm max-w-sm mb-6">Practical AI systems, internal tools, and automation for messy real-world operations.</p>
                     <div class="text-xs">© 2026 ANIMAS AI. ALL RIGHTS RESERVED.</div>
                 </div>
-
                 <div class="md:hidden border-t border-slate-800 my-2"></div>
-
                 <div>
                     <h4 class="text-white font-semibold mb-6">Company</h4>
                     <ul class="space-y-4 text-sm">
-                        <li><a href="how-it-works.html" class="hover:text-white transition-colors">How it Works</a></li>
-                        <li><a href="solutions.html" class="hover:text-white transition-colors">Solutions</a></li>
-                        <li><a href="tools.html" class="hover:text-white transition-colors">Tools</a></li>
-                        <li><a href="case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
-                        <li><a href="/blog/" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="/how-it-works.html" class="hover:text-white transition-colors">How I Work</a></li>
+                        <li><a href="/solutions.html" class="hover:text-white transition-colors">What I Build</a></li>
+                        <li><a href="/case-studies.html" class="hover:text-white transition-colors">Work</a></li>
+                        <li><a href="/pip.html" class="hover:text-white transition-colors">Pip</a></li>
+                        <li><a href="/blog/" class="hover:text-white transition-colors">Writing</a></li>
+                        <li><a href="/tools.html" class="hover:text-white transition-colors">Workflow Experiments</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-white font-semibold mb-6">Contact</h4>
                     <ul class="space-y-4 text-sm">
                         <li><a href="mailto:tyler@animasai.co" class="hover:text-white transition-colors">tyler@animasai.co</a></li>
-                        <li><a href="https://youtube.com/@mayberrytyler" target="_blank" class="hover:text-white transition-colors">YouTube</a></li>
+                        <li><a href="https://tylermayberry.dev" target="_blank" class="hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="https://github.com/MayberryDT" target="_blank" class="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/mayberrydt/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
@@ -488,7 +413,6 @@
             const menuBtn = document.getElementById('mobile-menu-btn');
             const closeBtn = document.getElementById('close-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-
             if (menuBtn && closeBtn && mobileMenu) {
                 menuBtn.addEventListener('click', () => {
                     mobileMenu.classList.remove('hidden');
