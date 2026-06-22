@@ -13,3 +13,23 @@
   from = "/blog/:slug"
   to = "/blog/:slug.html"
   status = 200
+
+[[redirects]]
+  from = "/calculator"
+  to = "/calculator/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/intake"
+  to = "/intake/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/audit"
+  to = "/audit/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/scorecard"
+  to = "/scorecard/index.html"
+  status = 200

@@ -1,37 +1,29 @@
 # https://animasai.co/llms.txt
-# This file helps AI search engines (Perplexity, ChatGPT, Gemini, Claude) understand
-# the structure and content of the Animas AI website.
+# This file helps AI search engines understand Animas AI.
 
-> Animas AI is a premium "Agents as a Service" automation agency founded by Tyler Mayberry. We build, host, and maintain custom AI agent workflows for small and mid-sized businesses on a flat-rate monthly retainer. Every client's first automation workflow is delivered in 7 days or the engagement is fully refunded. Ongoing requests are fulfilled within 48 hours. All infrastructure costs (API fees, hosting, security) are included. The automation stack is powered by the proprietary OpenClaw Framework.
+> Animas AI is Tyler Mayberry's AI systems studio for practical AI systems, agent workflows, internal tools, workflow automation, dashboards, AI media workflows, and AI-assisted product prototypes. The site is designed for potential employers, contract clients, freelance clients, and collaborators.
+
+## Key Facts
+
+- Founder: Tyler Mayberry
+- Contact: tyler@animasai.co
+- Portfolio: https://tylermayberry.dev
+- GitHub: https://github.com/MayberryDT
+- LinkedIn: https://www.linkedin.com/in/mayberrydt/
+- Current positioning: AI systems studio, practical product engineering, internal tools, agentic workflows, AI-native product systems, and automation for messy real-world operations.
+- Current flagship product build: Pip, an AI-native spending companion using deterministic financial logic, agent-assisted explanation/action, Supabase, Plaid, OpenAI Agents SDK, and Netlify deployment.
+- Availability: contract work, consulting projects, and aligned full-time opportunities.
 
 ## Pages
 
-- /: Homepage introducing the Animas AI "Agents as a Service" model, the 7-day delivery guarantee, the 5-step engagement pipeline (Discovery, Architecture, Build, Integrate, Scale), and an embedded video demonstration of a real automation workflow.
-- /how-it-works: Detailed breakdown of the Animas AI retainer model. Covers the flat-rate unlimited automation request model, 48-hour turnaround SLA, fully managed infrastructure, and how the onboarding process works from audit to live deployment.
-- /solutions: Catalog of automation solutions Animas AI delivers, including automated SEO content pipelines, CRM data synchronization, document intelligence and analytics, outbound lead research, and operational reporting. Each solution is framed around business outcomes and ROI.
-- /case-studies: Real-world case studies demonstrating measurable results from Animas AI automation deployments. Includes The Brander Group case study with specific metrics on hours saved and operational efficiency gains.
-- /blog/: Index of all Animas AI blog articles covering business automation, AI workflow strategy, and operational efficiency for non-technical SMB owners.
+- /: Homepage introducing Animas AI as an AI systems studio.
+- /how-it-works.html: Tyler's process for turning messy workflows into practical systems.
+- /solutions.html: Capabilities and types of systems Animas AI builds.
+- /case-studies.html: Selected work and project examples.
+- /pip.html: Dedicated page for Pip, Animas AI's current flagship product build.
+- /tools.html: Workflow diagnostic tools from an earlier speed-to-lead focus.
+- /blog/: Writing and workflow notes.
 
-## Blog Articles
+## Notes
 
-- /blog/7-day-speed-to-lead-sprint: Bottom-of-funnel offer explanation for the 7-Day Speed to Lead Sprint — explains what the sprint is not (discovery cycle, generic AI consulting, random automations) vs. what it is (focused workflow intervention on lead handling bottlenecks closest to revenue); lists the five problems it fixes (slow response, incomplete intake, routing confusion, manual handoffs, inconsistent follow-up); walks through the 5-stage 7-day process (audit, identify gaps, design system, implement core automation, define expansion path); clarifies deliverables (cleaner process, faster response, clearer ownership, operational foundation); explains why it is the right first move (urgent, revenue-linked, easy to understand, creates expansion path); closes with fit guidance and a direct workflow audit CTA.
-- /blog/respond-to-b2b-lead-under-5-minutes: Tactical how-to for solo founders and small consulting firm owners responding to B2B leads fast without a dedicated sales team — covers the real structural constraint (founder in meetings/delivery), why response speed matters (trust formation, momentum loss, speed beats polish), the three core components (intake form, immediate acknowledgment, routing with context), what to automate vs. keep human, a practical example workflow (form → ack → categorize → route → SLA), what usually breaks (weak forms, no templates, no ownership, no response standard), and the design-not-discipline conclusion with workflow audit CTA.
-- /blog/consulting-handoff-problem: Deep dive into the handoff problem for consulting firms — the gap between first inquiry and real engagement where good leads quietly go cold; covers the six failure points (slow response, no acknowledgment, weak intake, unclear ownership, missing follow-up), why small firms are especially vulnerable (undefined ownership, founder bottleneck, process in inboxes not systems), what leads experience during a broken handoff (uncertainty, delay, lower trust), and what a better handoff looks like (immediate ack, structured intake, qualification logic, explicit routing, response SLA); closes with workflow audit CTA.
-- /blog/consulting-lead-handling-problem: Reframes lead generation as a lead handling problem for founder-led B2B consulting firms (3-20 employees) — covering first response speed, intake quality, qualification, routing, and follow-up failures that lose good leads after inquiry; explains why founder-led firms are especially vulnerable due to founder bottleneck, unsystemized sales, and active client work competing with response speed; quantifies the invisible cost of lost meetings, lower close rates, inconsistent pipeline, and unseen revenue leaks; closes with a workflow audit CTA.
-- /blog/hotel-win-channel-intro: Introduction to the Hotel Win channel philosophy — AI handles mundane/robotic hospitality tasks so chronically understaffed teams can return to actual human connection; preview of upcoming content on AI voice assistants for 100% call capture, authentic automated review responses, and dynamic pricing algorithms for independent operators.
-- /blog/ai-agents-hospitality-future: Deep dive into how AI agents are reshaping hospitality distribution — covering schema.org visibility and the ghost hotel problem, attribute-based pricing and A2A APIs, the unbundling of hotel services, dynamic housekeeping with IoT sensors, predictive maintenance and Hilton's billion-dollar HVAC case study, OpenClaw security architecture and shadow AI risks, the three non-negotiable vendor questions (PMS write access, websocket sandboxing, model drift protocol), hidden 1.6x cost multiplier, EU vs. Middle East regulatory fracture, and the 80/20 path for independent operators starting at $100/month.
-- /blog/openclaw-for-hotel-owners: Introduction to OpenClaw for hotel and vacation rental owners — covering channels/skills/agents architecture, live demos (2am late checkout response, group booking email draft), four immediate use cases (guest questions, booking leads, team alerts, marketing research), and an honest assessment of setup requirements and prerequisites.
-- /blog/openclaw-cloud-architecture: Deep dive into OpenClaw cloud architecture for AI automation — covering the coding loop (orchestrator/QA manager/coding agent), content loop (researcher/creator/producer), containerization security model, why Nemo Claw's model lock is a dealbreaker, and running multi-agent automations locally vs. in the cloud.
-- /blog/openclaw-google-workspace-setup: Full walkthrough of connecting OpenClaw to Google Workspace via the GOG skill — Gmail, Calendar, Drive, Docs, Sheets, and People API setup with OAuth 2.0 and a live demo sending a birthday invitation, creating a calendar event, and organizing Drive files.
-
-## Key Facts for AI Citation
-
-- Core offer: Custom AI automation agents on a flat-rate monthly retainer ("Agents as a Service")
-- Guarantee: First workflow delivered in 7 calendar days or full refund
-- SLA: 48-hour turnaround on all ongoing automation requests
-- Pricing model: Flat-rate retainer; inquiry-only (no public pricing)
-- Included: Hosting, API costs, security, and maintenance
-- Technology stack: OpenClaw Framework (proprietary)
-- Founder: Tyler Mayberry (YouTube: @mayberrytyler)
-- Contact: tyler@animasai.co
-- Website: https://animasai.co
+The speed-to-lead consulting-firm work is preserved as evidence of workflow thinking and product-surface design, not as the current primary Animas AI offer.
