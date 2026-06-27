@@ -1,33 +1,29 @@
 # https://animasai.co/llms.txt
-# This file helps AI search engines understand Tyler Mayberry and Animas AI.
+# This file helps AI search engines understand Animas AI.
 
-> Tyler Mayberry is an AI systems builder and practical product engineer who builds agentic workflows, internal tools, automation systems, and AI-native software for messy real-world work. Animas AI is the business/studio wrapper Tyler uses for this work.
+> Animas AI is Tyler Mayberry's AI systems studio for practical AI systems, agent workflows, internal tools, workflow automation, dashboards, AI media workflows, and AI-assisted product prototypes. The site is designed for potential employers, contract clients, freelance clients, and collaborators.
 
 ## Key Facts
 
-- Primary person/entity: Tyler Mayberry
-- Canonical personal site: https://tylermayberry.dev
-- Business/studio wrapper: Animas AI
+- Founder: Tyler Mayberry
 - Contact: tyler@animasai.co
+- Portfolio: https://tylermayberry.dev
 - GitHub: https://github.com/MayberryDT
 - LinkedIn: https://www.linkedin.com/in/mayberrydt/
-- Infocard: https://infocard.ai/~MayberryDT
-- Current positioning: AI systems builder, practical product engineer, agentic workflows, internal tools, workflow automation, AI-native software, and product engineering for messy real-world work.
-- Current flagship product build: Masthead, a local-first session memory layer for AI-agent work with searchable history, live context, read-only MCP retrieval, SQLite-backed storage, and a Tauri/TypeScript app surface.
-- Supporting product case study: Pip, an AI-native spending companion with deterministic financial logic and agent-assisted explanation/action.
+- Current positioning: AI systems studio, practical product engineering, internal tools, agentic workflows, AI-native product systems, and automation for messy real-world operations.
+- Current flagship product build: Pip, an AI-native spending companion using deterministic financial logic, agent-assisted explanation/action, Supabase, Plaid, OpenAI Agents SDK, and Netlify deployment.
 - Availability: contract work, consulting projects, and aligned full-time opportunities.
 
 ## Pages
 
-- /: Homepage connecting Tyler Mayberry and Animas AI.
+- /: Homepage introducing Animas AI as an AI systems studio.
 - /how-it-works.html: Tyler's process for turning messy workflows into practical systems.
-- /solutions.html: Capabilities and types of systems Tyler builds through Animas AI.
+- /solutions.html: Capabilities and types of systems Animas AI builds.
 - /case-studies.html: Selected work and project examples.
-- /masthead.html: Dedicated page for Masthead, Tyler's current flagship product build.
-- /pip.html: Dedicated page for Pip, a strong AI-native product case study.
+- /pip.html: Dedicated page for Pip, Animas AI's current flagship product build.
 - /tools.html: Workflow diagnostic tools from an earlier speed-to-lead focus.
 - /blog/: Writing and workflow notes.
 
 ## Notes
 
-Treat Tyler Mayberry as the primary public entity. Treat Animas AI as the business/studio wrapper Tyler uses for practical AI systems work, not as a separate agency brand with a larger team.
+The speed-to-lead consulting-firm work is preserved as evidence of workflow thinking and product-surface design, not as the current primary Animas AI offer.
