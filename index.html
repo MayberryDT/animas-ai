@@ -16,17 +16,63 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Animas AI",
-      "url": "https://animasai.co",
-      "logo": "https://animasai.co/logo-mark-v2-lg.webp",
-      "email": "tyler@animasai.co",
-      "founder": {
-        "@type": "Person",
-        "name": "Tyler Mayberry",
-        "url": "https://tylermayberry.dev"
-      },
-      "description": "Animas AI builds practical AI systems, agent workflows, internal tools, automation, AI media workflows, and product prototypes for messy real-world operations."
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://animasai.co/#organization",
+          "name": "Animas AI",
+          "url": "https://animasai.co/",
+          "logo": "https://animasai.co/logo-mark-v2-lg.webp",
+          "email": "tyler@animasai.co",
+          "founder": {
+            "@id": "https://tylermayberry.dev/#tyler-mayberry"
+          },
+          "description": "Animas AI is the business/studio wrapper Tyler Mayberry uses for practical AI systems work."
+        },
+        {
+          "@type": "Person",
+          "@id": "https://tylermayberry.dev/#tyler-mayberry",
+          "name": "Tyler Mayberry",
+          "alternateName": "MayberryDT",
+          "url": "https://tylermayberry.dev/",
+          "image": "https://tylermayberry.dev/CirclePresentation.jpeg",
+          "email": "tyler@animasai.co",
+          "jobTitle": "AI Systems Builder and Practical Product Engineer",
+          "description": "Tyler Mayberry is an AI systems builder and practical product engineer who builds agentic workflows, internal tools, automation systems, and AI-native software for messy real-world work.",
+          "homeLocation": {
+            "@type": "Place",
+            "name": "Tulsa, Oklahoma"
+          },
+          "affiliation": {
+            "@id": "https://animasai.co/#organization"
+          },
+          "sameAs": [
+            "https://github.com/MayberryDT",
+            "https://www.linkedin.com/in/mayberrydt/",
+            "https://infocard.ai/~MayberryDT"
+          ],
+          "knowsAbout": [
+            "AI systems",
+            "Agentic workflows",
+            "Internal tools",
+            "Workflow automation",
+            "AI-native software",
+            "Product engineering"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://animasai.co/#website",
+          "name": "Animas AI",
+          "url": "https://animasai.co/",
+          "publisher": {
+            "@id": "https://animasai.co/#organization"
+          },
+          "about": {
+            "@id": "https://tylermayberry.dev/#tyler-mayberry"
+          }
+        }
+      ]
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>

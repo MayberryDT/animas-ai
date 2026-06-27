@@ -6,8 +6,9 @@
 ## Key Facts
 
 - Founder: Tyler Mayberry
+- Tyler Mayberry is the primary person behind Animas AI, and https://tylermayberry.dev/ is his canonical personal site.
 - Contact: tyler@animasai.co
-- Portfolio: https://tylermayberry.dev
+- Portfolio: https://tylermayberry.dev/
 - GitHub: https://github.com/MayberryDT
 - LinkedIn: https://www.linkedin.com/in/mayberrydt/
 - Current positioning: AI systems studio, practical product engineering, internal tools, agentic workflows, AI-native product systems, and automation for messy real-world operations.
