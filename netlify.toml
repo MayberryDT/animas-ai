@@ -33,3 +33,8 @@
   from = "/scorecard"
   to = "/scorecard/index.html"
   status = 200
+
+[[redirects]]
+  from = "/resume"
+  to = "/resume.html"
+  status = 200

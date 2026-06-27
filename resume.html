@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Tyler Mayberry Resume | Animas AI</title>
+    <meta name="description" content="Hidden resume page for Tyler Mayberry, AI-native systems builder and founder of Animas AI.">
+    <link rel="canonical" href="https://animasai.co/resume">
+    <meta property="og:title" content="Tyler Mayberry Resume | Animas AI">
+    <meta property="og:description" content="AI-native systems builder focused on agent workflows, internal tools, workflow automation, and product-minded full-stack work.">
+    <meta property="og:url" content="https://animasai.co/resume">
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Animas AI">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: { 850: '#151e2e', 900: '#0f172a', 950: '#020617' },
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd',
+                            400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb',
+                            700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .resume-dark p { color: #e2e8f0; }
+        .resume-dark strong { color: #a7f3d0; }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                    <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How I Work</a>
+                    <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">What I Build</a>
+                    <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Work</a>
+                    <a href="/masthead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Masthead</a>
+                </div>
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="mailto:tyler@animasai.co" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">Email Tyler</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2" aria-label="Open menu">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col transition-all duration-300">
+        <div class="flex justify-end p-6">
+            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full" aria-label="Close menu">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center flex-1 space-y-8 text-xl font-display font-bold tracking-tight">
+            <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">How I Work</a>
+            <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">What I Build</a>
+            <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Work</a>
+            <a href="/masthead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Masthead</a>
+            <a href="mailto:tyler@animasai.co" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Email Tyler</a>
+        </div>
+    </div>
+
+    <main class="pt-32">
+      <section class="relative overflow-hidden bg-white pb-16">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40"></div>
+        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-gray-50 to-transparent"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-xs font-semibold tracking-wide mb-5">
+              <span class="material-symbols-outlined text-sm">description</span>
+              RESUME
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-extrabold tracking-tight text-slate-950 leading-[1.02] mb-5">Tyler Mayberry</h1>
+            <p class="text-xl md:text-2xl text-emerald-700 font-display font-bold tracking-tight mb-6">AI-Native Systems Builder | Workflow Automation | Internal Tools | Product-Minded Full-Stack Builder</p>
+            <p class="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">AI-native technical generalist focused on agent workflows, internal tools, automation, and product-minded implementation for messy real-world work.</p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="/tyler-mayberry-resume.pdf" class="px-8 py-4 bg-slate-950 text-white font-semibold rounded-full hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all text-center">Download PDF</a>
+              <a href="mailto:tyler@animasai.co" class="px-8 py-4 bg-white text-slate-800 font-semibold rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all text-center">Email Tyler</a>
+              <a href="https://www.linkedin.com/in/mayberrydt/" target="_blank" class="px-8 py-4 bg-white text-slate-800 font-semibold rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all text-center">LinkedIn</a>
+            </div>
+          </div>
+          <div class="mt-10 flex flex-wrap gap-2">
+            <div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">Tulsa, OK / Remote</div><div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">Email: tyler@animasai.co</div><div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">Phone: (405) 921-2818</div><div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">LinkedIn: https://www.linkedin.com/in/mayberrydt/</div><div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">GitHub: https://github.com/MayberryDT</div><div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">Portfolio: https://tylermayberry.dev</div><div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">Animas AI: https://animasai.co</div><div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">Pip: https://spendwithpip.com</div><div class="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-slate-700">Work authorization: U.S. Citizen</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-14 bg-gray-50 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6">
+          <article class="rounded-3xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
+            <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Professional summary</div>
+            <div class="space-y-4"><p class="text-base leading-relaxed text-slate-600">AI-native technical generalist who turns messy real-world workflows into practical software, internal tools, automation, dashboards, and product prototypes. Strongest fit is work that sits between product, operations, customer context, and implementation: understanding the workflow, talking to the people doing the work, using modern AI/software tools well, and shipping something concrete.</p>
+<p class="text-base leading-relaxed text-slate-600">Background spans AI systems contracting, self-directed product building, hospitality operations, automotive systems testing, ecommerce operations, sales/copywriting, teaching in Japan, and electronics repair. Known strengths include fast learning, high tolerance for ambiguity, customer empathy, systems thinking, practical implementation, agentic AI workflows, and the ability to make vague work executable.</p></div>
+          </article>
+          <article class="resume-dark rounded-3xl border border-gray-200 bg-slate-950 p-6 md:p-8 shadow-sm">
+            <div class="text-xs font-bold uppercase tracking-widest text-emerald-300 mb-3">Matching targets</div>
+            <div class="space-y-4 text-slate-200"><p class="text-base leading-relaxed text-slate-600">AI Automation Builder, AI Systems Builder, AI-Native Product Builder, Forward-Deployed AI Engineer, AI Implementation Specialist, Product Engineer, Product-Minded Full-Stack Developer, Internal Tools Developer, Workflow Automation Developer, Technical Operations Generalist, Implementation Specialist, Solutions Engineer, Customer-Facing Technical Problem Solver, Developer Tooling Engineer, Platform/Internal Tools Engineer, AI Operations, Technical Product Manager, Product Manager, Data/Analytics Generalist, Business Systems Analyst, Support Engineer, Customer Success Engineer, Technical Program Manager.</p></div>
+          </article>
+        </div>
+      </section>
+
+
+    <section class="py-14 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Resume</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950">Core Skills</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <p class="text-base leading-relaxed text-slate-600">AI and agentic systems: AI-agent orchestration, AI-assisted software development, AI coding agents, agent workflows, agent dashboards, agent status monitoring, agent spawning/orchestration UI, prompt/tool boundaries, deterministic tool boundaries for AI systems, typed AI interaction surfaces, memory/task systems, MCP-style services, OpenAI API, OpenAI Agents SDK, Responses API, Anthropic API, Gemini API, Google GenAI, HeyGen API, ElevenLabs API, Gemini transcription/processing, HeyGen avatar/video workflows, ElevenLabs voice/audio workflows, Veo / Google Flow, AI video/content workflows.</p>
+<p class="text-base leading-relaxed text-slate-600">Software and web development: Next.js, React, TypeScript, JavaScript, Node.js, Python, HTML, CSS, PHP, Vite, Express, API routes, SQL, SQLite, SQLite FTS5, Supabase, PocketBase, Plaid, Stripe, Resend, Netlify, Zod, Vitest, Playwright, TanStack Query, Zustand, React Hook Form, Tailwind CSS, shadcn/Radix UI, Git, GitHub, worktree-based development, deployment coordination, Linux, SSH, Docker basics, Docker/deployment scripts, Windows, VMware, networking fundamentals.</p>
+<p class="text-base leading-relaxed text-slate-600">Product and operations: workflow automation, internal tools, operational dashboards, process mapping, product prototyping, product judgment, customer-facing troubleshooting, implementation planning, documentation, testing and verification, CRM/pipeline tracking, cold email, cold calling, B2B sales, ecommerce operations, marketplace operations, contractor coordination, supplier/order tracking, spreadsheet operations, Excel, Google Workspace, Office, WordPress.</p>
+<p class="text-base leading-relaxed text-slate-600">Hospitality and customer operations: hotel operations, bar management, food and beverage operations, guest communication, service recovery, conflict resolution, loyalty programs, PMS systems, Opera PMS, Cloudbeds, FOSSE, front desk operations, high-pressure multitasking, team coordination, sales/service judgment.</p>
+<p class="text-base leading-relaxed text-slate-600">Teaching and communication: curriculum development, ESL teaching, cross-cultural communication, conversational Japanese, pronunciation coaching, presentation creation, technical explanation for nontechnical users.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Resume</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950">Professional Experience</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-5">
+          <article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">AI Systems Contractor - Brander Group</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">December 2025-present</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Develop AI systems and internal operational tooling for Brander Group, working inside NDA-sensitive systems that must be described publicly only at a high level.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Contribute to an internal AI-enabled operations platform with agent workflow tooling, automation, monitoring, content workflow surfaces, project workflow surfaces, prototype workflow surfaces, Git/deploy support, and operational dashboards.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Use AI coding agents as a core development workflow: shaping implementation paths, inspecting code, debugging issues, verifying behavior, and shipping practical changes across a modern TypeScript stack.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Translate ambiguous AI-operations goals into concrete implementation steps, helping turn broad product and operations ideas into working internal tools.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Work with technologies and patterns including Next.js, React, TypeScript, Tailwind, Zustand, TanStack React Query, API routes, Node, Python, Git workflows, Docker/deploy scripts, and process/deployment tooling.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Maintain discretion around private client systems, internal data, repository details, operational details, screenshots, logs, and implementation specifics.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Founder / AI Automation Builder - Animas AI</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">August 2023-present</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Build AI-assisted product prototypes, workflow automations, internal tools, and practical software systems under the Animas AI brand.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Use AI coding agents and modern AI tools to move quickly through unfamiliar codebases, reason about product/system design, create implementation paths, debug issues, verify behavior, and ship usable tools.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built Pip, an AI-native spending companion centered on Spendable Cash Today, one daily spending signal supported by agent-assisted explanation and action.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Designed Pip so deterministic application logic owns financial calculations and account state while the agent explains context, routes intent, helps with setup, and presents approved action surfaces.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built Pip with Next.js, React, TypeScript, Tailwind, Supabase, Plaid, OpenAI agent tooling, Netlify, Zod, Vitest, Playwright, API routes, typed app surfaces, and careful read-only financial-data boundaries.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built public product and app surfaces for Pip with trust-aware positioning: read-only account data, no money movement, no ads/data-selling language, no financial-advice claims, deterministic financial logic, and agent-assisted user interaction.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built Nova OS / Central Brain, a private AI workflow infrastructure prototype combining a Next.js dashboard, agent-network controls, and a SQLite-backed MCP-style memory/task service.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Designed agent memory and task models using structured records, tags, links, verification concepts, full-text search, project overviews, agent overviews, follow-up workflows, and curated context instead of raw transcript dumps.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Created Executioner, a deployed personal execution-system prototype with React/TypeScript app architecture, onboarding/access-key concepts, Supabase-backed product concepts, AI-assisted planning, email/provisioning concepts, audio transcription, and deterministic scheduling logic.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built and explored AI product prototypes across personal productivity, hospitality workflows, credit workflow tracking, paycheck review, consumer diagnostic quizzes, AI video tooling, and operational dashboards.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Integrated and experimented with practical AI/API systems including OpenAI, Anthropic, Gemini / Google GenAI, HeyGen, ElevenLabs, Plaid, Supabase, Stripe, Resend, Netlify, and AI coding agents.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built public portfolio projects and prototypes across productivity, hospitality, credit workflow, AI media, operations dashboards, games, and consumer tools.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Developed public-facing technical/product materials for Animas AI, Pip, and portfolio projects, including case studies, product positioning, architecture explanations, and public-safe project summaries.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Bar Manager / Hotel Experience Champion - Highgate Hotel Management / Holiday Inn</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">November 2022-present</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Manage high-pressure hospitality operations requiring customer-facing communication, multitasking, conflict resolution, service judgment, reliability, and fast context switching.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Manage and coordinate a team of 5 while supporting bar, guest-experience, front-desk, and hotel operations across changing daily conditions.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Improved loyalty recognition from below 50% to above 80% and helped the team reach 1st/2nd place placements in IHG monthly enrollment challenges.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Increased guest satisfaction by 22%, improved overall service scores by 18%, maintained a 98% complaint resolution rate, and contributed to a 15% year-over-year RevPAR increase.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built practical empathy for frontline workflows, guest communications, PMS systems, loyalty programs, bar/F&amp;B operations, and the messy operational problems that benefit from better tooling.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Developed strong experience calming difficult customer situations, communicating clearly with nontechnical people, and solving operational issues without perfect instructions.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Freelance Copywriter and Sales Consultant</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">December 2021-September 2023</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Generated income through freelance copywriting, email marketing, and sales consulting work for small businesses and online offers.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Conducted cold email and cold calling, managed client acquisition cycles, handled follow-up, and tracked prospects through CRM/pipeline workflows.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built practical understanding of customer acquisition, messaging, market feedback, sales operations, and the difference between useful product work and pure marketing work.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Learned that long-term fit is strongest on the technical systems, product, and workflow-building side rather than pure sales or marketing.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Software Systems Engineer - Panasonic Automotive Systems of America</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">September 2020-December 2021</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Supported automotive media/navigation system testing through hands-on electronics work, hardware troubleshooting, component replacement, practical issue diagnosis, and testing-team support.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Replaced and modified automotive electronics, identified and solved hardware issues, and communicated status across teams and branches.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Managed branch inventory, updated internal databases, and maintained inventory/status visibility through email, spreadsheets, and company systems.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Worked inside email- and Excel-heavy operational workflows, developing firsthand understanding of coordination overhead and internal-tooling opportunities.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Owner - Shirokuma / Ice Bear Digital</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">June 2018-July 2019</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built and operated an ecommerce and digital-services business that reached over $200,000 in revenue and approximately $15,000/month profit at peak.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Coordinated a team of 4 contractors across customer service, product research, and listing-writing workflows.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Used marketplace listing/research tools, spreadsheets, supplier/order tracking, contractor workflows, and API-driven marketplace/process automation.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Expanded into web development and SEO services, gaining practical experience with WordPress, small-business sales, platform risk, and operational process design.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Learned how to build and operate a real revenue-generating system from scratch, coordinate people, and use tools/processes to scale beyond solo capacity.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Head of International Marketing and Web Development - Rentry Inc.</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">June 2019-September 2019</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Maintained an international website with HTML, CSS, and PHP.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Supported outreach to foreign travelers in Japan through direct contact, Instagram ads, Google Ads, and GIMP-created graphics.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Combined web maintenance, international marketing, and cross-cultural communication in a short-term Japan-based role.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">ESL Teacher / Tutor - Japan</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">Selected teaching work, 2018-2020</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Created original curriculum and presentations for English learners across a wide age range, including Pre-K, elementary students, junior high students, and high school students.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Taught through Shinshu University Faculty of Education, Azumino Afterschool English Program, and AtoZ Corporation.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Delivered teacher-facing lessons on increasing English usage in classrooms and focused on natural speaking, pronunciation, and communication.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Ran and assisted classrooms, school events, and conversation groups, building strong cross-cultural communication skills through Japan-based teaching and tutoring.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Server / Bartender - Oaks Country Club And Cedar Ridge Country Club</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">December 2022-August 2023</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Served food and drinks to club members in member-facing hospitality environments.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Opened and closed bar operations independently, served drinks, and created cocktails served by the club.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Strengthened customer service, multitasking, service judgment, and food/beverage operations experience.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Lead Technician - CPR Cell Phone Repair</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">June 2013-July 2015</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Managed storefront responsibilities and repaired electronics including phones, iPhones, laptops, and related consumer devices.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built practical phone hardware knowledge through hands-on repair work and customer-facing technical troubleshooting.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Developed an early price-suggestion/haggler application for the storefront.</span></li>
+</ul>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Resume</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950">Selected Projects And Product Builds</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-5">
+          <article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Pip - AI-Native Spending Companion</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">Links: https://spendwithpip.com, https://spendwithpip.com/app, https://animasai.co/pip.html</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built an AI-native spending companion that turns account context into one daily spending signal: Spendable Cash Today.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Designed the product around the user moment before spending, reducing a broad personal-finance problem into one number plus an agent instead of another crowded dashboard.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built with Next.js, React, TypeScript, Tailwind, Supabase, Plaid, OpenAI agent tooling, Netlify, Zod, Vitest, Playwright, route handlers/API routes, and typed app surfaces.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Separated deterministic financial logic from AI interaction so application tools own account state and calculations while the agent explains, routes, helps with setup, and presents approved actions.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Positioned the product around read-only account data, no money movement, no ads/data-selling language, non-advice framing, and careful consumer trust boundaries.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Mission Control - Internal AI Operations Platform</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>NDA-sensitive Brander Group work described only at a high level.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Contributed to an internal AI-enabled operations platform with agent workflow tooling, automation, monitoring, content/project/prototype workflow surfaces, and deployment/process support.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Worked in a modern stack including Next.js, React, TypeScript, Tailwind, Zustand, TanStack React Query, Node, Python, Docker/deploy scripts, and Git/worktree workflows.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Demonstrates ability to work in complex, evolving AI operations systems while preserving confidentiality.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Nova OS / Central Brain - Agent Memory And Workflow Infrastructure</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built a private AI workflow infrastructure prototype that gives agents durable project memory, task context, retrieval tools, and an operational dashboard instead of relying on isolated chat sessions.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Combined a Next.js/React/TypeScript dashboard, agent-network control surfaces, SQLite-backed memory/task storage, MCP-style tools, full-text search concepts, tags, links, verification, project overviews, and agent overviews.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Modeled durable context as structured records such as facts, decisions, incidents, fixes, project statuses, archives, events, and follow-up tasks.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Demonstrates agentic systems design, schema thinking, retrieval flows, internal tools, privacy-aware architecture, and AI-operations product judgment.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Executioner - AI-Assisted Execution System</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built a deployed personal execution-system prototype that turns messy brain dumps into structured outcomes and schedule-ready work.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Created product flows for onboarding, access keys, settings, brain dumps, outcome cards, history, rescheduling, buckets, playbooks, feedback, and execution review.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Used React, TypeScript, Supabase, Stripe concepts, Resend concepts, Gemini, access-key auth concepts, audio transcription, brain-dump processing, and deterministic scheduling logic.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Designed the system so LLM output is treated as a proposal while deterministic rules own sizing, schedule constraints, lifecycle state, and final review.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Demonstrates full-stack product architecture, AI-assisted workflow design, product voice, onboarding, billing/customer portal concepts, email/provisioning concepts, and practical lessons about building versus distribution.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Relationship Pattern Diagnostic / Quiz</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built a consumer diagnostic-flow prototype in the relationship niche using structured questions and AI-generated reports.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Explored free/paid report flows, analytics, payment experiments, quiz UX, personalization, TikTok tracking, Supabase integration, Gemini integration, and consumer AI product thinking.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Stack includes Vite, React, TypeScript, Supabase, Gemini, Stripe, Zustand, Vitest, and React Markdown.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Julian Control Panel / HeyGen API Panel</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built a browser-based control panel concept for AI avatar/video-generation workflows using the HeyGen API.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Designed around API-driven creative operations, setup controls, transparent request logging, and an interface understandable to non-specialists.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Explored security-minded client-side workflows including browser-memory or encrypted localStorage API key handling, transparent network request logs, and strict Netlify CSP concepts.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Demonstrates AI media workflows, API integration, browser UI, trust/transparency design, HeyGen, ElevenLabs, Gemini transcription/processing, and AI video experimentation.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Credit Workflow Dashboard And Credit Tools</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built public-safe credit workflow prototypes that turn messy credit/dispute processes into structured steps, status, checklists, dashboards, timeline events, and review flows.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Modeled entities, cases, phases, deadlines, confidence, import/export flows, and operational timeline states.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Demonstrates structured workflow/product thinking around complex document-heavy processes while using fake/demo data only and avoiding legal or financial advice claims.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Paycheck Sanity Checker</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built a lightweight AI-powered paycheck review prototype using Node, Express, Google GenAI, and serverless deployment concepts.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Turned a confusing manual pay-stub review process into structured intake, decision points, and a plain-English user flow.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Demonstrates practical AI document/review tooling, worker-facing product thinking, form UX, and LLM integration using fake/demo data only.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Hospitality Workflow Prototypes / InnTouch</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Created hospitality workflow prototypes translating hotel operations into simple internal-tool and guest-experience surfaces.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Used frontline domain knowledge around guest handling, operational handoffs, cash/accounting awareness, incident workflows, loyalty programs, and hotel communications.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Demonstrates ability to map real business operations before building AI automation or internal tools around them.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">App Portfolio And Public Project Index</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built and maintained a public portfolio of product prototypes and experiments across AI tools, hospitality concepts, credit workflows, paycheck review, relationship diagnostics, games, productivity tools, and operational dashboards.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Public repository and project themes include JavaScript, TypeScript, Python, PHP, HTML, React, Next.js, Vite, Supabase, Netlify, workflow automation, dashboards, AI integration, and product prototypes.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Rat Detective Online</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Built a playable 3D noir multiplayer browser game prototype using Vite, TypeScript, Three.js, cannon-es, and socket.io-client.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Implemented or explored dynamic movement, cheese projectile systems, ragdoll physics, low-poly city, procedural rat combinations, player controller, rat entity/model, network manager, city generation, and level map concepts.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Demonstrates creative technical range, 3D/browser prototyping, game systems, and fast experimentation.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Additional Prototypes And Experiments</h3>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Invoice Escalator: business operations / document/PDF generation concept using Next.js, React, TypeScript, date-fns, jsPDF, and lucide.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Warboard Dashboard: React/TypeScript dashboard and UI proof.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Restaurant Sim: hospitality simulation/modeling concept with customer manager, economy manager, event log, staff manager, world map, and renderer.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Archivist Wilds: 3D procedural world / physics experiment using Vite, Three.js, Rapier 3D, simplex-noise, terrain, water, sky, biome, chunk, and horse-controller concepts.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Decree of War: LLM-driven command/game interface using Vite, React, Phaser, command parser, LLM bridge, command console, resource HUD, thought stream, game scene, map, and pathfinding concepts.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Server Automation: local Windows file-share automation using PowerShell/batch and Python HTTP server concepts to serve a local folder to an isolated phone on a LAN with privacy-focused documentation.</span></li>
+</ul>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Resume</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950">Domain Knowledge</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <p class="text-base leading-relaxed text-slate-600">AI-agent workflows, AI coding agents, practical AI implementation, internal tools, workflow automation, operational dashboards, customer-facing troubleshooting, hospitality/hotel operations, bar and food/beverage operations, front desk workflows, PMS systems, guest communications, loyalty programs, ecommerce and marketplaces, contractor coordination, supplier/order tracking, credit disputes and credit workflow tracking, personal finance spending-behavior product systems, personal productivity/execution systems, AI media/video workflows, ESL/language learning, Japan and cross-cultural communication, small business operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Resume</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950">Education</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-5">
+          <article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Oklahoma State University</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">Bachelor&#x27;s Degree, University Studies Focus/coursework: Management Science and Information Systems Minor: Japanese August 2011-May 2017</p>
+<ul class="mt-4 space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Active in the Japanese Student Association for approximately 3 years.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Served as Japanese Student Association president during final semester.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Supported incoming Japanese students and helped run cultural/language exchange events.</span></li>
+</ul>
+</article>
+<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+<h3 class="font-display text-xl font-bold tracking-tight text-slate-950">Shinshu University - Matsumoto, Japan</h3>
+<p class="mt-1 text-sm font-semibold text-emerald-700">Intensive Japanese Language Program September 2015-August 2016</p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Resume</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950">Certifications And Languages</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <ul class="space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>CompTIA A+</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>TEFL</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Native English</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Conversational Japanese; strongest in everyday conversation and cross-cultural communication</span></li>
+</ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Resume</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950">Additional Job-Matching Keywords</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <p class="text-base leading-relaxed text-slate-600">AI implementation, applied AI, agentic AI, AI operations, automation, workflow automation, internal tools, product engineering, full-stack development, frontend development, technical implementation, solutions engineering, customer success, support engineering, technical operations, business systems, dashboards, APIs, SaaS, startup, product management, technical product management, data workflows, SQL, database fundamentals, SQLite, Supabase, React, Next.js, TypeScript, JavaScript, Python, Node.js, Tailwind, Netlify, Plaid, Stripe, Resend, OpenAI, Anthropic, Gemini, HeyGen, ElevenLabs, MCP, memory systems, task systems, LLM APIs, prompt engineering, agent orchestration, testing, Playwright, Vitest, Zod, GitHub, Linux, SSH, Docker, hospitality tech, hotel operations, PMS, Opera PMS, Cloudbeds, FOSSE, ecommerce, marketplaces, CRM, sales operations, cold outreach, copywriting, ESL, Japanese, cross-cultural communication, electronics repair, automotive systems, hardware troubleshooting, inventory management, spreadsheet operations, customer service, team management, conflict resolution, service recovery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Resume</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950">Claim Boundaries</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <ul class="space-y-2 text-sm leading-relaxed text-slate-700">
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Brander Group / Mission Control work is NDA-sensitive and should stay high-level.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Pip should be described as read-only, finance-adjacent, and centered on deterministic financial logic plus agent-assisted explanation/action. Do not describe it as a bank, financial adviser, money-movement product, or guarantee-oriented &quot;safe to spend&quot; tool.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>Credit workflow projects are workflow/product prototypes and should not be framed as legal or financial advice.</span></li>
+<li class="flex gap-2"><span class="material-symbols-outlined mt-0.5 text-sm text-emerald-600">check_circle</span><span>AI coding agents are a core modern development workflow for Tyler, but the strongest framing is AI-native builder/operator with practical product and systems judgment, not a conventional narrow senior software engineer identity.</span></li>
+</ul>
+        </div>
+      </div>
+    </section>
+
+      <section class="py-20 bg-gradient-to-br from-emerald-950 via-slate-950 to-amber-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-white mb-6">Need a concise version?</h2>
+          <p class="text-lg text-slate-200 mb-8">This page is intentionally broad for matching systems. The PDF download uses the same source and is easier to upload where a file is required.</p>
+          <a href="/tyler-mayberry-resume.pdf" class="inline-block px-8 py-4 bg-white text-slate-950 font-bold rounded-full hover:bg-emerald-50 transition-all">Download PDF</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-slate-950 py-16 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <a href="/" class="flex items-center gap-3 mb-4">
+                        <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                        <span class="font-display font-bold text-xl tracking-tight text-white">ANIMAS AI.</span>
+                    </a>
+                    <p class="text-sm max-w-sm mb-6">Practical AI systems, internal tools, and automation for messy real-world operations.</p>
+                    <div class="text-xs">© 2026 ANIMAS AI. ALL RIGHTS RESERVED.</div>
+                </div>
+                <div class="md:hidden border-t border-slate-800 my-2"></div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="/how-it-works.html" class="hover:text-white transition-colors">How I Work</a></li>
+                        <li><a href="/solutions.html" class="hover:text-white transition-colors">What I Build</a></li>
+                        <li><a href="/case-studies.html" class="hover:text-white transition-colors">Work</a></li>
+                        <li><a href="/masthead.html" class="hover:text-white transition-colors">Masthead</a></li>
+                        <li><a href="/blog/" class="hover:text-white transition-colors">Writing</a></li>
+                        <li><a href="/tools.html" class="hover:text-white transition-colors">Workflow Experiments</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="mailto:tyler@animasai.co" class="hover:text-white transition-colors">tyler@animasai.co</a></li>
+                        <li><a href="https://tylermayberry.dev" target="_blank" class="hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="https://github.com/MayberryDT" target="_blank" class="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/mayberrydt/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn && closeBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                });
+                closeBtn.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

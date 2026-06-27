@@ -11,7 +11,7 @@
 - GitHub: https://github.com/MayberryDT
 - LinkedIn: https://www.linkedin.com/in/mayberrydt/
 - Current positioning: AI systems studio, practical product engineering, internal tools, agentic workflows, AI-native product systems, and automation for messy real-world operations.
-- Current flagship product build: Pip, an AI-native spending companion using deterministic financial logic, agent-assisted explanation/action, Supabase, Plaid, OpenAI Agents SDK, and Netlify deployment.
+- Current flagship product build: Masthead, a local-first session memory layer for AI-agent work with searchable history, live context, read-only MCP retrieval, SQLite-backed storage, and a Tauri/TypeScript app surface. Pip remains a strong AI-native product case study for deterministic financial logic and agent-assisted explanation/action.
 - Availability: contract work, consulting projects, and aligned full-time opportunities.
 
 ## Pages
@@ -20,7 +20,8 @@
 - /how-it-works.html: Tyler's process for turning messy workflows into practical systems.
 - /solutions.html: Capabilities and types of systems Animas AI builds.
 - /case-studies.html: Selected work and project examples.
-- /pip.html: Dedicated page for Pip, Animas AI's current flagship product build.
+- /masthead.html: Dedicated page for Masthead, Animas AI's current flagship product build.
+- /pip.html: Dedicated page for Pip, an Animas AI product build and strong AI-native product case study.
 - /tools.html: Workflow diagnostic tools from an earlier speed-to-lead focus.
 - /blog/: Writing and workflow notes.
 
