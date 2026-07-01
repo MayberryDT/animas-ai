@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>How to Choose a First AI Automation Project | Animas AI Blog</title>
+    <meta name="description" content="How to pick a first AI automation project with high chance of success, using concrete workflow examples, common pitfalls, and the approach Animas AI uses in shipped systems.">
+    <link rel="canonical" href="https://animasai.co/blog/how-to-choose-a-first-ai-automation-project.html">
+    <meta property="og:title" content="How to Choose a First AI Automation Project">
+    <meta property="og:description" content="How to pick a first AI automation project with high chance of success, using concrete workflow examples, common pitfalls, and the approach Animas AI uses in shipped systems.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://animasai.co/blog/how-to-choose-a-first-ai-automation-project.html">
+    <meta property="og:image" content="https://animasai.co/work-assets/blog/how-to-choose-a-first-ai-automation-project.png">
+    <meta property="og:site_name" content="Animas AI">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Choose a First AI Automation Project", "description": "How to pick a first AI automation project with high chance of success, using concrete workflow examples, common pitfalls, and the approach Animas AI uses in shipped systems.", "datePublished": "2026-07-01", "author": {"@type": "Organization", "name": "Animas AI"}, "image": "https://animasai.co/work-assets/blog/how-to-choose-a-first-ai-automation-project.png", "mainEntityOfPage": "https://animasai.co/blog/how-to-choose-a-first-ai-automation-project.html"}</script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Manrope', 'sans-serif'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, brand: { 50: '#eff6ff', 600: '#2563eb', 700: '#1d4ed8' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                    <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">How I Work</a>
+                    <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">What I Build</a>
+                    <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">Work</a>
+                    <a href="/blog/" class="text-sm font-bold text-brand-600 border-b-2 border-brand-600 pb-1">Writing</a>
+                </div>
+                <a href="mailto:tyler@animasai.co" class="hidden md:inline-flex bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600">Email Tyler</a>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-32 pb-24">
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <header class="mb-12">
+                <a href="/blog/" class="text-brand-600 hover:text-brand-700 text-sm font-medium inline-flex items-center gap-1 mb-6">All Articles</a>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600">AI Systems</span>
+                    <span class="text-xs text-slate-400">·</span>
+                    <time class="text-xs text-slate-400" datetime="2026-07-01">July 1, 2026</time>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-display font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">How to Choose a First AI Automation Project</h1>
+                <p class="text-lg text-slate-500 leading-relaxed">How to pick a first AI automation project with high chance of success, using concrete workflow examples, common pitfalls, and the approach Animas AI uses in shipped systems.</p>
+                <figure class="mt-10">
+                    <img src="/work-assets/blog/how-to-choose-a-first-ai-automation-project.png" alt="Animas AI workflow board for choosing a first AI automation project." class="w-full rounded-2xl border border-gray-200 shadow-sm">
+                </figure>
+            </header>
+            <div class="prose prose-lg prose-slate max-w-none">
+                <h2>Quick answer</h2>
+<p>Start with a task your team already does hundreds of times a month, where a human is the clear bottleneck. Build something that assists a person instead of replacing them. Design a tight handoff: the AI drafts, a teammate reviews. The best first projects are narrow, measurable, and led by someone who can iterate without waiting for a steering committee. If you can’t sum up the before-and-after in one sentence, the scope is too wide.</p>
+<p>---</p>
+<h2>A realistic workflow example</h2>
+<p>A small SaaS company receives roughly 300 support emails a week. Most are simple: “How do I reset my password?” or “What’s your refund policy?” Their small support team spends half the day typing the same replies, which delays responses to higher-value tickets.</p>
+<p>**The first AI project** targets email triage and draft replies.</p>
+<ul><li>**Owner:** Head of Customer Success—someone with authority to change the process and measure results.</li><li>**Trigger:** A new email lands in the shared inbox (Help Scout or Gmail).</li><li>**Action:** An AI agent reads the email, classifies the intent, pulls relevant knowledge‑base articles, and drafts a reply.</li><li>**Handoff:** The draft goes to a review queue inside their existing tool. A support team member sees the draft, edits if needed, and hits send. If the AI’s confidence score is below a set threshold, the ticket skips the draft and lands in the human‑only queue.</li><li>**Output:** A sent reply. The loop closes when the reviewer marks the draft as “used” or “skipped.”</li><li>**Failure path:** If the classifier keeps getting the intent wrong, the owner adjusts the prompt or adds examples. Tickets the AI can’t handle simply flow to the manual queue as usual.</li></ul>
+<p>In the first two weeks, average handling time for routine emails drops by more than half. The goal isn’t zero‑touch; it’s fewer minutes spent typing the same lines, so the team can focus on tickets that need a real conversation.</p>
+<p>That pattern—narrow scope, AI as drafter, human reviewer—is the same shape as systems Animas AI has shipped. For example, [Pip](/pip.html) drafts RFP responses for a consulting firm. It turns a document that once ate hours of repetitive typing into a review‑first workflow, and the writers own the final answers.</p>
+<p>---</p>
+<h2>What breaks in real teams</h2>
+<ul><li>**Picking a project that’s too broad.** “Automate customer service” isn’t a first project. Without a concrete, countable task, you can’t tell if the system is helping or just adding noise.</li><li>**Ignoring the handoff.** If the person reviewing the AI output doesn’t know when to intervene, how, or why, the system gets abandoned. Handoffs are not only technical details—they’re the rhythm the team needs to trust the drafts.</li><li>**Treating success as a binary.** Teams often expect perfect answers from day one and kill the project when it falls short. A first project succeeds if it reduces tedious work, even if a human still checks and corrects. Improvement over time is the metric, not flawless automation.</li><li>**No clear owner.** When responsibility for the system is shared, nobody tunes the prompts, watches for edge cases, or pushes for the next iteration. It decays within weeks.</li></ul>
+<p>---</p>
+<h2>What to build first</h2>
+<p>Look for the work that makes people groan—the repetitive, rule‑heavy blocks of time that show up every day. Three signs a task is ready for a first AI project:</p>
+<p>1. **High frequency.** The task happens dozens of times a day or week. Volume creates the dataset you need to improve the system and makes time savings visible. 2. **Predictable inputs.** Emails, support ticket forms, structured spreadsheets, or standard documents. The more uniform the input, the easier it is for the AI to produce reliable drafts. 3. **Low‑cost mistakes.** The ideal first task can be 80% right with a human review catching the rest. Drafting a reply is fine; approving a refund without oversight is not.</p>
+<p>Examples that fit: answering common sales or support questions, pulling data from incoming invoices, triaging leads into priority buckets, drafting initial project estimates from a brief. Measure the outcome in time reclaimed or throughput increased.</p>
+<p>---</p>
+<h2>What to avoid</h2>
+<ul><li>**Autonomous agents with no oversight.** Do not start with a system that makes decisions and takes action without a human in the loop. Trust builds gradually; don’t grant it to an untested model.</li><li>**Projects that demand perfect accuracy from day one.** If a mistake triggers a revenue loss, a compliance breach, or an angry customer with no safety net, pick something else.</li><li>**Tasks that require deep, creative judgment as the primary output.** AI can assist, but starting with an open‑ended “write our monthly strategy memo” leads to vague results and abandoned systems.</li></ul>
+<p>---</p>
+<h2>How Animas thinks about it</h2>
+<p>We treat a first AI project as an operating system for the team, not a prototype. The question isn’t “can the model do it?” but “can the team run it?” That means designing for the handoff: what the person sees, when they review, and how they signal whether the output was good.</p>
+<p>The work on [Pip](/pip.html) is a concrete example. We didn’t try to replace proposal writers; we built an assistant that drafts RFP answers inside the tools they already use. The writer reviews, edits, and owns the final version. That design removes hours of repetitive typing while keeping expertise exactly where it belongs. It also gives the team a clear, measurable win in the first weeks.</p>
+<p>Whether the system lives in a shared inbox, a Slack channel, or a custom interface, the same principles hold: start narrow, measure what changes, and keep the human decision where it matters. That’s how operational teams adopt AI—not through big‑bang promises, but through small, shipped systems that earn trust.</p>
+<p>If you’re evaluating where to start, the [What I build](/solutions.html) page outlines the kinds of systems we design every day, and the [Pip case study](/pip.html) shows what that looks like from kick‑off to daily use.</p>
+<p>---</p>
+<h2>FAQ</h2>
+<h3>How do I know if a task is actually ready for AI automation?</h3>
+<p>Three filters: you do it constantly, the inputs are reasonably consistent, and getting it 80% right with a human check is acceptable. If you can’t picture who will review the AI’s output and how, the task isn’t ready yet.</p>
+<h3>Should my first project be customer‑facing or an internal tool?</h3>
+<p>Start internal. Internal tools let you iterate without public risk. Customer‑facing automation adds brand‑reputation pressure that makes every mistake feel catastrophic. Build the muscle internally first.</p>
+<h3>What if the AI makes too many mistakes?</h3>
+<p>Mistakes in a drafted reply aren’t failures—they’re training data. Each correction by the reviewer improves the system over time. The real failure is a project where no one sees or corrects the output, so errors persist unnoticed.</p>
+<h3>How long should a first project take?</h3>
+<p>A tightly scoped assistant—one that handles a single, well‑defined task—can be built and running with reviews in two to four weeks. The goal is to get something working fast, then refine based on real usage, not to plan for months.</p>
+<p>---</p>
+<h2>Source notes</h2>
+<p>This article is based on operational patterns from shipped systems at Animas AI, including the [Pip](/pip.html) case study, and conversations with teams adopting AI for practical, internal workflows. No client-specific data or private metrics are disclosed.</p>
+            </div>
+            <div class="mt-16 pt-10 border-t border-gray-200">
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-6">
+                    <img src="/me.jpg" alt="Tyler Mayberry" class="w-16 h-16 rounded-full object-cover shadow-sm">
+                    <div><div class="font-bold text-slate-900">Tyler Mayberry</div><div class="text-sm text-slate-500">Founder, Animas AI</div></div>
+                </div>
+            </div>
+            <div class="mt-16 bg-slate-900 rounded-3xl p-10 md:p-14 text-center">
+                <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-4">Want this kind of system in your business?</h2>
+                <p class="text-slate-300 mb-8 max-w-lg mx-auto">Send the messy workflow. I will help turn it into a practical AI system.</p>
+                <a href="mailto:tyler@animasai.co" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-brand-50 inline-block">Email Tyler</a>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
