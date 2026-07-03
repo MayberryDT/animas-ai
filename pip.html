@@ -16,17 +16,74 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Animas AI",
-      "url": "https://animasai.co",
-      "logo": "https://animasai.co/logo-mark-v2-lg.webp",
-      "email": "tyler@animasai.co",
-      "founder": {
-        "@type": "Person",
-        "name": "Tyler Mayberry",
-        "url": "https://tylermayberry.dev"
-      },
-      "description": "Animas AI is Tyler Mayberry's AI systems studio for agent workflows, internal tools, automation, and practical software systems."
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://tylermayberry.dev/#tyler-mayberry",
+          "name": "Tyler Mayberry",
+          "alternateName": "MayberryDT",
+          "url": "https://tylermayberry.dev/",
+          "email": "tyler@animasai.co",
+          "jobTitle": "AI Systems Builder and Practical Product Engineer",
+          "sameAs": [
+            "https://github.com/MayberryDT",
+            "https://www.linkedin.com/in/mayberrydt/",
+            "https://infocard.ai/~MayberryDT"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://animasai.co/#organization",
+          "name": "Animas AI",
+          "url": "https://animasai.co/",
+          "logo": "https://animasai.co/logo-mark-v2-lg.webp",
+          "email": "tyler@animasai.co",
+          "founder": {
+            "@id": "https://tylermayberry.dev/#tyler-mayberry"
+          },
+          "description": "Animas AI is Tyler Mayberry's AI systems studio for agent workflows, internal tools, automation, and practical software systems."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://animasai.co/#website",
+          "name": "Animas AI",
+          "url": "https://animasai.co/",
+          "publisher": {
+            "@id": "https://animasai.co/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://animasai.co/pip.html#webpage",
+          "url": "https://animasai.co/pip.html",
+          "name": "Pip | Animas AI Product Build",
+          "description": "Pip is an Animas AI product build: an AI-native spending companion using deterministic tools, Supabase, Plaid, OpenAI Agents SDK, and Netlify.",
+          "dateModified": "2026-07-02",
+          "about": {
+            "@id": "https://animasai.co/pip.html#pip-product"
+          },
+          "mainEntity": {
+            "@id": "https://animasai.co/pip.html#pip-product"
+          },
+          "isPartOf": {
+            "@id": "https://animasai.co/#website"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://animasai.co/pip.html#pip-product",
+          "name": "Pip",
+          "url": "https://spendwithpip.com",
+          "applicationCategory": "FinanceApplication",
+          "description": "Pip is an AI-native spending companion built around Spendable Cash Today, deterministic application logic, read-only account data, and agent-assisted explanation and approved actions.",
+          "creator": {
+            "@id": "https://tylermayberry.dev/#tyler-mayberry"
+          },
+          "publisher": {
+            "@id": "https://animasai.co/#organization"
+          }
+        }
+      ]
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
