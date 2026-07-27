@@ -7,6 +7,7 @@ import argparse
 from html.parser import HTMLParser
 import ssl
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -68,12 +69,13 @@ def main() -> int:
     base_parts = urllib.parse.urlsplit(base)
     if base_parts.hostname == "animasai.co":
         redirect_path = "/blog/"
+        redirect_query = f"canonical-probe={time.time_ns()}"
         www_url = urllib.parse.urlunsplit(
-            (base_parts.scheme, "www.animasai.co", redirect_path, "canonical-probe=1", "")
+            (base_parts.scheme, "www.animasai.co", redirect_path, redirect_query, "")
         )
         code, headers, _ = request(opener, www_url)
         location = next((value for name, value in headers.items() if name.lower() == "location"), "")
-        expected_location = "https://animasai.co/blog/?canonical-probe=1"
+        expected_location = f"https://animasai.co/blog/?{redirect_query}"
         if code != 308:
             failures.append(f"www canonical redirect: expected 308, got {code}")
         if location != expected_location:
