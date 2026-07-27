@@ -30,8 +30,12 @@ class ImageParser(HTMLParser):
 
 
 def request(opener, url: str) -> tuple[int, dict[str, str], bytes]:
+    request_object = urllib.request.Request(
+        url,
+        headers={"User-Agent": "Mozilla/5.0 Animas-Deployment-Verifier/1.0"},
+    )
     try:
-        response = opener.open(url, timeout=30)
+        response = opener.open(request_object, timeout=30)
     except urllib.error.HTTPError as error:
         return error.code, dict(error.headers.items()), error.read()
     with response:
