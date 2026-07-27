@@ -2,6 +2,9 @@
 .git*
 .github/
 .netlify/
+.wrangler/
+__pycache__/
+*.pyc
 .assetsignore
 cloudflare/
 scripts/

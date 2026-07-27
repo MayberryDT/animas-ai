@@ -65,7 +65,14 @@ def main() -> int:
     check("/robots.txt")
     for path in ("/calculator", "/intake", "/audit", "/scorecard", "/resume"):
         check(path)
-    check("/definitely-not-a-real-animas-page", 404)
+    for path in (
+        "/definitely-not-a-real-animas-page",
+        "/.git/config",
+        "/.wrangler/cache/pages.json",
+        "/netlify.toml",
+        "/wrangler.jsonc",
+    ):
+        check(path, 404)
 
     image_paths: set[str] = set()
     try:
