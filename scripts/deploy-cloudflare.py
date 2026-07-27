@@ -45,9 +45,6 @@ def main() -> int:
         return 2
 
     wrangler = ["npx", "--yes", f"wrangler@{WRANGLER_VERSION}"]
-
-    # Let Wrangler refresh its OAuth session before reading the resulting token.
-    run([*wrangler, "whoami"])
     auth = tomllib.loads(AUTH_PATH.read_text(encoding="utf-8"))
     token = auth.get("oauth_token")
     if not token:

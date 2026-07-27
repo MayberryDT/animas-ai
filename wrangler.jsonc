@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
-  "name": "animas-ai-site",
+  "name": "animas-ai-preview",
   "main": "cloudflare/worker.js",
   "compatibility_date": "2026-07-27",
   "workers_dev": true,
