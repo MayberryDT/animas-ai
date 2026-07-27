@@ -65,6 +65,22 @@ def main() -> int:
     if b'<link rel="canonical" href="https://animasai.co/">' not in home:
         failures.append("/: canonical URL is missing or wrong")
 
+    base_parts = urllib.parse.urlsplit(base)
+    if base_parts.hostname == "animasai.co":
+        redirect_path = "/blog/"
+        www_url = urllib.parse.urlunsplit(
+            (base_parts.scheme, "www.animasai.co", redirect_path, "canonical-probe=1", "")
+        )
+        code, headers, _ = request(opener, www_url)
+        location = next((value for name, value in headers.items() if name.lower() == "location"), "")
+        expected_location = "https://animasai.co/blog/?canonical-probe=1"
+        if code != 308:
+            failures.append(f"www canonical redirect: expected 308, got {code}")
+        if location != expected_location:
+            failures.append(
+                f"www canonical redirect: expected {expected_location}, got {location or '<missing>'}"
+            )
+
     sitemap = check("/sitemap.xml")
     check("/robots.txt")
     for path in ("/calculator", "/intake", "/audit", "/scorecard", "/resume"):

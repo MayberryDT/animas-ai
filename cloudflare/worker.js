@@ -47,6 +47,12 @@ function withSecurityHeaders(response) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.hostname.toLowerCase() === "www.animasai.co") {
+      url.hostname = "animasai.co";
+      return withSecurityHeaders(Response.redirect(url.toString(), 308));
+    }
+
     const rewrittenPath = rewritePath(url.pathname);
 
     if (rewrittenPath !== url.pathname) {
