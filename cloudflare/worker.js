@@ -1,8 +1,14 @@
 const EXACT_REWRITES = new Map([
+  ["/", "/index.html"],
+  ["/blog/", "/blog/index.html"],
   ["/calculator", "/calculator/index.html"],
+  ["/calculator/", "/calculator/index.html"],
   ["/intake", "/intake/index.html"],
+  ["/intake/", "/intake/index.html"],
   ["/audit", "/audit/index.html"],
+  ["/audit/", "/audit/index.html"],
   ["/scorecard", "/scorecard/index.html"],
+  ["/scorecard/", "/scorecard/index.html"],
   ["/resume", "/resume.html"],
 ]);
 
