@@ -1,0 +1,9 @@
+# Deployment and repository internals are not public site assets.
+.git*
+.github/
+.netlify/
+.assetsignore
+cloudflare/
+scripts/
+netlify.toml
+wrangler.jsonc
