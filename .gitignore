@@ -5,3 +5,7 @@ marketing-assets/
 
 # Local Netlify folder
 .netlify
+
+# Local validation artifacts
+__pycache__/
+*.pyc
