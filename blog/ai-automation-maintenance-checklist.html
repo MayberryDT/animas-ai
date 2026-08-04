@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>AI Automation Maintenance Checklist: Keeping Workflows Reliable Over Time | Animas AI Blog</title>
+    <meta name="description" content="A practical maintenance checklist for AI automations covering monitoring, prompt drift, provider changes, permissions, retries, and owner review. Built from shipped systems at Animas AI.">
+    <link rel="canonical" href="https://animasai.co/blog/ai-automation-maintenance-checklist.html">
+    <meta property="og:title" content="AI Automation Maintenance Checklist: Keeping Workflows Reliable Over Time">
+    <meta property="og:description" content="A practical maintenance checklist for AI automations covering monitoring, prompt drift, provider changes, permissions, retries, and owner review. Built from shipped systems at Animas AI.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://animasai.co/blog/ai-automation-maintenance-checklist.html">
+    <meta property="og:image" content="https://animasai.co/work-assets/blog/ai-automation-maintenance-checklist.png">
+    <meta property="og:site_name" content="Animas AI">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI Automation Maintenance Checklist: Keeping Workflows Reliable Over Time", "description": "A practical maintenance checklist for AI automations covering monitoring, prompt drift, provider changes, permissions, retries, and owner review. Built from shipped systems at Animas AI.", "datePublished": "2026-08-04", "author": {"@type": "Organization", "name": "Animas AI"}, "image": "https://animasai.co/work-assets/blog/ai-automation-maintenance-checklist.png", "mainEntityOfPage": "https://animasai.co/blog/ai-automation-maintenance-checklist.html"}</script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Manrope', 'sans-serif'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, brand: { 50: '#eff6ff', 600: '#2563eb', 700: '#1d4ed8' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                    <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">How I Work</a>
+                    <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">What I Build</a>
+                    <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">Work</a>
+                    <a href="/blog/" class="text-sm font-bold text-brand-600 border-b-2 border-brand-600 pb-1">Writing</a>
+                </div>
+                <a href="mailto:tyler@animasai.co" class="hidden md:inline-flex bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600">Email Tyler</a>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-32 pb-24">
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <header class="mb-12">
+                <a href="/blog/" class="text-brand-600 hover:text-brand-700 text-sm font-medium inline-flex items-center gap-1 mb-6">All Articles</a>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600">AI Systems</span>
+                    <span class="text-xs text-slate-400">·</span>
+                    <time class="text-xs text-slate-400" datetime="2026-08-04">August 4, 2026</time>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-display font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">AI Automation Maintenance Checklist: Keeping Workflows Reliable Over Time</h1>
+                <p class="text-lg text-slate-500 leading-relaxed">A practical maintenance checklist for AI automations covering monitoring, prompt drift, provider changes, permissions, retries, and owner review. Built from shipped systems at Animas AI.</p>
+                <figure class="mt-10">
+                    <img src="/work-assets/blog/ai-automation-maintenance-checklist.png" alt="Premium Animas AI cover for ai automation maintenance checklist." class="w-full rounded-2xl border border-gray-200 shadow-sm">
+                </figure>
+            </header>
+            <div class="prose prose-lg prose-slate max-w-none">
+                <h2>Quick answer</h2>
+<p>AI automations drift over time. A maintenance checklist keeps prompts consistent, catches silent provider model changes, confirms permissions haven’t expired, and makes sure review steps still fire. For the operational tools we ship at Animas, the checklist runs weekly or after any integration change. It covers prompt regression tests, retry health, permission scans, owner review cadence, and a human fallback that activates when the automation can’t resolve a case.</p>
+<h2>A realistic workflow example</h2>
+<p>Suppose a consulting team built an AI workflow to qualify leads. A webhook fires on form submission, the AI scores intent and drafts a reply. Above threshold, the draft posts to Slack with an approve-and-send button; below, it’s archived.</p>
+<p>Maintenance lands on the ops lead:</p>
+<ul><li><strong>Owner:</strong> The ops lead (not the original builder).</li><li><strong>Trigger:</strong> A recurring Monday calendar hold plus an alert if no lead is processed in 48 hours.</li><li><strong>Handoff:</strong> The ops lead replays 10 historical leads to check prompt behaviour, inspects webhook logs for auth errors, and confirms the Slack bot’s channel permissions.</li><li><strong>Review state:</strong> If the prompt now adds a tone the founder hates, it’s flagged for tuning. If a permission has expired, the automation is paused and new leads flow to a manual triage board.</li><li><strong>Failure path:</strong> A monitoring script watches for three consecutive failures and sends a phone alert. It also posts in the team channel asking for manual coverage.</li></ul>
+<p>This pattern isn’t hypothetical. It’s how we build maintenance into Pip. The automation stays owned, health-checked, and ready to degrade safely.</p>
+<h2>What breaks in real teams</h2>
+<p>The most fragile piece is not the code. It is the <strong>context drift</strong> that accumulates silently.</p>
+<p><strong>Prompt drift</strong> occurs when a model update changes output style or structure without warning. A casual two-sentence email turns into a five-paragraph formal reply. Your team only notices when a client says, “That doesn’t sound like us.”</p>
+<p><strong>Provider model changes</strong> are worse. Providers deprecate versions, auto-upgrade, or adjust defaults. If you pinned a dated snapshot, it may still disappear. Every downstream parsing step needs a retest.</p>
+<p><strong>Permission rot</strong> hits when a service account token expires, a Slack app is reinstalled without scopes, or a Google Drive folder is tightened. The automation stops, but the 403 error sits unread until someone asks why the reports stopped appearing.</p>
+<p><strong>Retry exhaustion</strong> silently drops work. Three retries, then nothing. At Masthead, a content enrichment step lost editorial leads when a third-party API changed its schema. The fix was a dead-letter channel with a human triage duty, not more retries.</p>
+<p><strong>Owner drift</strong> is the final blow. The builder leaves, and nobody knows where the prompts live or why the threshold is 0.75. The automation runs until it breaks and becomes a black box nobody wants to touch.</p>
+<h2>What to build first</h2>
+<p>Start with a single-page checklist that lives next to the runbooks, not in someone’s head. A Notion doc or a markdown file works.</p>
+<ol><li><strong>Prompt regression test.</strong> Keep 5–10 representative inputs and expected output shapes. Replay them weekly and flag differences above a similarity threshold.</li><li><strong>Model version check.</strong> Confirm the pinned model is still available. Schedule a cutover window if a deprecation notice arrives.</li><li><strong>Permission scan.</strong> Verify every service account, API key, and bot token is active and has the correct scopes.</li><li><strong>Failure alert wiring.</strong> Ensure the retry ceiling sends an alert to a human channel. Dead-letter queues (we use simple Google Sheets rows for Masthead) need a triage owner assigned weekly.</li><li><strong>Owner audit.</strong> Record the current human owner. Update the runbook when ownership changes. Schedule quarterly reviews.</li></ol>
+<h2>What to avoid</h2>
+<ul><li>Relying on “it’s still running” as a health signal. Lead routers have kept running while a model tweak turned subject lines into nonsense fragments.</li><li>Over-engineering self-healing loops that auto-tune prompts without a human review step.</li><li>Ignoring provider deprecation calendars. Treat model sunsets as planned maintenance, not emergencies.</li><li>Forgetting that permissions are temporary. OAuth tokens expire; service account keys rotate. Build your checklist to catch these early.</li><li>Building without a human fallback. Every automation needs a designated channel where incomplete work lands automatically, rather than waiting for someone to notice the silence.</li></ul>
+<h2>How Animas thinks about it</h2>
+<p>At Animas, every shipped system includes a maintenance surface. This isn’t a product; it’s a set of habits.</p>
+<p>For <strong><a href="/pip.html">Pip</a></strong>, the lead-routing assistant, we bundle a prompt regression kit and display the last successful processing timestamp. When the timestamp goes stale, the team checks before leads pile up. The orchestration layer tracks retry exhaustion and posts dead-letter items with the original payload.</p>
+<p>For <strong><a href="/masthead.html">Masthead</a></strong>, the editorial assistant, we pin model versions and include a human review state. The maintenance checklist adds a weekly taste test where an editor evaluates a handful of AI-generated summaries. If the tone drifts, we tune the prompt and deploy a revision, keeping the old version as a fallback.</p>
+<p>We also ask maintenance questions during scoping: “Who owns this in six months? What’s the fallback when it breaks? How will you know if output quality degrades?” These questions shape simpler integrations, explicit logs, and a human-run review step no model update can bypass.</p>
+<p>The maintenance checklist becomes a living artifact, pinned in the client’s knowledge base and project channel. It is the same list we run when supporting a system post-launch. You can see this philosophy reflected across all <a href="/solutions.html">What I build</a>: internal tools that never become black boxes. We ship the operator’s manual alongside the code.</p>
+<h2>FAQ</h2>
+<h3>How often should I run an AI maintenance checklist?</h3>
+<p>For most small-team automations, weekly is a good rhythm. Add a daily health-check script for time-sensitive workflows, and run the full checklist after any integration change, token rotation, or model swap.</p>
+<h3>What’s the simplest way to catch prompt drift?</h3>
+<p>Keep a spreadsheet with 10 historical inputs and their approved outputs. Replay them through the current configuration and diff the results. Look for significant changes in length, tone, or structure.</p>
+<h3>Do I need a dedicated monitoring tool?</h3>
+<p>Not at first. Calendar reminders, a checklist doc, and a few health-check scripts cover most needs. As workflow count grows, you might add a lightweight dashboard, but the human triage habit matters more than the tool.</p>
+<h3>Who should own the maintenance checklist?</h3>
+<p>An operational role, not necessarily the original builder. The person needs enough context to recognize wrong outputs and the authority to pause the automation or request a fix. In small teams, this is often the ops lead or a tech-savvy manager.</p>
+<h3>What’s the biggest failure point most teams overlook?</h3>
+<p>Human fallback decay. Over time, the manual backup (email alias, Slack triage channel) falls out of use. When the automation breaks, nobody notices because the fallback path is also broken. Rehearse the fallback at least once a quarter: turn off the automation deliberately and confirm the work still gets handled by a person.</p>
+<h2>Source notes</h2>
+<p>This article is built from direct experience shipping AI automations at Animas AI, including the Pip and Masthead systems, and from observing failure patterns in small-team operational tools. The concepts of prompt drift, permission rot, and owner drift emerged from real maintenance cycles. For a deeper look at the systems mentioned, see the <a href="/pip.html">Pip case study</a>, the <a href="/masthead.html">Masthead case study</a>, and the full <a href="/case-studies.html">Work section</a>.</p>
+            </div>
+            <div class="mt-16 pt-10 border-t border-gray-200">
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-6">
+                    <img src="/me.jpg" alt="Tyler Mayberry" class="w-16 h-16 rounded-full object-cover shadow-sm">
+                    <div><div class="font-bold text-slate-900">Tyler Mayberry</div><div class="text-sm text-slate-500">Founder, Animas AI</div></div>
+                </div>
+            </div>
+            <div class="mt-16 bg-slate-900 rounded-3xl p-10 md:p-14 text-center">
+                <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-4">Want this kind of system in your business?</h2>
+                <p class="text-slate-300 mb-8 max-w-lg mx-auto">Send the messy workflow. I will help turn it into a practical AI system.</p>
+                <a href="mailto:tyler@animasai.co" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-brand-50 inline-block">Email Tyler</a>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
