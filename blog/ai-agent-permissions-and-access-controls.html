@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>AI Agent Permissions and Access Controls: A Practical Guide for Builder Teams | Animas AI Blog</title>
+    <meta name="description" content="How to scope what your AI agents can read, write, and trigger—least-privilege patterns, scoped credentials, audit trails, and the exact controls you need before an agent touches real data.">
+    <link rel="canonical" href="https://animasai.co/blog/ai-agent-permissions-and-access-controls.html">
+    <meta property="og:title" content="AI Agent Permissions and Access Controls: A Practical Guide for Builder Teams">
+    <meta property="og:description" content="How to scope what your AI agents can read, write, and trigger—least-privilege patterns, scoped credentials, audit trails, and the exact controls you need before an agent touches real data.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://animasai.co/blog/ai-agent-permissions-and-access-controls.html">
+    <meta property="og:image" content="https://animasai.co/work-assets/blog/ai-agent-permissions-and-access-controls.png">
+    <meta property="og:site_name" content="Animas AI">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI Agent Permissions and Access Controls: A Practical Guide for Builder Teams", "description": "How to scope what your AI agents can read, write, and trigger—least-privilege patterns, scoped credentials, audit trails, and the exact controls you need before an agent touches real data.", "datePublished": "2026-08-05", "author": {"@type": "Organization", "name": "Animas AI"}, "image": "https://animasai.co/work-assets/blog/ai-agent-permissions-and-access-controls.png", "mainEntityOfPage": "https://animasai.co/blog/ai-agent-permissions-and-access-controls.html"}</script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Manrope', 'sans-serif'] },
+                    colors: { slate: { 900: '#0f172a', 950: '#020617' }, brand: { 50: '#eff6ff', 600: '#2563eb', 700: '#1d4ed8' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                    <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/how-it-works.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">How I Work</a>
+                    <a href="/solutions.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">What I Build</a>
+                    <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">Work</a>
+                    <a href="/blog/" class="text-sm font-bold text-brand-600 border-b-2 border-brand-600 pb-1">Writing</a>
+                </div>
+                <a href="mailto:tyler@animasai.co" class="hidden md:inline-flex bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600">Email Tyler</a>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-32 pb-24">
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <header class="mb-12">
+                <a href="/blog/" class="text-brand-600 hover:text-brand-700 text-sm font-medium inline-flex items-center gap-1 mb-6">All Articles</a>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600">AI Systems</span>
+                    <span class="text-xs text-slate-400">·</span>
+                    <time class="text-xs text-slate-400" datetime="2026-08-05">August 5, 2026</time>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-display font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">AI Agent Permissions and Access Controls: A Practical Guide for Builder Teams</h1>
+                <p class="text-lg text-slate-500 leading-relaxed">How to scope what your AI agents can read, write, and trigger—least-privilege patterns, scoped credentials, audit trails, and the exact controls you need before an agent touches real data.</p>
+                <figure class="mt-10">
+                    <img src="/work-assets/blog/ai-agent-permissions-and-access-controls.png" alt="Premium Animas AI cover for ai agent permissions and access controls." class="w-full rounded-2xl border border-gray-200 shadow-sm">
+                </figure>
+            </header>
+            <div class="prose prose-lg prose-slate max-w-none">
+                <h2>Quick answer</h2>
+<p>AI agent permissions depend on scope, separation of duties, and auditability, not just API keys. Give the agent least privilege: scoped OAuth tokens, human review on writes, and logged actions for traceability. In Pip, that means tokens that can read specific Gmail labels and draft replies but never send without human approval. Start with narrow service accounts, rotate secrets, and treat every action as replayable.</p>
+<h2>A realistic workflow example</h2>
+<h3>Trigger and agent access</h3>
+<p>When a new email lands in the &quot;New Lead&quot; label, Pip’s OAuth token has `gmail.readonly` and `gmail.modify` scoped to that label, plus `gmail.compose`. The agent can save drafts but cannot send; `gmail.send` is not granted. An ops lead owns the qualification workflow.</p>
+<h3>Handoff and review state</h3>
+<p>Pip reads the email, classifies it, and drafts a reply in the &quot;Pending Approval&quot; folder. It then posts a Slack notification with a link to the draft, tagging the human owner. The owner reviews the draft inside Gmail and manually sends it. The lead sees a fast, accurate reply without the agent ever acting autonomously.</p>
+<h3>Failure path and credential rotation</h3>
+<p>If Pip cannot classify the email, it moves the thread to &quot;Review Needed&quot; and alerts the owner. The OAuth token lives for one hour and is refreshed via a rotating service account, so a leaked token expires quickly. This pattern—scoped OAuth, no autonomous sends, human approval—maintains trust as usage grows.</p>
+<h2>What breaks in real teams</h2>
+<p>The most common mistake is granting a full-access API key or blanket OAuth scope. The agent can then alter threads it shouldn’t touch or send incorrect messages. Here are specific breakdowns:</p>
+<ul><li><strong>Over-privileged tokens:</strong> A prototype Pip moved a client email to spam because of a misfired heuristic. Limiting the scope to one label prevented repeats.</li><li><strong>No separation of duties:</strong> When the same agent drafts and sends, there’s no human safety net. Teams often add an approval step only after a mis-send, by which point trust is already damaged.</li><li><strong>Long-lived, never-rotated secrets:</strong> A hardcoded API key gives departing employees indefinite access, or a server compromise leaks access to everything the agent could ever do.</li><li><strong>Missing audit trail:</strong> Without logging which agent performed which action, debugging becomes guesswork. No one can tell whether the agent or a human moved a deal to &quot;lost.&quot;</li><li><strong>Mixed-service tokens:</strong> A token that spans both email and CRM turns both services into a single security boundary. Compromise one and both are exposed.</li></ul>
+<h2>What to build first</h2>
+<p>Start with the smallest possible credential and expand it only when you need to. Concrete steps:</p>
+<ol><li><strong>Create a scoped OAuth service account:</strong> For Google Workspace, restrict scopes to exactly what the agent needs (e.g., `gmail.readonly` and `gmail.modify` on one label). For other APIs, use IAM or the provider’s equivalent to grant resource-level, read-only permissions.</li><li><strong>Use short-lived tokens that rotate:</strong> Store secrets in a vault (AWS Parameter Store, Doppler) and refresh them every hour. Hardcode nothing.</li><li><strong>Log every agent action at the audit level:</strong> Include timestamp, agent ID, resource, and outcome. If reads are sensitive, log those too. This also serves as a replay layer.</li><li><strong>Require human approval for all writes:</strong> For sending messages, modifying data, or handling money, never let the agent execute autonomously. Use a Slack notification, a pending queue, or a draft that must be approved.</li><li><strong>Give each agent purpose a separate credential:</strong> A classification agent and a reply agent should have distinct tokens, never a shared &quot;general&quot; key.</li></ol>
+<h2>What to avoid</h2>
+<ul><li><strong>Sharing API keys across agents:</strong> A single leaked key compromises everything. Isolate credentials per function.</li><li><strong>Blanket admin scopes:</strong> Never grant `gmail.fullAccess` or root CRUD. Figure out the smallest resource set the agent must touch.</li><li><strong>Skipping human review on high-risk actions:</strong> Sending email, closing a deal, altering a production database always needs a human, even for a 30-second review.</li><li><strong>No token expiration:</strong> Long-lived credentials are a liability. Rotate them as a routine ops task.</li><li><strong>Logging as the same system user:</strong> Tag every log entry with a distinct agent identity so you can pinpoint which agent caused a problem.</li></ul>
+<h2>How Animas AI thinks about it</h2>
+<p>We design permissions into the architecture from the first commit. The principle is simple: an agent should only be able to do what a supervised junior team member could do, nothing more.</p>
+<p>Every agent gets its own credential, scoped to exact resources. For Pip, that meant separate OAuth projects for reading leads, drafting replies, and managing follow-up labels, each with distinct scopes and token lifecycles. Write operations always require human approval. The Masthead analytics system can query and visualize data but never alter source tables; mutations happen in a separate gated pipeline.</p>
+<p>Audit logs are a product requirement from the start. Every action is recorded and queryable. The team can ask, &quot;What did Pip do with the Acme email yesterday at 10 AM?&quot; and get a precise answer. This guardrail makes a bug a contained incident instead of a business disaster. When we ship a system, the client sees exactly what an agent can and cannot do, and has a dashboard showing every action.</p>
+<h2>FAQ</h2>
+<h3>How do I scope AI agent permissions for Gmail?</h3>
+<p>Create a Google Cloud project and configure OAuth with scopes such as `gmail.readonly`, `gmail.modify` on specific labels, and `gmail.compose`, but never `gmail.send`. Avoid requesting `gmail.fullAccess` or `gmail.settings.basic`. For read-only workflows, use domain-wide delegation with a service account scoped narrowly so the agent only accesses mailboxes you specify.</p>
+<h3>What’s better, API keys or OAuth for AI agents?</h3>
+<p>Use OAuth when available. OAuth supports granular scopes, short-lived tokens, and refresh flows. API keys are all-or-nothing entitlements that rarely permit resource-level restrictions. For internal APIs, issue JWTs with claims that encode the agent’s purpose and allowed endpoints, and include an expiry.</p>
+<h3>How do you audit what an AI agent actually did?</h3>
+<p>Log every action (timestamp, agent ID, resource, action, outcome) in a queryable system such as CloudWatch, Datadog, or a database. Alert on anomalous patterns like a spike in drafts or accesses outside business hours. In Pip, these logs appear in a dashboard so the human reviewer sees what the agent did before approving.</p>
+<h2>Source notes</h2>
+<ul><li>The patterns in this guide are drawn from Animas AI’s implementation of Pip and our internal tooling for lead handling and operational workflows.</li><li>OAuth2 scoping for Google Workspace follows standard least-privilege IAM design used by AWS and GCP, adapted for agentic systems.</li><li>The separation of duties principle is borrowed from financial controls and applied to AI agent architecture.</li></ul>
+            </div>
+            <div class="mt-16 pt-10 border-t border-gray-200">
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-6">
+                    <img src="/me.jpg" alt="Tyler Mayberry" class="w-16 h-16 rounded-full object-cover shadow-sm">
+                    <div><div class="font-bold text-slate-900">Tyler Mayberry</div><div class="text-sm text-slate-500">Founder, Animas AI</div></div>
+                </div>
+            </div>
+            <div class="mt-16 bg-slate-900 rounded-3xl p-10 md:p-14 text-center">
+                <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-4">Want this kind of system in your business?</h2>
+                <p class="text-slate-300 mb-8 max-w-lg mx-auto">Send the messy workflow. I will help turn it into a practical AI system.</p>
+                <a href="mailto:tyler@animasai.co" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-brand-50 inline-block">Email Tyler</a>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
