@@ -12,10 +12,10 @@
 
 ## Global Constraints
 
-- Live product URL is always `https://wargus.animasai.co` (not Netlify product URLs).
+- Live product URL is always `https://wargus.animasai.co`.
 - **Append only:** never remove or replace Masthead, Pip, Executioner, Rat Detective, Milkbench, or any other existing card unless the user explicitly orders a removal.
 - Animas scope is **homepage only** (`index.html` + asset). Do not edit `case-studies.html`, `resume.html`, or create `/wargus.html` in this plan.
-- Portfolio deploy is **Cloudflare only** (`product-portfolio-preview` / tylermayberry.dev). Do not use Netlify for portfolio.
+- Portfolio deploy is **Cloudflare only** (`product-portfolio-preview` / tylermayberry.dev).
 - Public copy must describe a **browser demo**, not a commercial product or full Wargus campaign suite.
 - Do not claim multiplayer, full campaign, or source-perfect parity; the active product is the fixed Garden of War 1v1 demo.
 - Prefer a **real demo capture** as the image base; do not invent fake HUD chrome that misrepresents the app.
@@ -477,7 +477,7 @@ Expected: six headings, all present.
 - **When asked to add a product: always append a new card.** Never remove or replace an existing card unless the user explicitly requests removal.
 - Prefer multi-row CSS grid areas over dumping every card into one horizontal row.
 - Live Wargus TypeScript URL: https://wargus.animasai.co
-- Deploy: Cloudflare Worker custom domains for tylermayberry.dev only (not Netlify).
+- Deploy: Cloudflare Worker custom domains for tylermayberry.dev only.
 
 ## Current supporting cards (as of 2026-08-06)
 
@@ -588,6 +588,5 @@ Naming consistency: card class `wargus-card`, image `Wargus.png` / `wargus-types
 ## Out of scope reminders for implementers
 
 - Do not edit Wargus game source for this plan.
-- Do not migrate portfolio to Netlify.
 - Do not remove Milkbench or Rat Detective to “make room.”
 - Do not update `resume.html` unless a follow-up task asks.

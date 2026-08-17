@@ -91,7 +91,6 @@ def main() -> int:
         "/definitely-not-a-real-animas-page",
         "/.git/config",
         "/.wrangler/cache/pages.json",
-        "/netlify.toml",
         "/wrangler.jsonc",
     ):
         check(path, 404)

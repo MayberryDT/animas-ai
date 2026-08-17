@@ -3,10 +3,9 @@ node_modules/
 .env
 marketing-assets/
 
-# Local Netlify folder
-.netlify
 
 # Local validation and deployment artifacts
 __pycache__/
 *.pyc
 .wrangler/
+.worktrees/
