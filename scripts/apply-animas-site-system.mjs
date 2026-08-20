@@ -6,7 +6,7 @@ import path from "node:path";
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, "..");
-const SHARED_STYLESHEET = "/assets/animas-site.css?v=20260819c";
+const SHARED_STYLESHEET = "/assets/animas-site.css?v=20260819d";
 const ROOT_PAGES = [
   "index.html",
   "case-studies.html",

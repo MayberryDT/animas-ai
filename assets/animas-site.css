@@ -89,8 +89,7 @@ body.animas-site [class~="bg-slate-950"] {
   background-color: var(--animas-ink) !important;
 }
 
-body.animas-site [class~="text-brand-600"],
-body.animas-site a:hover {
+body.animas-site [class~="text-brand-600"] {
   color: var(--animas-blue);
 }
 
@@ -157,10 +156,16 @@ body.animas-home main > section:first-child > .relative.z-10 {
 }
 
 body.animas-home main > section:first-child > .home-hero-shell {
+  position: relative;
+  z-index: 1;
   border: 0;
   background: transparent;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.home-hero-decor {
+  pointer-events: none;
 }
 
 .home-hero-grid {
@@ -202,6 +207,10 @@ body.animas-home main > section:first-child > .home-hero-shell {
   flex-direction: column;
   justify-content: center;
   padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.work-sheet-header > a:hover {
+  color: #ffffff !important;
 }
 
 .home-contact-panel {

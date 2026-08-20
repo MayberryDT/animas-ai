@@ -130,6 +130,7 @@ class HomepagePortfolioTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.source = (ROOT / "index.html").read_text(encoding="utf-8")
+        cls.shared_css = (ROOT / "assets/animas-site.css").read_text(encoding="utf-8")
         cls.parser = HomepageParser()
         cls.parser.feed(cls.source)
 
@@ -206,6 +207,23 @@ class HomepagePortfolioTest(unittest.TestCase):
         self.assertIn('class="home-contact-panel', contact)
         self.assertIn('class="home-contact-copy"', contact)
         self.assertIn('class="home-contact-actions"', contact)
+
+    def test_hero_decorative_layers_cannot_intercept_ctas(self) -> None:
+        hero = self.source.split('<section data-home-section="hero"', 1)[1].split(
+            "</section>", 1
+        )[0]
+        self.assertEqual(hero.count("home-hero-decor"), 2)
+        self.assertIn(
+            ".home-hero-decor {\n  pointer-events: none;\n}",
+            self.shared_css,
+        )
+
+    def test_archive_hover_preserves_button_text_contrast(self) -> None:
+        self.assertNotIn("body.animas-site a:hover", self.shared_css)
+        self.assertIn(
+            ".work-sheet-header > a:hover {\n  color: #ffffff !important;\n}",
+            self.shared_css,
+        )
 
 
 class WorkPageTest(unittest.TestCase):
