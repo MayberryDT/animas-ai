@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animas AI — Work Background Directions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #020617;
+      --slate: #475569;
+      --blue: #2563eb;
+      --navy: #1e3a8a;
+      --paper: #ffffff;
+      --chrome: #0f172a;
+      --chrome-line: #26334a;
+      --chrome-copy: #a8b4c7;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--chrome);
+      color: var(--ink);
+      font-family: Inter, sans-serif;
+    }
+
+    button, a { font: inherit; }
+
+    .prototype-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--chrome-line);
+      background: rgba(15, 23, 42, 0.96);
+      color: white;
+      backdrop-filter: blur(16px);
+    }
+
+    .prototype-bar__inner {
+      width: min(100% - 32px, 1440px);
+      margin: 0 auto;
+      padding: 18px 0 16px;
+    }
+
+    .prototype-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 14px;
+    }
+
+    .prototype-kicker,
+    .direction-number,
+    .project-meta,
+    .project-action,
+    .archive-action {
+      font-family: "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .prototype-kicker {
+      margin: 0 0 5px;
+      color: #7dd3fc;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .prototype-heading h1 {
+      margin: 0;
+      font: 700 clamp(20px, 2vw, 28px)/1.1 Manrope, sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    .prototype-heading p {
+      max-width: 580px;
+      margin: 0;
+      color: var(--chrome-copy);
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .direction-index {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .direction-tab {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: 9px;
+      align-items: center;
+      min-width: 0;
+      min-height: 52px;
+      padding: 7px;
+      border: 1px solid var(--chrome-line);
+      border-radius: 0;
+      background: #111c30;
+      color: #dbeafe;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+    }
+
+    .direction-tab:hover { border-color: #526888; }
+
+    .direction-tab[aria-selected="true"] {
+      border-color: #93c5fd;
+      background: #1a2a45;
+      color: white;
+    }
+
+    .direction-tab:focus-visible {
+      outline: 2px solid #7dd3fc;
+      outline-offset: 2px;
+    }
+
+    .sample {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background-color: #edf4f6;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .direction-number {
+      display: block;
+      margin-bottom: 2px;
+      color: #7dd3fc;
+      font-size: 8px;
+      font-weight: 600;
+    }
+
+    .direction-tab__name {
+      display: block;
+      overflow: hidden;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.25;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .direction-readout {
+      width: min(100% - 32px, 1280px);
+      margin: 24px auto 0;
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      color: white;
+    }
+
+    .readout-index {
+      color: #7dd3fc;
+      font: 600 11px/1 "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+    }
+
+    .direction-readout h2 {
+      margin: 0 0 3px;
+      font: 700 20px/1.1 Manrope, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .direction-readout p {
+      margin: 0;
+      color: var(--chrome-copy);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .step-controls { display: flex; gap: 6px; }
+
+    .step-controls button {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--chrome-line);
+      border-radius: 0;
+      background: #111c30;
+      color: white;
+      cursor: pointer;
+    }
+
+    .step-controls button:hover { background: #1a2a45; }
+
+    .stage {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 720px;
+      margin-top: 18px;
+      padding: 96px 0 112px;
+      background: #edf4f6;
+    }
+
+    .line-field {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .stage-inner {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 32px, 1280px);
+      margin: 0 auto;
+    }
+
+    .work-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 32px;
+      align-items: end;
+      padding: 28px;
+      border: 2px solid var(--navy);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .work-header h3 {
+      max-width: 880px;
+      margin: 0;
+      color: var(--ink);
+      font: 700 clamp(30px, 4vw, 48px)/1.08 Manrope, sans-serif;
+      letter-spacing: -0.035em;
+    }
+
+    .archive-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      justify-self: end;
+      min-height: 44px;
+      padding: 12px 16px;
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 160ms ease;
+    }
+
+    .archive-action:hover { background: var(--blue); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px;
+      padding-top: 14px;
+    }
+
+    .project-card {
+      display: flex;
+      min-width: 0;
+      grid-column: span 2;
+      flex-direction: column;
+      border: 2px solid var(--navy);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .project-card:nth-child(1),
+    .project-card:nth-child(2) { grid-column: span 3; }
+
+    .project-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-bottom: 2px solid var(--navy);
+      object-fit: cover;
+      filter: saturate(0.78);
+      transition: filter 180ms ease, transform 420ms cubic-bezier(0.2, 0.75, 0.2, 1);
+    }
+
+    .project-card:hover .project-image {
+      filter: saturate(1);
+      transform: scale(1.012);
+    }
+
+    .project-copy {
+      display: flex;
+      min-height: 216px;
+      padding: 20px;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .project-meta {
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .project-card h4 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font: 700 24px/1.2 Manrope, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .project-card p {
+      margin: 0 0 16px;
+      color: var(--slate);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .project-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--navy);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .prototype-footer {
+      padding: 30px 16px 44px;
+      color: var(--chrome-copy);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 1023px) {
+      .direction-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .prototype-heading { align-items: start; flex-direction: column; }
+      .prototype-heading p { text-align: left; }
+      .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project-card,
+      .project-card:nth-child(1),
+      .project-card:nth-child(2) { grid-column: span 1; }
+    }
+
+    @media (max-width: 767px) {
+      .prototype-bar { position: relative; }
+      .direction-index { grid-template-columns: 1fr; }
+      .direction-readout { grid-template-columns: 30px minmax(0, 1fr); }
+      .step-controls { grid-column: 2; }
+      .stage { padding: 60px 0 72px; }
+      .work-header { grid-template-columns: 1fr; padding: 22px; }
+      .archive-action { justify-self: start; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-copy { min-height: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="prototype-bar">
+    <div class="prototype-bar__inner">
+      <div class="prototype-heading">
+        <div>
+          <p class="prototype-kicker">Animas AI · Controlled background study</p>
+          <h1>One Work section. Ten cyber line systems.</h1>
+        </div>
+        <p>Every option keeps the original grid's exact blue, opacity, stroke weight, and near-equivalent density. Only the geometry changes.</p>
+      </div>
+      <nav class="direction-index" aria-label="Background directions" role="tablist" id="direction-index"></nav>
+    </div>
+  </header>
+
+  <div class="direction-readout" aria-live="polite">
+    <span class="readout-index" id="readout-index">01</span>
+    <div>
+      <h2 id="readout-name">Routed Circuit Traces</h2>
+      <p id="readout-description">Dense horizontal traces take precise right-angle detours without resolving into another square grid.</p>
+    </div>
+    <div class="step-controls" aria-label="Step through options">
+      <button type="button" id="previous-direction" aria-label="Previous background">←</button>
+      <button type="button" id="next-direction" aria-label="Next background">→</button>
+    </div>
+  </div>
+
+  <main class="stage" id="stage" data-direction="1" role="tabpanel" aria-labelledby="direction-tab-1">
+    <img class="line-field" id="line-field" src="/docs/design/generated/animas-line-field-01.svg" alt="" aria-hidden="true">
+    <div class="stage-inner">
+      <div class="work-header">
+        <h3>A working set of shipped products.</h3>
+        <a class="archive-action" href="/case-studies.html">Open the work archive <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <img src="/work-assets/masthead-product-showcase.jpg" alt="Masthead product art: the work is still there — keeps the record." class="project-image">
+          <div class="project-copy">
+            <div class="project-meta">AI infrastructure · Flagship</div>
+            <h4>Masthead</h4>
+            <p>Local-first session data for coding agents: capture work into SQLite, publish artifacts, retrieve via read-only MCP.</p>
+            <a href="/masthead.html" class="project-action">See the build <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="/work-assets/chartstead-product-showcase.jpg?v=20260817b" alt="ChartStead product showcase with agenda readiness and fictional sample data." class="project-image">
+          <div class="project-copy">
+            <div class="project-meta">Conference operations · Shipped</div>
+            <h4>ChartStead</h4>
+            <p>Keep the call, review, speaker work, messages, and agenda together, then publish when the team is ready.</p>
+            <a href="/chartstead.html" class="project-action">See the build <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="/work-assets/pip-app-showcase.jpg?v=20260817" alt="Pip cash-flow clarity product illustration." class="project-image">
+          <div class="project-copy">
+            <div class="project-meta">Personal finance · Shipped</div>
+            <h4>Pip</h4>
+            <p>Spendable Cash Today, deterministic money logic, and an agent that explains approved actions.</p>
+            <a href="/pip.html" class="project-action">See the build <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="/work-assets/hotel-cleaning-schedule.jpg" alt="Hotel Cleaning Schedule planning interface." class="project-image">
+          <div class="project-copy">
+            <div class="project-meta">Hospitality operations · Shipped</div>
+            <h4>Hotel Cleaning Schedule</h4>
+            <p>Deep-clean planning for ~40–100 room houses: rooms and capacity in, a validated calendar out.</p>
+            <a href="https://hotelcleaningschedule.com" class="project-action">View product <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="/work-assets/executioner.png" alt="Executioner product screenshot." class="project-image">
+          <div class="project-copy">
+            <div class="project-meta">Personal execution · Shipped</div>
+            <h4>Executioner</h4>
+            <p>A personal execution system with onboarding, payments, email, and AI-assisted planning.</p>
+            <a href="https://executionr.com" class="project-action">View Executioner <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="/work-assets/milkbench.jpg" alt="Milkbench visual with model names and evaluation results." class="project-image">
+          <div class="project-copy">
+            <div class="project-meta">AI evaluation · Shipped</div>
+            <h4>Milkbench</h4>
+            <p>A visual benchmark for GPT 5.6 taste, with Luna, Terra, and Sol as model personalities.</p>
+            <a href="https://milk.animasai.co/" class="project-action">View Milkbench <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="/work-assets/rat-detective-online.png" alt="Rat Detective Online game screenshot." class="project-image">
+          <div class="project-copy">
+            <div class="project-meta">Multiplayer game · Shipped</div>
+            <h4>Rat Detective Online</h4>
+            <p>A multiplayer browser game with Three.js, TypeScript, physics, and real-time play.</p>
+            <a href="https://rat-detective.animasai.co" class="project-action">Play live <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="/work-assets/wargus-typescript.jpg" alt="Wargus TypeScript classic browser RTS." class="project-image">
+          <div class="project-copy">
+            <div class="project-meta">Browser RTS · Shipped</div>
+            <h4>Wargus TypeScript</h4>
+            <p>Classic RTS in the browser. Harvest, train, build, and fight on Garden of War.</p>
+            <a href="https://wargus.animasai.co" class="project-action">Play live <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="prototype-footer">Exploration artifact only · the live homepage background is unchanged</footer>
+
+  <script>
+    const directions = [
+      { name: "Routed Circuit Traces", description: "Dense horizontal traces take precise right-angle detours without resolving into another square grid.", asset: "/docs/design/generated/animas-line-field-01.svg" },
+      { name: "Processor Pin Fan-Out", description: "Processor footprints send disciplined pin routes into the surrounding field like a technical board drawing.", asset: "/docs/design/generated/animas-line-field-02.svg" },
+      { name: "Signal Ring Array", description: "Crisp partial signal rings repeat across the field with deliberate gaps and fine radial marks.", asset: "/docs/design/generated/animas-line-field-03.svg" },
+      { name: "Angular Data Lanes", description: "Closely spaced data lanes move diagonally through hard, synchronized directional changes.", asset: "/docs/design/generated/animas-line-field-04.svg" },
+      { name: "Terminal Scan Paths", description: "Broken scan lines form a dense terminal-like field of measured runs, gaps, and tiny offsets.", asset: "/docs/design/generated/animas-line-field-05.svg" },
+      { name: "Network Bus Weave", description: "Parallel signal buses route through shared digital junctions while the broad field stays open and legible.", asset: "/docs/design/generated/animas-line-field-06.svg" },
+      { name: "Chip Interconnect Field", description: "Distributed chip modules connect outward through short, precise orthogonal traces.", asset: "/docs/design/generated/animas-line-field-07.svg" },
+      { name: "Packet Route Mesh", description: "Staggered network nodes exchange packets through sparse right-angle and diagonal routes.", asset: "/docs/design/generated/animas-line-field-08.svg" },
+      { name: "Diagnostic Vector Field", description: "Hundreds of uniform diagnostic vectors create a clean machine-vision texture from near and far.", asset: "/docs/design/generated/animas-line-field-09.svg" },
+      { name: "Machine Schematic Channels", description: "Layered schematic channels combine tight signal bands with occasional machine-control connectors.", asset: "/docs/design/generated/animas-line-field-10.svg" }
+    ];
+
+    const index = document.getElementById("direction-index");
+    const stage = document.getElementById("stage");
+    const lineField = document.getElementById("line-field");
+    const readoutIndex = document.getElementById("readout-index");
+    const readoutName = document.getElementById("readout-name");
+    const readoutDescription = document.getElementById("readout-description");
+    let activeDirection = 0;
+
+    directions.forEach((direction, optionIndex) => {
+      const button = document.createElement("button");
+      const number = String(optionIndex + 1).padStart(2, "0");
+      button.type = "button";
+      button.id = `direction-tab-${optionIndex + 1}`;
+      button.className = "direction-tab";
+      button.setAttribute("role", "tab");
+      button.setAttribute("aria-controls", "stage");
+      button.setAttribute("aria-selected", optionIndex === 0 ? "true" : "false");
+      button.innerHTML = `<span class="sample" data-sample="${optionIndex + 1}" aria-hidden="true"></span><span><span class="direction-number">${number}</span><span class="direction-tab__name">${direction.name}</span></span>`;
+      button.querySelector(".sample").style.backgroundImage = `url("${direction.asset}")`;
+      button.addEventListener("click", () => selectDirection(optionIndex));
+      index.appendChild(button);
+    });
+
+    function selectDirection(optionIndex, updateHash = true) {
+      activeDirection = (optionIndex + directions.length) % directions.length;
+      const direction = directions[activeDirection];
+      const number = activeDirection + 1;
+      stage.dataset.direction = String(number);
+      lineField.src = direction.asset;
+      stage.setAttribute("aria-labelledby", `direction-tab-${number}`);
+      readoutIndex.textContent = String(number).padStart(2, "0");
+      readoutName.textContent = direction.name;
+      readoutDescription.textContent = direction.description;
+      document.querySelectorAll(".direction-tab").forEach((tab, tabIndex) => {
+        tab.setAttribute("aria-selected", tabIndex === activeDirection ? "true" : "false");
+        tab.tabIndex = tabIndex === activeDirection ? 0 : -1;
+      });
+      if (updateHash) history.replaceState(null, "", `#option-${number}`);
+    }
+
+    document.getElementById("previous-direction").addEventListener("click", () => selectDirection(activeDirection - 1));
+    document.getElementById("next-direction").addEventListener("click", () => selectDirection(activeDirection + 1));
+
+    index.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      selectDirection(activeDirection + (event.key === "ArrowRight" ? 1 : -1));
+      document.getElementById(`direction-tab-${activeDirection + 1}`).focus();
+    });
+
+    const hashMatch = location.hash.match(/^#option-(10|[1-9])$/);
+    selectDirection(hashMatch ? Number(hashMatch[1]) - 1 : 0, false);
+  </script>
+</body>
+</html>

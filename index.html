@@ -76,7 +76,7 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script>
         tailwind.config = {
@@ -100,15 +100,141 @@
     </script>
     <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+        .work-sheet {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background-color: #edf4f6;
+        }
+
+        .work-sheet-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .work-sheet-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .work-sheet-header {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 2rem;
+            align-items: end;
+            padding: 1.75rem;
+            border: 2px solid #1e3a8a;
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .project-meta {
+            color: #2563eb;
+            font: 600 0.63rem/1.45 "JetBrains Mono", monospace;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .work-sheet-header > a { justify-self: end; }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.875rem;
+            padding-top: 0.875rem;
+        }
+
+        .project-card {
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            border: 2px solid #1e3a8a;
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .project-media {
+            display: block;
+            overflow: hidden;
+            border-bottom: 2px solid #1e3a8a;
+            background: #cbd5e1;
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-bottom: 2px solid #1e3a8a;
+            object-fit: cover;
+            filter: saturate(0.78);
+            transition: filter 180ms ease, transform 420ms cubic-bezier(0.2, 0.75, 0.2, 1);
+        }
+
+        .project-card:hover .project-image {
+            filter: saturate(1);
+            transform: scale(1.018);
+        }
+
+        .project-copy {
+            display: flex;
+            min-height: 13.5rem;
+            padding: 1.25rem;
+            flex: 1;
+            flex-direction: column;
+        }
+
+        .project-action {
+            display: inline-flex;
+            margin-top: auto;
+            padding-top: 0.85rem;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            border-top: 1px solid #1e3a8a;
+            color: #1e3a8a;
+            font: 600 0.69rem/1 "JetBrains Mono", monospace;
+            letter-spacing: 0.055em;
+            text-transform: uppercase;
+        }
+
+        .project-action .material-symbols-outlined { transition: transform 160ms ease; }
+        .project-card:hover .project-action .material-symbols-outlined { transform: translateX(0.3rem); }
+
+        @media (min-width: 768px) {
+            .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (min-width: 1280px) {
+            .projects-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+            .project-card { grid-column: span 2; }
+            .project-card:nth-child(1),
+            .project-card:nth-child(2) { grid-column: span 3; }
+        }
+
+        @media (max-width: 1023px) {
+            .work-sheet-header { grid-template-columns: 1fr; }
+            .work-sheet-header > a { justify-self: start; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .project-image,
+            .project-action .material-symbols-outlined { transition: none; }
+        }
     </style>
 
+    <link rel="stylesheet" href="/assets/animas-site.css?v=20260819c">
 </head>
-<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900 animas-site animas-home">
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="/" class="flex items-center gap-3">
-                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8">
                     <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
                 </a>
                 <div class="hidden md:flex space-x-8 items-center">
@@ -120,7 +246,7 @@
                     <a href="/chartstead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">ChartStead</a>
                 </div>
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="mailto:tyler@animasai.co" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">Email Tyler</a>
+                    <a href="mailto:tyler@animasai.co" class="bg-slate-900 text-white px-6 py-2.5 text-sm font-medium hover:bg-brand-600 transition-all">Email Tyler</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2" aria-label="Open menu">
                     <span class="material-symbols-outlined">menu</span>
@@ -131,7 +257,7 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col transition-all duration-300">
         <div class="flex justify-end p-6">
-            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full" aria-label="Close menu">
+            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100" aria-label="Close menu">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -142,48 +268,41 @@
             <a href="/blog/" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Blog</a>
                     <a href="/masthead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Masthead</a>
                     <a href="/chartstead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">ChartStead</a>
-            <a href="mailto:tyler@animasai.co" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Email Tyler</a>
+            <a href="mailto:tyler@animasai.co" class="mt-8 bg-brand-600 text-white px-8 py-3 text-lg">Email Tyler</a>
         </div>
     </div>
 
     <main>
-    <section class="relative pt-24 pb-14 md:pt-32 md:pb-20 overflow-hidden bg-white">
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40"></div>
-      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-gray-50 to-transparent"></div>
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="max-w-4xl">
-          <div class="flex items-center gap-4 mb-7">
-            <img src="/me.jpg" alt="Tyler Mayberry" class="w-16 h-16 rounded-2xl object-cover border border-gray-200 shadow-sm">
-            <div>
+    <section data-home-section="hero" class="relative pt-24 pb-14 md:pt-32 md:pb-20 overflow-hidden bg-white">
+      <div class="absolute inset-0 bg-[size:4rem_4rem] opacity-40"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40"></div>
+      <div class="home-hero-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="home-hero-grid">
+          <aside class="home-hero-profile" aria-label="About Tyler Mayberry">
+            <img src="/me.jpg" alt="Tyler Mayberry" class="home-hero-portrait object-cover">
+            <div class="home-hero-profile-copy">
               <div class="font-display font-extrabold text-xl text-slate-950 leading-tight">Tyler Mayberry</div>
-              <div class="text-sm text-slate-600">Animas AI · Tulsa, OK · Remote</div>
+              <div class="text-sm text-slate-600">Animas AI</div>
+              <div class="text-sm text-slate-600">Tulsa, Oklahoma · Remote</div>
             </div>
-          </div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-xs font-semibold tracking-wide mb-5">
-            <span class="material-symbols-outlined text-sm">verified</span>
-            PRACTICAL AI SYSTEMS
-          </div>
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-slate-950 leading-[1.02] mb-6">
-            I build AI systems for messy real-world work.
-          </h1>
-          <p class="text-base md:text-xl text-slate-600 max-w-3xl leading-relaxed mb-8">
-            I turn scattered context into working software: agentic workflows, internal tools, automation, and product systems people can actually use.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3 mb-8">
-            <a href="mailto:tyler@animasai.co" class="w-full sm:w-auto px-8 py-4 bg-slate-950 text-white font-semibold rounded-full hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all duration-300 text-center">Email Tyler</a>
-            <a href="/case-studies.html" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-800 font-semibold rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 text-center">See the Work</a>
-            <a href="https://tylermayberry.dev" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-amber-50 text-amber-900 font-semibold rounded-full border border-amber-200 hover:bg-amber-100 transition-all duration-300 text-center">Portfolio</a>
-          </div>
-          <div class="flex flex-wrap gap-2 text-sm text-slate-600">
-            <span class="px-3 py-1.5 bg-white/80 border border-gray-200 rounded-full">Agents and internal tools</span>
-            <span class="px-3 py-1.5 bg-white/80 border border-gray-200 rounded-full">Automation</span>
-            <span class="px-3 py-1.5 bg-white/80 border border-gray-200 rounded-full">Product-minded builder</span>
+          </aside>
+          <div class="home-hero-message">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-slate-950 leading-[1.02] mb-6">
+              I build AI systems for messy real-world work.
+            </h1>
+            <p class="text-base md:text-xl text-slate-600 max-w-3xl leading-relaxed mb-8">
+              I turn scattered context into working software: agentic workflows, internal tools, automation, and product systems people can actually use.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="/case-studies.html" class="w-full sm:w-auto px-8 py-4 bg-slate-950 text-white font-semibold hover:bg-brand-600 transition-all duration-300 text-center">See the Work</a>
+              <a href="https://tylermayberry.dev" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-800 font-semibold border border-gray-200 hover:bg-brand-50 transition-all duration-300 text-center">Portfolio</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="border-y border-gray-200 bg-gray-50 py-20">
+    <section data-home-section="services" class="border-y border-gray-200 bg-gray-50 py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mb-12">
           <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">What Animas AI is for</div>
@@ -191,23 +310,23 @@
           <p class="text-lg text-slate-600 leading-relaxed">Most AI work does not fail because the model is weak. It fails because nobody captured the context, workflow rules, handoffs, review loops, and ownership model. That is the layer I like building.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-            <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4"><span class="material-symbols-outlined text-brand-600">psychology</span></div>
+          <div class="bg-white border border-gray-200 p-6">
+            <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-brand-600">psychology</span></div>
             <h3 class="font-bold text-slate-900 mb-2">Agentic workflows</h3>
             <p class="text-sm text-slate-600 leading-relaxed">Agents with durable context, task state, tool access, and judgment boundaries.</p>
           </div>
-          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-            <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4"><span class="material-symbols-outlined text-emerald-600">dashboard</span></div>
+          <div class="bg-white border border-gray-200 p-6">
+            <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-brand-600">dashboard</span></div>
             <h3 class="font-bold text-slate-900 mb-2">Internal tools</h3>
             <p class="text-sm text-slate-600 leading-relaxed">Dashboards, admin panels, intake flows, and control surfaces for repeated work.</p>
           </div>
-          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4"><span class="material-symbols-outlined text-amber-700">auto_awesome_motion</span></div>
+          <div class="bg-white border border-gray-200 p-6">
+            <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-brand-600">auto_awesome_motion</span></div>
             <h3 class="font-bold text-slate-900 mb-2">AI media systems</h3>
             <p class="text-sm text-slate-600 leading-relaxed">Avatar, voice, video, content, and review pipelines using modern AI media APIs.</p>
           </div>
-          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-            <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-4"><span class="material-symbols-outlined text-rose-600">api</span></div>
+          <div class="bg-white border border-gray-200 p-6">
+            <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-brand-600">api</span></div>
             <h3 class="font-bold text-slate-900 mb-2">Product engineering</h3>
             <p class="text-sm text-slate-600 leading-relaxed">React, TypeScript, SQLite, Supabase, PocketBase, APIs, and pragmatic glue code.</p>
           </div>
@@ -215,96 +334,91 @@
       </div>
     </section>
 
-    <section class="py-24 md:py-28 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
-          <div class="max-w-3xl">
-            <div class="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-3">Selected work</div>
-            <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-950 mb-4">Current builds, not AI theater.</h2>
-            <p class="text-lg text-slate-600 leading-relaxed">Selected builds that show how I think, build, and turn ambiguity into working systems. Masthead is the current flagship. ChartStead is the second product.</p>
-          </div>
-          <a href="/case-studies.html" class="inline-flex items-center gap-2 text-sm font-bold text-brand-600 hover:text-brand-700">
-            Open the work page <span class="material-symbols-outlined text-base">arrow_forward</span>
-          </a>
+    <section data-home-section="work" class="work-sheet py-24 md:py-28">
+      <img data-work-background src="/assets/animas-line-field-05.svg" alt="" aria-hidden="true" class="work-sheet-background" loading="lazy" decoding="async">
+      <div class="work-sheet-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="work-sheet-header">
+          <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-950">A working set of shipped products.</h2>
+          <a href="/case-studies.html" class="inline-flex items-center gap-2 border border-blue-900 bg-blue-900 px-4 py-3 text-xs font-bold uppercase tracking-widest text-white hover:bg-brand-600">Open the work archive <span class="material-symbols-outlined text-base">arrow_forward</span></a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-5">
-          <article class="xl:col-span-3 flex flex-col border border-gray-200 rounded-3xl bg-slate-950 overflow-hidden shadow-sm">
-            <img src="/work-assets/masthead-product-showcase.jpg" alt="Masthead product art: the work is still there — keeps the record." class="w-full aspect-[16/9] object-cover object-center">
-            <div class="p-5 md:p-6 flex flex-col flex-1">
-              <div class="mb-2 text-xs font-bold uppercase tracking-widest text-amber-300">Flagship</div>
-              <h3 class="font-display text-2xl font-bold tracking-tight text-white mb-2">Masthead</h3>
-              <p class="text-sm text-slate-300 leading-relaxed mb-4">Local-first session data for coding agents: capture work into SQLite, publish artifacts, retrieve via read-only MCP.</p>
-              <a href="/masthead.html" class="mt-auto inline-flex items-center gap-2 font-bold text-white hover:text-amber-200">See the build <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+        <div class="projects-grid">
+          <article data-project-card class="project-card">
+            <img src="/work-assets/masthead-product-showcase.jpg" alt="Masthead product art: the work is still there — keeps the record." class="project-image object-center">
+            <div class="project-copy">
+              <div class="project-meta mb-2">AI infrastructure · Flagship</div>
+              <h3 class="font-display text-2xl font-bold tracking-tight text-slate-950 mb-2">Masthead</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">Local-first session data for coding agents: capture work into SQLite, publish artifacts, retrieve via read-only MCP.</p>
+              <a href="/masthead.html" class="project-action">See the build <span class="material-symbols-outlined text-base">arrow_forward</span></a>
             </div>
           </article>
-          <article class="xl:col-span-3 flex flex-col border border-gray-200 rounded-3xl bg-[#e8eef2] overflow-hidden shadow-sm">
-            <img src="/work-assets/chartstead-product-showcase.jpg?v=20260817b" alt="ChartStead product showcase: publish a program you trust, with agenda readiness and fictional sample data." class="w-full aspect-[16/9] object-cover object-center">
-            <div class="p-5 md:p-6 flex flex-col flex-1">
-              <div class="mb-2 text-xs font-bold uppercase tracking-widest text-teal-700">Conference programming</div>
+          <article data-project-card class="project-card">
+            <img src="/work-assets/chartstead-product-showcase.jpg?v=20260817b" alt="ChartStead product showcase: publish a program you trust, with agenda readiness and fictional sample data." class="project-image object-center">
+            <div class="project-copy">
+              <div class="project-meta mb-2">Conference operations · Shipped</div>
               <h3 class="font-display text-2xl font-bold tracking-tight text-slate-950 mb-2">ChartStead</h3>
-              <p class="text-sm text-slate-700 leading-relaxed mb-4">Keep the call, review, speaker work, messages, and agenda together, then publish when the team is ready.</p>
-              <a href="/chartstead.html" class="mt-auto inline-flex items-center gap-2 font-bold text-slate-950 hover:text-brand-600">See the build <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">Keep the call, review, speaker work, messages, and agenda together, then publish when the team is ready.</p>
+              <a href="/chartstead.html" class="project-action">See the build <span class="material-symbols-outlined text-base">arrow_forward</span></a>
             </div>
           </article>
-          <article class="xl:col-span-2 flex flex-col border border-gray-200 rounded-3xl bg-[#f4f1e8] overflow-hidden shadow-sm">
-            <img src="/work-assets/pip-app-showcase.jpg?v=20260817" alt="Pip README hero: cash-flow clarity illustration." class="w-full aspect-[16/9] object-cover object-center">
-            <div class="p-5 flex flex-col flex-1">
-              <div class="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-800">Finance</div>
+          <article data-project-card class="project-card">
+            <img src="/work-assets/pip-app-showcase.jpg?v=20260817" alt="Pip README hero: cash-flow clarity illustration." class="project-image object-center">
+            <div class="project-copy">
+              <div class="project-meta mb-2">Personal finance · Shipped</div>
               <h3 class="font-display text-2xl font-bold tracking-tight text-slate-950 mb-2">Pip</h3>
-              <p class="text-sm text-slate-700 leading-relaxed mb-4">Spendable Cash Today, deterministic money logic, and an agent that explains approved actions.</p>
-              <a href="/pip.html" class="mt-auto inline-flex items-center gap-2 font-bold text-slate-950 hover:text-brand-600">See the build <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">Spendable Cash Today, deterministic money logic, and an agent that explains approved actions.</p>
+              <a href="/pip.html" class="project-action">See the build <span class="material-symbols-outlined text-base">arrow_forward</span></a>
             </div>
           </article>
-          <article class="xl:col-span-2 flex flex-col border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
-            <img src="/work-assets/hotel-cleaning-schedule.jpg" alt="Hotel Cleaning Schedule product showcase: deep-clean planning UI with rooms, assignments, and validated calendar" class="w-full aspect-[16/9] object-cover object-top">
-            <div class="p-5 flex flex-col flex-1">
-              <div class="mb-2 text-xs font-bold uppercase tracking-widest text-violet-700">Hospitality</div>
+          <article data-project-card class="project-card">
+            <img src="/work-assets/hotel-cleaning-schedule.jpg" alt="Hotel Cleaning Schedule product showcase: deep-clean planning UI with rooms, assignments, and validated calendar" class="project-image object-top">
+            <div class="project-copy">
+              <div class="project-meta mb-2">Hospitality operations · Shipped</div>
               <h3 class="font-display text-2xl font-bold tracking-tight text-slate-950 mb-2">Hotel Cleaning Schedule</h3>
               <p class="text-sm text-slate-600 leading-relaxed mb-4">Deep-clean planning for ~40–100 room houses: rooms and capacity in, a validated calendar out.</p>
-              <a href="https://hotelcleaningschedule.com" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center gap-2 font-bold text-slate-950 hover:text-brand-600">View product <span class="material-symbols-outlined text-base">open_in_new</span></a>
+              <a href="https://hotelcleaningschedule.com" target="_blank" rel="noopener noreferrer" class="project-action">View product <span class="material-symbols-outlined text-base">open_in_new</span></a>
             </div>
           </article>
-          <article class="xl:col-span-2 flex flex-col border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
-            <img src="/work-assets/executioner.png" alt="Executioner product screenshot" class="w-full aspect-[16/9] object-cover object-top">
-            <div class="p-5 flex flex-col flex-1">
-              <div class="mb-2 text-xs font-bold uppercase tracking-widest text-brand-700">Product build</div>
+          <article data-project-card class="project-card">
+            <img src="/work-assets/executioner.png" alt="Executioner product screenshot" class="project-image object-top">
+            <div class="project-copy">
+              <div class="project-meta mb-2">Personal execution · Shipped</div>
               <h3 class="font-display text-2xl font-bold tracking-tight text-slate-950 mb-2">Executioner</h3>
               <p class="text-sm text-slate-600 leading-relaxed mb-4">A personal execution system with onboarding, payments, email, and AI-assisted planning.</p>
-              <a href="https://executionr.com" target="_blank" class="mt-auto inline-flex items-center gap-2 font-bold text-slate-950 hover:text-brand-600">View Executioner <span class="material-symbols-outlined text-base">open_in_new</span></a>
+              <a href="https://executionr.com" target="_blank" rel="noopener noreferrer" class="project-action">View Executioner <span class="material-symbols-outlined text-base">open_in_new</span></a>
             </div>
           </article>
-          <article class="xl:col-span-2 flex flex-col border border-gray-200 rounded-3xl bg-white overflow-hidden shadow-sm">
-            <img src="/work-assets/milkbench.jpg" alt="Milkbench visual with a milk pour, model names, and Luna, Terra, and Sol results." class="w-full aspect-[16/9] object-cover object-top">
-            <div class="p-5 flex flex-col flex-1">
-              <div class="mb-2 text-xs font-bold uppercase tracking-widest text-amber-800">AI evaluation</div>
+          <article data-project-card class="project-card">
+            <img src="/work-assets/milkbench.jpg" alt="Milkbench visual with a milk pour, model names, and Luna, Terra, and Sol results." class="project-image object-top">
+            <div class="project-copy">
+              <div class="project-meta mb-2">AI evaluation · Shipped</div>
               <h3 class="font-display text-2xl font-bold tracking-tight text-slate-950 mb-2">Milkbench</h3>
               <p class="text-sm text-slate-600 leading-relaxed mb-4">A visual benchmark for GPT 5.6 taste, with Luna, Terra, and Sol as model personalities.</p>
-              <a href="https://milk.animasai.co/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center gap-2 font-bold text-slate-950 hover:text-brand-600">View Milkbench <span class="material-symbols-outlined text-base">open_in_new</span></a>
+              <a href="https://milk.animasai.co/" target="_blank" rel="noopener noreferrer" class="project-action">View Milkbench <span class="material-symbols-outlined text-base">open_in_new</span></a>
             </div>
           </article>
-          <article class="xl:col-span-2 flex flex-col border border-gray-200 rounded-3xl bg-slate-950 overflow-hidden shadow-sm">
-            <img src="/work-assets/rat-detective-online.png" alt="Rat Detective Online game screenshot" class="w-full aspect-[16/9] object-cover">
-            <div class="p-5 flex flex-col flex-1">
-              <div class="mb-2 text-xs font-bold uppercase tracking-widest text-rose-300">Playable game</div>
-              <h3 class="font-display text-2xl font-bold tracking-tight text-white mb-2">Rat Detective Online</h3>
-              <p class="text-sm text-slate-300 leading-relaxed mb-4">A multiplayer browser game with Three.js, TypeScript, physics, and real-time play.</p>
-              <a href="https://rat-detective.animasai.co" target="_blank" class="mt-auto inline-flex items-center gap-2 font-bold text-white hover:text-rose-200">Play live <span class="material-symbols-outlined text-base">open_in_new</span></a>
+          <article data-project-card class="project-card">
+            <img src="/work-assets/rat-detective-online.png" alt="Rat Detective Online game screenshot" class="project-image object-center">
+            <div class="project-copy">
+              <div class="project-meta mb-2">Multiplayer game · Shipped</div>
+              <h3 class="font-display text-2xl font-bold tracking-tight text-slate-950 mb-2">Rat Detective Online</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">A multiplayer browser game with Three.js, TypeScript, physics, and real-time play.</p>
+              <a href="https://rat-detective.animasai.co" target="_blank" rel="noopener noreferrer" class="project-action">Play live <span class="material-symbols-outlined text-base">open_in_new</span></a>
             </div>
           </article>
-          <article class="xl:col-span-2 flex flex-col border border-gray-200 rounded-3xl bg-slate-950 overflow-hidden shadow-sm">
-            <img src="/work-assets/wargus-typescript.jpg" alt="Wargus TypeScript: classic RTS in the browser, Garden of War human vs CPU" class="w-full aspect-[16/9] object-cover">
-            <div class="p-5 flex flex-col flex-1">
-              <div class="mb-2 text-xs font-bold uppercase tracking-widest text-amber-200">Playable RTS</div>
-              <h3 class="font-display text-2xl font-bold tracking-tight text-white mb-2">Wargus TypeScript</h3>
-              <p class="text-sm text-slate-300 leading-relaxed mb-4">Classic RTS in the browser. Harvest, train, build, and fight on Garden of War.</p>
-              <a href="https://wargus.animasai.co" target="_blank" class="mt-auto inline-flex items-center gap-2 font-bold text-white hover:text-amber-200">Play live <span class="material-symbols-outlined text-base">open_in_new</span></a>
+          <article data-project-card class="project-card">
+            <img src="/work-assets/wargus-typescript.jpg" alt="Wargus TypeScript: classic RTS in the browser, Garden of War human vs CPU" class="project-image object-center">
+            <div class="project-copy">
+              <div class="project-meta mb-2">Browser RTS · Shipped</div>
+              <h3 class="font-display text-2xl font-bold tracking-tight text-slate-950 mb-2">Wargus TypeScript</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">Classic RTS in the browser. Harvest, train, build, and fight on Garden of War.</p>
+              <a href="https://wargus.animasai.co" target="_blank" rel="noopener noreferrer" class="project-action">Play live <span class="material-symbols-outlined text-base">open_in_new</span></a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="py-24 bg-gray-50 border-y border-gray-200">
+    <section data-home-section="thesis" class="py-24 bg-gray-50 border-y border-gray-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 items-start">
           <div>
@@ -313,23 +427,23 @@
             <p class="text-lg text-slate-600 leading-relaxed">Good AI work is not just prompts. It is context capture, interfaces, review loops, permissions, data shape, failure handling, and the human confidence to use the thing when the work gets noisy.</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+            <div class="bg-white border border-gray-200 p-6">
               <span class="material-symbols-outlined text-brand-600 mb-4">groups</span>
               <h3 class="font-bold text-slate-900 mb-2">Strong with nontechnical operators</h3>
               <p class="text-sm text-slate-600 leading-relaxed">Hospitality and customer-facing work taught me how to translate messy human context into tools people can trust.</p>
             </div>
-            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-              <span class="material-symbols-outlined text-emerald-600 mb-4">construction</span>
+            <div class="bg-white border border-gray-200 p-6">
+              <span class="material-symbols-outlined text-brand-600 mb-4">construction</span>
               <h3 class="font-bold text-slate-900 mb-2">Comfortable without clean specs</h3>
               <p class="text-sm text-slate-600 leading-relaxed">Most valuable systems start as fog. I can explore, prototype, test, and tighten until the shape appears.</p>
             </div>
-            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-              <span class="material-symbols-outlined text-amber-700 mb-4">manage_accounts</span>
+            <div class="bg-white border border-gray-200 p-6">
+              <span class="material-symbols-outlined text-brand-600 mb-4">manage_accounts</span>
               <h3 class="font-bold text-slate-900 mb-2">Ownership beats micromanagement</h3>
               <p class="text-sm text-slate-600 leading-relaxed">I do my best work with room to own the problem, make decisions, and show progress through working artifacts.</p>
             </div>
-            <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-              <span class="material-symbols-outlined text-rose-600 mb-4">verified</span>
+            <div class="bg-white border border-gray-200 p-6">
+              <span class="material-symbols-outlined text-brand-600 mb-4">verified</span>
               <h3 class="font-bold text-slate-900 mb-2">Honest about AI limits</h3>
               <p class="text-sm text-slate-600 leading-relaxed">AI does not fix chaos by magic. It needs rules, memory, context, and maintenance to become useful infrastructure.</p>
             </div>
@@ -338,10 +452,10 @@
       </div>
     </section>
 
-    <section class="py-24 bg-white">
+    <section data-home-section="founder" class="py-24 bg-white">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-8 md:gap-10 items-center">
-          <img src="/me.jpg" alt="Tyler Mayberry, Founder" class="w-36 h-36 md:w-44 md:h-44 rounded-3xl object-cover shadow-md border border-gray-200 mx-auto md:mx-0">
+          <img src="/me.jpg" alt="Tyler Mayberry, Founder" class="w-36 h-36 md:w-44 md:h-44 object-cover border border-gray-200 mx-auto md:mx-0">
           <div class="text-center md:text-left">
             <div class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-3">Built directly</div>
             <h4 class="text-3xl md:text-4xl font-display font-bold tracking-tight text-slate-950 mb-4">Animas AI is Tyler Mayberry turning ambiguous AI work into working systems.</h4>
@@ -351,13 +465,15 @@
       </div>
     </section>
 
-    <section class="py-28 bg-gradient-to-br from-emerald-950 via-slate-950 to-amber-950 relative overflow-hidden">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-white mb-8">Need someone who can turn ambiguous AI work into something real?</h2>
-        <p class="text-xl text-slate-200 mb-10 max-w-2xl mx-auto">Send me the context. I will tell you what I would build first, what I would leave alone, and where a useful version probably starts.</p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="mailto:tyler@animasai.co" class="px-10 py-5 bg-white text-slate-950 font-bold rounded-full hover:bg-emerald-50 transition-all duration-300 shadow-xl">Email Tyler</a>
-          <a href="https://www.linkedin.com/in/mayberrydt/" target="_blank" class="px-10 py-5 bg-white/10 text-white font-bold rounded-full border border-white/20 hover:bg-white/15 transition-all duration-300">LinkedIn</a>
+    <section id="contact" data-home-section="contact" class="py-24 relative overflow-hidden">
+      <div class="home-contact-panel max-w-6xl mx-auto relative z-10">
+        <div class="home-contact-copy">
+          <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight">Need someone who can turn ambiguous AI work into something real?</h2>
+          <p class="text-lg md:text-xl">Send me the context. I will tell you what I would build first, what I would leave alone, and where a useful version probably starts.</p>
+        </div>
+        <div class="home-contact-actions">
+          <a href="mailto:tyler@animasai.co" class="home-contact-primary px-10 py-5 font-bold transition-colors duration-300 text-center">Email Tyler</a>
+          <a href="https://www.linkedin.com/in/mayberrydt/" target="_blank" rel="noopener noreferrer" class="home-contact-secondary px-10 py-5 font-bold transition-colors duration-300 text-center">LinkedIn</a>
         </div>
       </div>
     </section>
@@ -368,7 +484,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
                     <a href="/" class="flex items-center gap-3 mb-4">
-                        <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                        <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8">
                         <span class="font-display font-bold text-xl tracking-tight text-white">ANIMAS AI.</span>
                     </a>
                     <p class="text-sm max-w-sm mb-6">Practical AI systems, internal tools, and automation for messy real-world operations.</p>

@@ -8,4 +8,5 @@ marketing-assets/
 __pycache__/
 *.pyc
 .wrangler/
+.herenow/
 .worktrees/

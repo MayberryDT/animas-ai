@@ -30,7 +30,7 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script>
         tailwind.config = {
@@ -56,13 +56,14 @@
         .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     </style>
 
+    <link rel="stylesheet" href="/assets/animas-site.css?v=20260819c">
 </head>
-<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900 animas-site animas-page">
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="/" class="flex items-center gap-3">
-                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8">
                     <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
                 </a>
                 <div class="hidden md:flex space-x-8 items-center">
@@ -73,7 +74,7 @@
                     <a href="/chartstead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">ChartStead</a>
                     </div>
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="mailto:tyler@animasai.co" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">Email Tyler</a>
+                    <a href="mailto:tyler@animasai.co" class="bg-slate-900 text-white px-6 py-2.5 text-sm font-medium hover:bg-brand-600 transition-all">Email Tyler</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2" aria-label="Open menu">
                     <span class="material-symbols-outlined">menu</span>
@@ -84,7 +85,7 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col transition-all duration-300">
         <div class="flex justify-end p-6">
-            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full" aria-label="Close menu">
+            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100" aria-label="Close menu">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -94,7 +95,7 @@
             <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Work</a>
                      <a href="/masthead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Masthead</a>
                     <a href="/chartstead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">ChartStead</a>
-            <a href="mailto:tyler@animasai.co" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Email Tyler</a>
+            <a href="mailto:tyler@animasai.co" class="mt-8 bg-brand-600 text-white px-8 py-3 text-lg">Email Tyler</a>
         </div>
     </div>
 
@@ -104,50 +105,50 @@
       <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">Practical AI and software systems shaped around the workflow in front of me: agents, internal tools, automation, dashboards, and product surfaces that make the next action clearer.</p>
     </header>
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
+      <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-brand-600">smart_toy</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">Agent systems</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Custom agent workflows with tools, memory, project context, approval points, and clear boundaries.</p>
   </div>
-      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-lime-100 rounded-xl flex items-center justify-center mb-4">
+      <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-lime-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-lime-700">auto_awesome</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">AI-native product systems</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Products where agents, operators, and tools share durable context through clear boundaries, typed surfaces, local data, and evidence-rich retrieval. Examples: Masthead and ChartStead.</p>
   </div>
-      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+      <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-indigo-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-indigo-600">dashboard_customize</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">Internal dashboards</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Control surfaces for status, task context, workflow visibility, project memory, and operational decision-making.</p>
   </div>
-      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4">
+      <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-sky-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-sky-600">account_tree</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">Workflow automation</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Intake, routing, content pipelines, reporting, follow-up, and handoff systems that remove repetitive drag.</p>
   </div>
-      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
-      <span class="material-symbols-outlined text-emerald-600">code</span>
+      <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-brand-600">code</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">AI API implementation</h3>
     <p class="text-sm text-slate-600 leading-relaxed">OpenAI, Anthropic, Gemini, HeyGen, ElevenLabs, Supabase, SQLite, and other tools wired into usable products.</p>
   </div>
-      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
+      <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-brand-600">movie</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">AI media workflows</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Avatar video, voice, transcription, prompt pipelines, and content systems with review loops and operator control.</p>
   </div>
-      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+      <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-indigo-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-indigo-600">hotel</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">Hospitality and operations systems</h3>
@@ -155,7 +156,7 @@
   </div>
     </section>
     <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
-      <div class="bg-white rounded-3xl border border-gray-200 p-8 md:p-12 shadow-sm">
+      <div class="bg-white border border-gray-200 p-8 md:p-12">
         <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-900 mb-6">The common thread is execution.</h2>
         <p class="text-lg text-slate-600 leading-relaxed mb-6">The project may start as a product prototype, an internal tool, an automation, or an agent workflow. The shared job is the same: take fuzzy work, turn it into a system, and make the next action easier to see.</p>
         <p class="text-lg text-slate-600 leading-relaxed">That makes Animas AI useful for contract work, internal tooling, AI implementation, operations-heavy teams, and companies trying to figure out what agentic systems should actually do inside their business.</p>
@@ -168,7 +169,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
                     <a href="/" class="flex items-center gap-3 mb-4">
-                        <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                        <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8">
                         <span class="font-display font-bold text-xl tracking-tight text-white">ANIMAS AI.</span>
                     </a>
                     <p class="text-sm max-w-sm mb-6">Practical AI systems, internal tools, and automation for messy real-world operations.</p>

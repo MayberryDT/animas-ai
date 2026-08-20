@@ -16,7 +16,7 @@
     <meta property="og:site_name" content="Animas AI">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI Automation Maintenance Checklist: Keeping Workflows Reliable Over Time", "description": "A practical maintenance checklist for AI automations covering monitoring, prompt drift, provider changes, permissions, retries, and owner review. Built from shipped systems at Animas AI.", "datePublished": "2026-08-04", "author": {"@type": "Organization", "name": "Animas AI"}, "image": "https://animasai.co/work-assets/blog/ai-automation-maintenance-checklist.png", "mainEntityOfPage": "https://animasai.co/blog/ai-automation-maintenance-checklist.html"}</script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script>
         tailwind.config = {
@@ -28,13 +28,14 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="/assets/animas-site.css?v=20260819c">
 </head>
-<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900 animas-site animas-article">
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="/" class="flex items-center gap-3">
-                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8">
                     <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
                 </a>
                 <div class="hidden md:flex space-x-8 items-center">
@@ -43,7 +44,7 @@
                     <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600">Work</a>
                     <a href="/blog/" class="text-sm font-bold text-brand-600 border-b-2 border-brand-600 pb-1">Writing</a>
                 </div>
-                <a href="mailto:tyler@animasai.co" class="hidden md:inline-flex bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600">Email Tyler</a>
+                <a href="mailto:tyler@animasai.co" class="hidden md:inline-flex bg-slate-900 text-white px-6 py-2.5 text-sm font-medium hover:bg-brand-600">Email Tyler</a>
             </div>
         </div>
     </nav>
@@ -59,7 +60,7 @@
                 <h1 class="text-4xl md:text-5xl font-display font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">AI Automation Maintenance Checklist: Keeping Workflows Reliable Over Time</h1>
                 <p class="text-lg text-slate-500 leading-relaxed">A practical maintenance checklist for AI automations covering monitoring, prompt drift, provider changes, permissions, retries, and owner review. Built from shipped systems at Animas AI.</p>
                 <figure class="mt-10">
-                    <img src="/work-assets/blog/ai-automation-maintenance-checklist.png" alt="Premium Animas AI cover for ai automation maintenance checklist." class="w-full rounded-2xl border border-gray-200 shadow-sm">
+                    <img src="/work-assets/blog/ai-automation-maintenance-checklist.png" alt="Premium Animas AI cover for ai automation maintenance checklist." class="w-full border border-gray-200">
                 </figure>
             </header>
             <div class="prose prose-lg prose-slate max-w-none">
@@ -103,15 +104,15 @@
 <p>This article is built from direct experience shipping AI automations at Animas AI, including the Pip and Masthead systems, and from observing failure patterns in small-team operational tools. The concepts of prompt drift, permission rot, and owner drift emerged from real maintenance cycles. For a deeper look at the systems mentioned, see the <a href="/pip.html">Pip case study</a>, the <a href="/masthead.html">Masthead case study</a>, and the full <a href="/case-studies.html">Work section</a>.</p>
             </div>
             <div class="mt-16 pt-10 border-t border-gray-200">
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-6">
-                    <img src="/me.jpg" alt="Tyler Mayberry" class="w-16 h-16 rounded-full object-cover shadow-sm">
+                <div class="bg-white p-8 border border-gray-100 flex items-center gap-6">
+                    <img src="/me.jpg" alt="Tyler Mayberry" class="w-16 h-16 object-cover">
                     <div><div class="font-bold text-slate-900">Tyler Mayberry</div><div class="text-sm text-slate-500">Founder, Animas AI</div></div>
                 </div>
             </div>
-            <div class="mt-16 bg-slate-900 rounded-3xl p-10 md:p-14 text-center">
+            <div class="mt-16 bg-slate-900 p-10 md:p-14 text-center">
                 <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-4">Want this kind of system in your business?</h2>
                 <p class="text-slate-300 mb-8 max-w-lg mx-auto">Send the messy workflow. I will help turn it into a practical AI system.</p>
-                <a href="mailto:tyler@animasai.co" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-brand-50 inline-block">Email Tyler</a>
+                <a href="mailto:tyler@animasai.co" class="px-8 py-4 bg-white text-slate-900 font-bold hover:bg-brand-50 inline-block">Email Tyler</a>
             </div>
         </article>
     </main>

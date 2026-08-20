@@ -30,7 +30,7 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script>
         tailwind.config = {
@@ -56,13 +56,14 @@
         .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     </style>
 
+    <link rel="stylesheet" href="/assets/animas-site.css?v=20260819c">
 </head>
-<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900 animas-site animas-page">
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="/" class="flex items-center gap-3">
-                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                    <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8">
                     <span class="font-display font-bold text-xl tracking-tight text-slate-950">ANIMAS AI.</span>
                 </a>
                 <div class="hidden md:flex space-x-8 items-center">
@@ -73,7 +74,7 @@
                     <a href="/chartstead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">ChartStead</a>
                     </div>
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="mailto:tyler@animasai.co" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-all shadow-sm">Email Tyler</a>
+                    <a href="mailto:tyler@animasai.co" class="bg-slate-900 text-white px-6 py-2.5 text-sm font-medium hover:bg-brand-600 transition-all">Email Tyler</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2" aria-label="Open menu">
                     <span class="material-symbols-outlined">menu</span>
@@ -84,7 +85,7 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col transition-all duration-300">
         <div class="flex justify-end p-6">
-            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100 rounded-full" aria-label="Close menu">
+            <button id="close-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 bg-gray-100" aria-label="Close menu">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
@@ -94,7 +95,7 @@
             <a href="/case-studies.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Work</a>
                      <a href="/masthead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Masthead</a>
                     <a href="/chartstead.html" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">ChartStead</a>
-            <a href="mailto:tyler@animasai.co" class="mt-8 bg-brand-600 text-white px-8 py-3 rounded-full text-lg shadow-lg">Email Tyler</a>
+            <a href="mailto:tyler@animasai.co" class="mt-8 bg-brand-600 text-white px-8 py-3 text-lg">Email Tyler</a>
         </div>
     </div>
 
@@ -104,36 +105,36 @@
       <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">The process is simple because the work is not. Understand the workflow. Design the rules. Build the useful version. Put it where people actually work. Improve it from use.</p>
     </header>
     <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-4 mb-24">
-      <div class="bg-white text-slate-900 border border-gray-200 rounded-2xl p-6 shadow-sm"><div class="text-3xl font-display font-extrabold text-brand-600 mb-3">01</div><h3 class="font-bold mb-2">Understand the workflow</h3><p class="text-slate-600 text-sm leading-relaxed">Look at the human process before touching the model.</p></div><div class="bg-white text-slate-900 border border-gray-200 rounded-2xl p-6 shadow-sm"><div class="text-3xl font-display font-extrabold text-brand-600 mb-3">02</div><h3 class="font-bold mb-2">Define the rules</h3><p class="text-slate-600 text-sm leading-relaxed">Decide what the system is allowed to do, ask, remember, and escalate.</p></div><div class="bg-slate-900 text-white border border-gray-200 rounded-2xl p-6 shadow-sm"><div class="text-3xl font-display font-extrabold text-brand-300 mb-3">03</div><h3 class="font-bold mb-2">Build the useful version</h3><p class="text-slate-300 text-sm leading-relaxed">Ship the smallest version that changes the work.</p></div><div class="bg-white text-slate-900 border border-gray-200 rounded-2xl p-6 shadow-sm"><div class="text-3xl font-display font-extrabold text-brand-600 mb-3">04</div><h3 class="font-bold mb-2">Integrate with real tools</h3><p class="text-slate-600 text-sm leading-relaxed">Use the tools, APIs, databases, and interfaces already close to the problem.</p></div><div class="bg-white text-slate-900 border border-gray-200 rounded-2xl p-6 shadow-sm"><div class="text-3xl font-display font-extrabold text-brand-600 mb-3">05</div><h3 class="font-bold mb-2">Improve from use</h3><p class="text-slate-600 text-sm leading-relaxed">Watch where it breaks, then tighten the workflow.</p></div>
+      <div class="bg-white text-slate-900 border border-gray-200 p-6"><div class="text-3xl font-display font-extrabold text-brand-600 mb-3">01</div><h3 class="font-bold mb-2">Understand the workflow</h3><p class="text-slate-600 text-sm leading-relaxed">Look at the human process before touching the model.</p></div><div class="bg-white text-slate-900 border border-gray-200 p-6"><div class="text-3xl font-display font-extrabold text-brand-600 mb-3">02</div><h3 class="font-bold mb-2">Define the rules</h3><p class="text-slate-600 text-sm leading-relaxed">Decide what the system is allowed to do, ask, remember, and escalate.</p></div><div class="bg-slate-900 text-white border border-gray-200 p-6"><div class="text-3xl font-display font-extrabold text-brand-300 mb-3">03</div><h3 class="font-bold mb-2">Build the useful version</h3><p class="text-slate-300 text-sm leading-relaxed">Ship the smallest version that changes the work.</p></div><div class="bg-white text-slate-900 border border-gray-200 p-6"><div class="text-3xl font-display font-extrabold text-brand-600 mb-3">04</div><h3 class="font-bold mb-2">Integrate with real tools</h3><p class="text-slate-600 text-sm leading-relaxed">Use the tools, APIs, databases, and interfaces already close to the problem.</p></div><div class="bg-white text-slate-900 border border-gray-200 p-6"><div class="text-3xl font-display font-extrabold text-brand-600 mb-3">05</div><h3 class="font-bold mb-2">Improve from use</h3><p class="text-slate-600 text-sm leading-relaxed">Watch where it breaks, then tighten the workflow.</p></div>
     </section>
     <section class="bg-white border-y border-gray-200 py-24">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight text-slate-900 mb-8 text-center">A few operating beliefs.</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
+          <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-brand-600">warning</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">AI does not fix a broken process by itself.</h3>
     <p class="text-sm text-slate-600 leading-relaxed">If the rules are vague and the handoffs are rotten, the model just makes the mess faster.</p>
   </div>
-          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+          <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-indigo-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-indigo-600">visibility</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">Dashboards matter.</h3>
     <p class="text-sm text-slate-600 leading-relaxed">People need to see what the system knows, what it did, and what needs human judgment.</p>
   </div>
-          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4">
+          <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-sky-100 flex items-center justify-center mb-4">
       <span class="material-symbols-outlined text-sky-600">lock_open</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">Human-in-the-loop is a feature.</h3>
     <p class="text-sm text-slate-600 leading-relaxed">The goal is not blind automation. The goal is judgment where it matters and less drag everywhere else.</p>
   </div>
-          <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
-      <span class="material-symbols-outlined text-emerald-600">handyman</span>
+          <div class="bg-white border border-gray-200 p-6">
+    <div class="w-12 h-12 bg-brand-100 flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-brand-600">handyman</span>
     </div>
     <h3 class="font-bold text-slate-900 mb-2">Useful beats impressive.</h3>
     <p class="text-sm text-slate-600 leading-relaxed">A plain SQLite-backed tool that actually helps is better than a theatrical demo that collapses in daily use.</p>
@@ -142,11 +143,11 @@
       </div>
     </section>
     <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-      <div class="bg-white rounded-3xl border border-gray-200 p-8 md:p-12 shadow-sm">
+      <div class="bg-white border border-gray-200 p-8 md:p-12">
         <div class="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-8 items-center">
           <img src="/work-assets/masthead-logo-sail.png" alt="Masthead sail logo." class="w-36 h-36 md:w-52 md:h-52 object-contain mx-auto">
           <div>
-            <div class="text-xs font-bold tracking-widest text-amber-700 uppercase mb-3">Current example</div>
+            <div class="text-xs font-bold tracking-widest text-brand-600 uppercase mb-3">Current example</div>
             <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-slate-950 mb-4">Masthead started with one real developer pain.</h2>
             <p class="text-lg text-slate-700 leading-relaxed">Coding agents already create useful context in every session, but most of it disappears into disconnected harness logs. With Masthead, the work was turning that history into a local session data layer: published artifacts people can search, and read-only MCP tools agents can reuse during real work.</p>
             <a href="/masthead.html" class="inline-flex items-center gap-2 mt-6 font-bold text-slate-950 hover:text-brand-600">Read the Masthead build notes <span class="material-symbols-outlined text-base">arrow_forward</span></a>
@@ -155,10 +156,10 @@
       </div>
     </section>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 text-center">
-      <div class="bg-slate-900 rounded-3xl p-12 md:p-16 shadow-2xl">
+      <div class="bg-slate-900 p-12 md:p-16">
         <h2 class="font-display text-4xl font-extrabold text-white mb-6">The best starting point is usually one painful workflow.</h2>
         <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">Not a transformation program. Not a pile of tools. One workflow close enough to real work that fixing it proves the system has a reason to exist.</p>
-        <a href="mailto:tyler@animasai.co" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-brand-50 hover:scale-105 transition-all duration-300 shadow-xl inline-block">Email Tyler</a>
+        <a href="mailto:tyler@animasai.co" class="px-8 py-4 bg-white text-slate-900 font-bold hover:bg-brand-50 hover:scale-105 transition-all duration-300 inline-block">Email Tyler</a>
       </div>
     </section>
   </main>
@@ -168,7 +169,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
                     <a href="/" class="flex items-center gap-3 mb-4">
-                        <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8 rounded shadow-sm">
+                        <img src="/logo-mark-v2-lg.webp" alt="Animas AI Logo" class="w-8 h-8">
                         <span class="font-display font-bold text-xl tracking-tight text-white">ANIMAS AI.</span>
                     </a>
                     <p class="text-sm max-w-sm mb-6">Practical AI systems, internal tools, and automation for messy real-world operations.</p>
