@@ -1,13 +1,16 @@
 # Deployment and repository internals are not public site assets.
 .git*
 .github/
+.herenow/
 .wrangler/
 .worktrees/
 .superpowers/
 docs/
+tests/
 __pycache__/
 *.pyc
 .assetsignore
+DESIGN.md
 cloudflare/
 scripts/
 wrangler.jsonc

@@ -90,7 +90,10 @@ def main() -> int:
     for path in (
         "/definitely-not-a-real-animas-page",
         "/.git/config",
+        "/.herenow/state.json",
         "/.wrangler/cache/pages.json",
+        "/DESIGN.md",
+        "/tests/test_homepage_portfolio.py",
         "/wrangler.jsonc",
     ):
         check(path, 404)
