@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <title>Chartroom | Open Source at Animas AI</title>
+  <meta name="description" content="Chartroom is an open-source local second brain built on GBrain with TypeSafe Jev for retrieval ranking and inspectable page connections.">
+  <link rel="canonical" href="https://animasai.co/chartroom.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Animas AI">
+  <meta property="og:title" content="Chartroom | Open Source at Animas AI">
+  <meta property="og:description" content="A local GBrain and TypeSafe Jev preview for search ranking, evidence-backed connections, and inspectable history.">
+  <meta property="og:url" content="https://animasai.co/chartroom.html">
+  <meta property="og:image" content="https://animasai.co/work-assets/chartroom-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://animasai.co/work-assets/chartroom-banner.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Chartroom","url":"https://github.com/MayberryDT/chartroom","codeRepository":"https://github.com/MayberryDT/chartroom","license":"https://github.com/MayberryDT/chartroom/blob/main/LICENSE","creator":{"@type":"Person","name":"Tyler Mayberry","url":"https://tylermayberry.dev/"},"description":"Local GBrain and TypeSafe Jev preview for retrieval ranking and inspectable page connections."}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#0f172a;--blue:#1e40af;--muted:#475569;--line:#cbd5e1}
+    *{box-sizing:border-box} body{margin:0;background:#f8fafc;color:var(--navy);font:16px/1.65 Inter,system-ui,sans-serif}
+    a{color:var(--blue);text-underline-offset:3px} a:hover{text-decoration-thickness:2px}
+    .shell{width:min(1152px,calc(100% - 40px));margin:auto} nav{background:white;border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:17px 0}
+    .brand{color:var(--navy);font:800 1.2rem Manrope,sans-serif;text-decoration:none;letter-spacing:-.03em}
+    .links{display:flex;gap:22px;flex-wrap:wrap;font-size:.85rem;font-weight:600}
+    h1,h2,h3{font-family:Manrope,system-ui,sans-serif;line-height:1.13;letter-spacing:-.035em}
+    h1{font-size:clamp(2.9rem,7vw,5.3rem);margin:12px 0 20px} h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 20px}
+    h3{font-size:1.15rem;margin:0 0 10px}.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--blue)}
+    .hero{padding:68px 0 75px;background:white}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+    .lead{font-size:clamp(1.15rem,2.3vw,1.4rem);line-height:1.5;color:var(--muted)} p{max-width:72ch}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.button{display:inline-block;padding:13px 20px;border:1px solid var(--line);background:white;color:var(--navy);text-decoration:none;font-weight:700;font-size:.9rem}
+    .button.primary{background:var(--navy);border-color:var(--navy);color:white}.button:hover{border-color:var(--blue)}
+    figure{margin:0} figure img{display:block;width:100%;height:auto;border:1px solid var(--line)} figcaption{font-size:.78rem;color:var(--muted);margin-top:8px}
+    section.block{padding:78px 0;border-top:1px solid var(--line)}.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}.step{background:white;border:1px solid var(--line);border-top:3px solid var(--blue);padding:20px}
+    .step strong{display:block;margin-bottom:8px}.metric{font:800 clamp(2rem,5vw,3.4rem) Manrope,sans-serif;letter-spacing:-.05em}
+    .note{background:#eff6ff;border-left:3px solid var(--blue);padding:16px 20px;color:#334155}
+    footer{background:#020617;color:#cbd5e1;padding:36px 0;font-size:.85rem}footer a{color:white}
+    @media(max-width:760px){.hero-grid,.split,.steps{grid-template-columns:1fr}.hero{padding:40px 0}.block{padding:50px 0}.hero-grid{gap:28px}}
+  </style>
+</head>
+<body>
+  <nav aria-label="Site navigation"><div class="shell nav-inner"><a class="brand" href="/">ANIMAS AI.</a><div class="links"><a href="/case-studies.html">Work</a><a href="/masthead.html">Masthead</a><a href="/chartstead.html">ChartStead</a><a href="mailto:tyler@animasai.co">Email Tyler</a></div></div></nav>
+  <main>
+    <header class="hero"><div class="shell hero-grid"><div><div class="eyebrow">Open source · Local developer tool</div><h1>Chartroom</h1><p class="lead">Give an agent useful memory without hiding how a connection was made.</p><p>Chartroom packages a working GBrain and TypeSafe Jev integration as an MIT-licensed local preview. It captures documents, improves candidate ranking, judges related pages against source evidence, and records graph changes with receipts and history.</p><div class="actions"><a class="button primary" href="https://github.com/MayberryDT/chartroom">Source and quickstart</a><a class="button" href="https://github.com/MayberryDT/chartroom/blob/main/benchmarks/RESULTS.md">Results and limitations</a></div></div><figure><img src="/work-assets/chartroom-banner.png" alt="Illustrated map of connected notes and knowledge routes"><figcaption>Concept illustration; this preview runs through MCP and the command line.</figcaption></figure></div></header>
+    <section class="block"><div class="shell"><div class="eyebrow">The system</div><h2>Capture, judge, connect, inspect.</h2><p>The useful boundary is between model judgment and durable change. Jev can propose relevance and relationships; Chartroom checks page revisions before publishing selected links, then keeps a receipt so the decision can be inspected or safely resumed.</p><div class="steps"><div class="step"><strong>01 / Capture</strong>Save a document in the local GBrain owner.</div><div class="step"><strong>02 / Judge</strong>Score search candidates and possible page connections.</div><div class="step"><strong>03 / Connect</strong>Publish selected graph links with source evidence and revision checks.</div><div class="step"><strong>04 / Inspect</strong>Read history and bounded queued work; resume without a new model call.</div></div></div></section>
+    <section class="block"><div class="shell split"><div><div class="eyebrow">Small reproducible comparison</div><h2>Better first results, with a cost.</h2><p class="metric">17/20 → 20/20</p><p>Correct first result across 20 questions over the same 30 synthetic notes, Jev off then on. First-pass median search time rose from 34 ms to 150 ms. The reported model input-token estimate was $0.00446, excluding unknown usage from rejected responses.</p><p class="note">This is a synthetic demonstration, not a general accuracy or production performance claim. Two enrichment calls failed validation while their documents were still saved.</p><a href="https://github.com/MayberryDT/chartroom/blob/main/benchmarks/RESULTS.md">Read the method and limitations →</a></div><figure><img src="/work-assets/chartroom-comparison.png" alt="Synthetic retrieval comparison: correct first result rises from 17 to 20 out of 20"><figcaption>Reproducible fixture, not a broad benchmark.</figcaption></figure></div></section>
+    <section class="block"><div class="shell split"><div><div class="eyebrow">The release boundary</div><h2>A local preview, not a hosted brain.</h2></div><div><p>The repository includes synthetic examples, tests, a Linux quickstart, and a fresh-install verification report. Bring your own TypeSafe API key; OpenAI embeddings are optional. Configured providers receive text needed for their calls and bill your own account.</p><p>General fact and contradiction enrichment, automatic prose editing, my private editorial controller, and my Android viewer are not in this public package. The live personal brain and its data are not included.</p><a class="button primary" href="https://github.com/MayberryDT/chartroom#quickstart">Try the quickstart on GitHub</a></div></div></section>
+  </main>
+  <footer><div class="shell">© 2026 ANIMAS AI. <a href="/case-studies.html">Back to work</a> · <a href="https://tylermayberry.dev/chartroom.html">Tyler's project notes</a></div></footer>
+</body>
+</html>

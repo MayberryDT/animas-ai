@@ -14,6 +14,7 @@
 - Current positioning: AI systems studio, practical product engineering, internal tools, agentic workflows, AI-native product systems, and automation for messy real-world operations.
 - Current flagship product build: Masthead, a local-first session memory layer for AI-agent work with searchable history, live context, read-only MCP retrieval, SQLite-backed storage, and a Tauri/TypeScript app surface.
 - Second product: ChartStead, conference programming and speaker management software at https://chartstead.com, with a sample-data demo and MIT-licensed source. Pip remains a strong AI-native product case study for deterministic financial logic and agent-assisted explanation/action.
+- Open-source developer tool: Chartroom, https://animasai.co/chartroom.html; source and local quickstart at https://github.com/MayberryDT/chartroom. It is a working local preview, not a hosted service.
 - Availability: contract work, consulting projects, and aligned full-time opportunities.
 
 ## Pages
@@ -24,6 +25,7 @@
 - /case-studies.html: Selected work and project examples.
 - /masthead.html: Dedicated page for Masthead, Animas AI's current flagship product build.
 - /chartstead.html: Dedicated page for ChartStead, Animas AI's second product: conference programming and speaker management.
+- /chartroom.html: Chartroom open-source project, design and small synthetic Jev off/on comparison.
 - /pip.html: Dedicated page for Pip, an Animas AI product build and strong AI-native product case study.
 - /tools.html: Workflow diagnostic tools from an earlier speed-to-lead focus.
 - /blog/: Writing and workflow notes.
